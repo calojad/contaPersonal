@@ -9,7 +9,7 @@
             {!! Form::open(['url'=>'/transaccion/ingreso/create','method'=>'post']) !!}
             <div class="modal-body">
                 <input id="cuentaId" type="hidden" name="cuentaId">
-                <input id="tipo" type="hidden" name="tipo" value="1">
+                <input id="tipo" type="hidden" name="tipo" value="0">
                 <div class="form-group">
                     <label for="nombre">Descripcion: </label>
                     <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Arriendo" required>

@@ -10,11 +10,9 @@
             <div class="nav-tabs-custom">
                 {{--PESTAÑAS DE LAS CUENTAS--}}
                 <ul class="nav nav-tabs">
-                    <!-- {{$cont = 0}} -->
                     @foreach($cuentas as $cuenta)
-                        <!-- {{$cont++}} -->
-                        <li class="{{$cont==1?'active':''}}">
-                            <a href="#tab_{{$cuenta->id}}" data-toggle="tab" aria-expanded="{{$cont==1?'true':'false'}}">{{$cuenta->nombre}}</a>
+                        <li class="{{$tabActiva==$cuenta->id?'active':''}}">
+                            <a href="#tab_{{$cuenta->id}}" data-toggle="tab">{{$cuenta->nombre}}</a>
                         </li>
                     @endforeach
                     <li>
@@ -24,10 +22,8 @@
                 {{--CONTENIDO DE CADA PESTAÑA--}}
                 <div class="tab-content">
                     @if(count($cuentas) != 0)
-                        <!-- {{$cont = 0}} -->
                         @foreach($cuentas as $cuenta)
-                            <!-- {{$cont++}} -->
-                            <div class="tab-pane {{$cont==1?'active':''}}" id="tab_{{$cuenta->id}}">
+                            <div class="tab-pane {{$tabActiva==$cuenta->id?'active':''}}" id="tab_{{$cuenta->id}}">
                                 @include('cuentas.index')
                             </div>
                         @endforeach
@@ -40,11 +36,11 @@
             </div>
         </div>
     </div>
-    {{--MODAL PARA INGRESAR INGRESOS--}}
+    {{--MODAL FORM INGRESOS--}}
     @include('ingreso.modal_form')
-    {{--MODAL PARA INGRESAR GASTOS--}}
+    {{--MODAL FORM GASTOS--}}
     @include('gasto.modal_form')
-    {{--MODAL PARA NUEVAS CUENTAS--}}
+    {{--MODAL FORM CUENTAS--}}
     @include('cuentas.modal')
     <script>
         $('.btnFormIngreso').on('click',function () {
@@ -52,5 +48,6 @@
             $('#nombre').val('');
             $('#valor').val('');
         });
+        
     </script>
 @endsection

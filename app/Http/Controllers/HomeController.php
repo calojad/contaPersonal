@@ -29,7 +29,16 @@ class HomeController extends Controller
         $cuentas = Cuentas::where('usuario_id',Auth::user()->id)
             ->orderBy('id', 'asc')
             ->get();
-        Session::put('info','Bienvenido a tus cuentas Personales.');
-        return view('home',compact('cuentas'));
+        $tabActiva = $cuentas[0]->id;
+        return view('home',compact('cuentas','tabActiva'));
+    }
+    public function inicio()
+    {
+        $cuentas = Cuentas::where('usuario_id',Auth::user()->id)
+            ->orderBy('id', 'asc')
+            ->get();
+            $tabActiva = $cuentas[0]->id;
+        Session::flash('info','Bienvenido a tus cuentas Personales.');
+        return view('home',compact('cuentas','tabActiva'));
     }
 }

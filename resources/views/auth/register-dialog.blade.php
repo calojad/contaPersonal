@@ -10,8 +10,22 @@
 
                 @if ($errors->has('name'))
                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+            <label for="name" class="col-md-4 control-label">Username</label>
+
+            <div class="col-md-6">
+                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+
+                @if ($errors->has('username'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('username') }}</strong>
+                    </span>
                 @endif
             </div>
         </div>
@@ -24,8 +38,8 @@
 
                 @if ($errors->has('email'))
                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
                 @endif
             </div>
         </div>
@@ -38,8 +52,8 @@
 
                 @if ($errors->has('password'))
                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
                 @endif
             </div>
         </div>
