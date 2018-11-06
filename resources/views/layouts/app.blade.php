@@ -11,7 +11,7 @@
     </header>
     <!-- Full Width Column -->
     <div class="content-wrapper">
-        <div class="container">
+        <div class="content">
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 @yield('header')

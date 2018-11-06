@@ -24,7 +24,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary"><b>Guardar</b></button>
+                <button type="submit" class="btn btn-primary"><b>Guardar</b></button>
             </div>
             {!! Form::close() !!}
         </div>

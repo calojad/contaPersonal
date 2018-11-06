@@ -36,4 +36,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     AdvancedRoute::controller('/transaccion','TransaccionController');
     AdvancedRoute::controller('/cuenta','CuentaController');
+    AdvancedRoute::controller('/perfil','PerfilController');
 });

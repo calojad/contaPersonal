@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@section('styles')
-    {!! Html::style('css/miestilo.css') !!}
-@endsection
 @section('content')
     <div class="row">
         @include('includes.notificacion')
@@ -42,7 +39,19 @@
     @include('gasto.modal_form')
     {{--MODAL FORM CUENTAS--}}
     @include('cuentas.modal')
-    <script>
+    <script type="text/javascript">
+        $(function () {
+            $('.table').DataTable({
+                pagingType: "full_numbers",
+                paging: false,
+                lengthChange: true,
+                searching: false,
+                ordering: true,
+                autoWidth: false,
+                retrieve: true,
+                responsive: true
+            });
+        });
         {{--Cuando cargue la pagina--}}
         $(document).ready(function () {
             var cuentaId = "{{$tabActiva}}";
@@ -57,7 +66,7 @@
         });
         // Boton para llenar el formulario de Gastos
         $('.btnFormGastos').on('click',function () {
-            $('#cuenta_id_gasto').val($(this).attr('cuentaId'));
+            $('#cuenta_id_gastos').val($(this).attr('cuentaId'));
             $('#nombre_gasto').val('');
             $('#valor_gasto').val('');
         });
@@ -71,12 +80,25 @@
         });
         function obtTransacciones(cuentaId) {
             var url = "{{URL::to('/transaccion/listatransacciones/')}}"+"/"+cuentaId;
+            var ti = $('#tblIngresos_'+cuentaId).DataTable();
+            var tg = $('#tblGastos_'+cuentaId).DataTable();
             $.get(url,function (transac) {
-                console.log(transac);
+                dibujarTabla(transac.ingresos,ti);
+                dibujarTabla(transac.gastos,tg);
+                $('#totalIng_'+cuentaId).html(parseFloat(transac.totalIng).toFixed(2));
+                $('#totalGas_'+cuentaId).html(parseFloat(transac.totalGas).toFixed(2));
+                $('#total_'+cuentaId).html(parseFloat(transac.total).toFixed(2));
             },'json');
         }
-        function dibujarTabla() {
-
+        function dibujarTabla(json,t) {
+            t.clear().draw();
+            json.forEach(function(c){
+                t.row.add([
+                    c.nombre,
+                    c.valor,
+                    new Date(c.created_at).toLocaleDateString("es-ES",{day:'2-digit',month:'short',year:'numeric'})
+                ]).draw(false);
+            });
         }
     </script>
 @endsection

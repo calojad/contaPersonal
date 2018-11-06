@@ -19,6 +19,9 @@
             <div class="box-body">
                 @include('ingreso.tabla')
             </div>
+            <div class="box-footer">
+                <p style="font-weight: bold;font-size: 14pt">Total Ingresos: <span id="totalIng_{{ $cuenta->id }}" class="text-info"></span></p>
+            </div>
         </div>
         {{--GASTOS--}}
         <div class="box box-danger col-md-5 col-offset-0 box-sombra" align="center">
@@ -29,7 +32,13 @@
             <div class="box-body">
                 @include('gasto.tabla')
             </div>
+            <div class="box-footer">
+                <p style="font-weight: bold;font-size: 14pt">Total Gastos: <span id="totalGas_{{ $cuenta->id }}" class="text-danger"></span></p>
+            </div>
         </div>
+    </div>
+    <div class="box-footer">
+        <p style="font-weight: bold;font-size: 14pt">SALDO TOTAL: <span id="total_{{ $cuenta->id }}" class="text-success"></span></p>
     </div>
     <div class="overlay">
         <i class="fa fa-refresh fa-spin"></i>

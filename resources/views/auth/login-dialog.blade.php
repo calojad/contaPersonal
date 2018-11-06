@@ -48,3 +48,12 @@
         </div>
     </form>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('input[type=checkbox]').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%'
+        });
+    });
+</script>

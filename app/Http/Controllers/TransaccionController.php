@@ -20,7 +20,21 @@ class TransaccionController extends Controller
         return Redirect::to('/home/'.$transac->cuenta_id);
     }
     public function getListatransacciones($cuentaId){
-        $transacciones = Transacciones::where('cuenta_id',$cuentaId)->get();
-        return json_encode($transacciones);
+        $ingresos = Transacciones::where('cuenta_id',$cuentaId)
+        			->where('tipo',1)
+        			->get();
+        $gastos = Transacciones::where('cuenta_id',$cuentaId)
+        			->where('tipo',0)
+        			->get();
+		$totalIng=0;
+		$totalGas=0;
+        foreach ($ingresos as $ing) {
+        	$totalIng+=$ing->valor;
+        }
+        foreach ($gastos as $gast) {
+        	$totalGas+=$gast->valor;
+        }
+        $total = $totalIng-$totalGas;
+        return json_encode(['ingresos'=>$ingresos,'gastos'=>$gastos,'totalIng'=>$totalIng,'totalGas'=>$totalGas,'total'=>$total]);
     }
 }

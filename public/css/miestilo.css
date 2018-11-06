@@ -1,9 +1,36 @@
 /*
  *  Autor: Andres Loja
  */
+/*
+**Author: Andres Loja
+**Descripcion: Estilos personalisados
+*/
+/***********BOX PRINCIPAL***************/
+.box.box-principal {
+    border-top-color: #06a388
+}
+
+.box.box-solid.box-principal {
+    border: 1px solid #06a388
+}
+
+.box.box-solid.box-principal > .box-header {
+    color: #fff;
+    background: #06a388;
+    background-color: #06a388
+}
+
+.box.box-solid.box-principal > .box-header a, .box.box-solid.box-principal > .box-header .btn {
+    color: #fff
+}
+/*DIV'S*/
 div.col-offset-0 {
     margin-left: 5.6%
 }
 div.box-sombra {
     box-shadow: 4px 3px 1px rgba(0,0,0,0.1);
+}
+
+.show-grid {
+    margin-bottom: 15px;
 }

@@ -83,14 +83,11 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                    <a href="/perfil/{{ Auth::user()->id }}" class="btn btn-primary btn-flat">Perfil</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                                       class="btn btn-default btn-flat">
-                                        <span class="glyphicon glyphicon-log-out"></span>
-                                        Logout
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-danger btn-flat">
+                                        <span class="glyphicon glyphicon-log-out"></span> Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
