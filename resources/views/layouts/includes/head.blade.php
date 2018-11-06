@@ -17,7 +17,8 @@
 <!-- AdminLTE -->
 {!! Html::style('adminLTE-2.4.3/dist/css/AdminLTE.min.css') !!}
 {!! Html::style('adminLTE-2.4.3/dist/css/skins/skin-green.css') !!}
-
+<!-- Mis Estilos -->
+{!! Html::style('css/misEstilos.css') !!}
 <!-- JQuery -->
 {!! Html::script('plugins/jquery/jquery-3.3.1.min.js') !!}
 <!-- Alert Confirm -->

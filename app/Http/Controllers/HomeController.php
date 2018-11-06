@@ -24,21 +24,26 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($tab=0)
     {
-        $cuentas = Cuentas::where('usuario_id',Auth::user()->id)
+        $tabActiva = $tab;
+        $cuentas = Cuentas::where('usuario_id', Auth::user()->id)
             ->orderBy('id', 'asc')
             ->get();
-        $tabActiva = $cuentas[0]->id;
-        return view('home',compact('cuentas','tabActiva'));
-    }
-    public function inicio()
-    {
-        $cuentas = Cuentas::where('usuario_id',Auth::user()->id)
-            ->orderBy('id', 'asc')
-            ->get();
+        if(count($cuentas) != 0 && $tab == 0)
             $tabActiva = $cuentas[0]->id;
-        Session::flash('info','Bienvenido a tus cuentas Personales.');
-        return view('home',compact('cuentas','tabActiva'));
+        return view('home', compact('cuentas', 'tabActiva'));
+    }
+
+    public function inicio($tab=0)
+    {
+        $tabActiva = $tab;
+        $cuentas = Cuentas::where('usuario_id', Auth::user()->id)
+            ->orderBy('id', 'asc')
+            ->get();
+        if(count($cuentas) != 0 && $tab == 0)
+            $tabActiva = $cuentas[0]->id;
+        Session::flash('info', 'Bienvenido a tus cuentas Personales.');
+        return view('home', compact('cuentas', 'tabActiva'));
     }
 }

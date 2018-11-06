@@ -31,4 +31,9 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/cuenta/nueva','CuentaController@crear');
     Route::post('/transaccion/ingreso/create','TransaccionController@crearIngreso');
+    Route::post('/transaccion/gasto/create','TransaccionController@crearGasto');
+    Route::get('/home/{tabActive}','HomeController@index');
+
+    AdvancedRoute::controller('/transaccion','TransaccionController');
+    AdvancedRoute::controller('/cuenta','CuentaController');
 });

@@ -12,7 +12,7 @@
                 <ul class="nav nav-tabs">
                     @foreach($cuentas as $cuenta)
                         <li class="{{$tabActiva==$cuenta->id?'active':''}}">
-                            <a href="#tab_{{$cuenta->id}}" data-toggle="tab">{{$cuenta->nombre}}</a>
+                            <a id="{{$cuenta->id}}" class="tabCuentaLista" href="#tab_{{$cuenta->id}}" data-toggle="tab">{{$cuenta->nombre}}</a>
                         </li>
                     @endforeach
                     <li>
@@ -43,11 +43,40 @@
     {{--MODAL FORM CUENTAS--}}
     @include('cuentas.modal')
     <script>
-        $('.btnFormIngreso').on('click',function () {
-            $('#cuentaId').val($(this).attr('cuentaId'));
-            $('#nombre').val('');
-            $('#valor').val('');
+        {{--Cuando cargue la pagina--}}
+        $(document).ready(function () {
+            var cuentaId = "{{$tabActiva}}";
+            obtTransacciones(cuentaId);
+            $('.overlay').fadeOut();
         });
-        
+        // Boton para llenar el formulario de Ingresos
+        $('.btnFormIngreso').on('click',function () {
+            $('#cuenta_id_ingreso').val($(this).attr('cuentaId'));
+            $('#nombre_ingreso').val('');
+            $('#valor_ingreso').val('');
+        });
+        // Boton para llenar el formulario de Gastos
+        $('.btnFormGastos').on('click',function () {
+            $('#cuenta_id_gasto').val($(this).attr('cuentaId'));
+            $('#nombre_gasto').val('');
+            $('#valor_gasto').val('');
+        });
+        // Tab para cargar transacciones
+        $('.tabCuentaLista').on('click',function () {
+            var cuentaId = $(this).attr('id');
+            var overlay = $('.overlay');
+            overlay.fadeIn();
+            obtTransacciones(cuentaId);
+            overlay.fadeOut();
+        });
+        function obtTransacciones(cuentaId) {
+            var url = "{{URL::to('/transaccion/listatransacciones/')}}"+"/"+cuentaId;
+            $.get(url,function (transac) {
+                console.log(transac);
+            },'json');
+        }
+        function dibujarTabla() {
+
+        }
     </script>
 @endsection
