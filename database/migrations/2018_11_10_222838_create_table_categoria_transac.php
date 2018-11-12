@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransaccionTable extends Migration
+class CreateTableCategoriaTransac extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateTransaccionTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaccion', function (Blueprint $table) {
+        Schema::create('categoria_transac', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cuenta_id')->unsigned();
             $table->integer('tipo_transac_id')->unsigned();
-            $table->integer('categoria_transac_id')->unsigned();
-            $table->string('descripcion');
-            $table->decimal('valor','8','2');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateTransaccionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaccion');
+        Schema::dropIfExists('categoria_transac');
     }
 }
