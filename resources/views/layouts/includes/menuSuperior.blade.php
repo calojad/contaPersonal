@@ -42,7 +42,7 @@
                         });
                     </script>
                     <li>
-                        <a id="lkRegister"><span class="glyphicon glyphicon-edit"></span>
+                        <a id="lkRegister" style="cursor: pointer"><span class="glyphicon glyphicon-edit"></span>
                             Register
                         </a>
                     </li>
