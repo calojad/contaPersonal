@@ -23,6 +23,10 @@ class AlterTableAddForeignKey extends Migration
         });
         Schema::table('categoria_transac', function (Blueprint $table) {
             $table->foreign('tipo_transac_id')->references('id')->on('tipo_transac');
+            $table->foreign('usuario_id')->references('id')->on('users');
+        });
+        Schema::table('tipo_transac', function (Blueprint $table) {
+            $table->foreign('usuario_id')->references('id')->on('users');
         });
     }
 
@@ -43,6 +47,9 @@ class AlterTableAddForeignKey extends Migration
         });
         Schema::table('categoria_transac', function (Blueprint $table) {
             $table->dropForeign('categoria_transac_tipo_transac_id_foreign');
+        });
+        Schema::table('tipo_transac', function (Blueprint $table) {
+            $table->dropForeign('tipo_transac_usuario_id_foreign');
         });
     }
 }

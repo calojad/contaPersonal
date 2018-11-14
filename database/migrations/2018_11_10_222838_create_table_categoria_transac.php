@@ -16,6 +16,7 @@ class CreateTableCategoriaTransac extends Migration
         Schema::create('categoria_transac', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tipo_transac_id')->unsigned();
+            $table->integer('usuario_id')->unsigned();
             $table->string('nombre');
             $table->timestamps();
         });

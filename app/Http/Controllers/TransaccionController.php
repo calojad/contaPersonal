@@ -14,11 +14,13 @@ class TransaccionController extends Controller
         Session::flash('success','Ingreso Agregado');
         return Redirect::to('/home/'.$transac->cuenta_id);
     }
+
     public function crearGasto(Request $request){
         $transac = Transacciones::create($request->all());
         Session::flash('success','Gasto Agregado');
         return Redirect::to('/home/'.$transac->cuenta_id);
     }
+
     public function getListatransacciones($cuentaId){
         $ingresos = Transacciones::leftjoin('categoria_transac','transaccion.categoria_transac_id','=','categoria_transac.id')
             ->where('transaccion.cuenta_id',$cuentaId)
@@ -40,5 +42,27 @@ class TransaccionController extends Controller
         }
         $total = $totalIng-$totalGas;
         return json_encode(['ingresos'=>$ingresos,'gastos'=>$gastos,'totalIng'=>$totalIng,'totalGas'=>$totalGas,'total'=>$total]);
+    }
+
+    public function edit($id)
+    {
+        //
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        $transaccion = Transacciones::find($id);
+        if (empty($transaccion)) {
+            Session::flash('error','Transaccion no encontrada.');
+            return Redirect::to('/home');
+        }
+        $transaccion->delete();
+        Session::flash('success','Transaccion eliminada.');
+        return Redirect::to('/home');
     }
 }

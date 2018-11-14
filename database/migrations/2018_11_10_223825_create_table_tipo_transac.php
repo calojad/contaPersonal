@@ -15,6 +15,7 @@ class CreateTableTipoTransac extends Migration
     {
         Schema::create('tipo_transac', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('usuario_id')->unsigned();
             $table->string('nombre');
             $table->timestamps();
         });

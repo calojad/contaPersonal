@@ -1,5 +1,5 @@
 <nav class="navbar navbar-static-top" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <a href="/" class="logo">
                 <img src="{{asset('images/CAL_logo.png')}}" alt="Logo" width="45"

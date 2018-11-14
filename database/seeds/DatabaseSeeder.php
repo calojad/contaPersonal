@@ -13,9 +13,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->truncateTables([
             'tipo_transac',
-            'categoria_transac'
+            'categoria_transac',
+            'users'
         ]);
 
+        $this->call(UserSeeder::class);
         $this->call(tipoTransacSeeder::class);
         $this->call(categoriaTransacSeeder::class);
     }

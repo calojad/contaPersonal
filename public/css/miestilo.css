@@ -5,25 +5,24 @@
 **Author: Andres Loja
 **Descripcion: Estilos personalisados
 */
-/***********BOX PRINCIPAL***************/
+
+/*El color del background del box-primary*/
 .box.box-principal {
     border-top-color: #06a388
 }
-
 .box.box-solid.box-principal {
     border: 1px solid #06a388
 }
-
 .box.box-solid.box-principal > .box-header {
     color: #fff;
     background: #06a388;
     background-color: #06a388
 }
-
 .box.box-solid.box-principal > .box-header a, .box.box-solid.box-principal > .box-header .btn {
     color: #fff
 }
-/*DIV'S*/
+
+/*DIV'S sombreados*/
 div.col-offset-0 {
     margin-left: 5.6%
 }
@@ -31,6 +30,26 @@ div.box-sombra {
     box-shadow: 4px 3px 1px rgba(0,0,0,0.1);
 }
 
+/*Marge de la imagen de perfil*/
 .show-grid {
     margin-bottom: 15px;
+}
+
+/*Layout box personalizado*/
+.layout-boxed-cal html,
+.layout-boxed-cal body {
+  height: 100%;
+}
+.layout-boxed-cal .wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+.layout-boxed-cal {
+  background: url('../adminLTE-2.4.3/dist/img/boxed-bg.jpg') repeat fixed;
+}
+.fixed.layout-boxed-cal .wrapper {
+  max-width: 100%;
 }

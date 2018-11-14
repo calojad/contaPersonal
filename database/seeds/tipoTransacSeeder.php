@@ -13,9 +13,11 @@ class tipoTransacSeeder extends Seeder
     {
         DB::table('tipo_transac')->insert([
             'nombre' => 'Ingreso',
+            'usuario_id' => 1
         ]);
         DB::table('tipo_transac')->insert([
             'nombre' => 'Gasto',
+            'usuario_id' => 1
         ]);
     }
 }
