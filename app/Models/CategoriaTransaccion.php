@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transacciones extends Model
+class CategoriaTransaccion extends Model
 {
-    protected $table = 'transaccion';
+    protected $table = 'categoria_transac';
     const CREATED_AT = 'created_At';
     const UPDATED_AT = 'updated_At';
     public $timestamps = true;
-    protected $fillable = ['cuenta_id', 'tipo_transac_id', 'categoria_transac_id', 'descripcion', 'valor'];
+    protected $fillable = ['nombre','tipo_transac_id'];
 }

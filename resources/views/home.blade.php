@@ -94,7 +94,7 @@
             t.clear().draw();
             json.forEach(function(c){
                 t.row.add([
-                    c.nombre,
+                    c.categoria_nombre,
                     c.valor,
                     new Date(c.created_at).toLocaleDateString("es-ES",{day:'2-digit',month:'short',year:'numeric'})
                 ]).draw(false);

@@ -9,10 +9,14 @@
             {!! Form::open(['url'=>'/transaccion/gasto/create','method'=>'post']) !!}
             <div class="modal-body">
                 <input id="cuenta_id_gastos" type="hidden" name="cuenta_id">
-                <input type="hidden" name="tipo" value="0">
+                <input type="hidden" name="tipo_transac_id" value="2">
+                <div class="form-group">
+                    <label>Categoria: </label>
+                    {{ Form::select('categoria_transac_id',$categoriasGasto,null,['class'=>'form-control','required'=>true]) }}
+                </div>
                 <div class="form-group">
                     <label for="nombre">Descripcion: </label>
-                    <input class="form-control" id="nombre_gasto" name="nombre" type="text" placeholder="Arriendo" required>
+                    <input class="form-control" id="nombre_gasto" name="nombre" type="text" placeholder="Arriendo">
                 </div>
                 <div class="form-group">
                     <label for="valor">Valor: </label>

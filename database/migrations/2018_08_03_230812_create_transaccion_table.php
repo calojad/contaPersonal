@@ -18,7 +18,7 @@ class CreateTransaccionTable extends Migration
             $table->integer('cuenta_id')->unsigned();
             $table->integer('tipo_transac_id')->unsigned();
             $table->integer('categoria_transac_id')->unsigned();
-            $table->string('descripcion');
+            $table->string('descripcion')->nullable();
             $table->decimal('valor','8','2');
             $table->timestamps();
         });

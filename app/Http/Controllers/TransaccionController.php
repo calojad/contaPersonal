@@ -20,12 +20,16 @@ class TransaccionController extends Controller
         return Redirect::to('/home/'.$transac->cuenta_id);
     }
     public function getListatransacciones($cuentaId){
-        $ingresos = Transacciones::where('cuenta_id',$cuentaId)
-        			->where('tipo',1)
-        			->get();
-        $gastos = Transacciones::where('cuenta_id',$cuentaId)
-        			->where('tipo',0)
-        			->get();
+        $ingresos = Transacciones::leftjoin('categoria_transac','transaccion.categoria_transac_id','=','categoria_transac.id')
+            ->where('transaccion.cuenta_id',$cuentaId)
+            ->where('transaccion.tipo_transac_id',1)
+            ->select('transaccion.id','transaccion.cuenta_id','transaccion.valor','transaccion.descripcion','transaccion.created_at','categoria_transac.nombre as categoria_nombre')
+            ->get();
+        $gastos = Transacciones::leftjoin('categoria_transac','transaccion.categoria_transac_id','=','categoria_transac.id')
+            ->where('cuenta_id',$cuentaId)
+            ->where('transaccion.tipo_transac_id',2)
+            ->select('transaccion.id','transaccion.cuenta_id','transaccion.valor','transaccion.descripcion','transaccion.created_at','categoria_transac.nombre as categoria_nombre')
+            ->get();
 		$totalIng=0;
 		$totalGas=0;
         foreach ($ingresos as $ing) {
