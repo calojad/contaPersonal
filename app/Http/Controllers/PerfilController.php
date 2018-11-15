@@ -15,7 +15,7 @@ class PerfilController extends Controller
         $user = User::find($id);
 
         $cuentas = Cuentas::leftjoin('transaccion','cuentas.id','=','transaccion.cuenta_id')
-        	->select(DB::raw('SUM(transaccion.valor) as saldo, cuentas.nombre'))
+        	->select(DB::raw('SUM(transaccion.valor) as saldo, cuentas.nombre, cuentas.id'))
         	->where('cuentas.usuario_id',$id)
         	->groupBy('cuentas.id')
         	->get();

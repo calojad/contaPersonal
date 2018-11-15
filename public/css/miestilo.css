@@ -53,3 +53,9 @@ div.box-sombra {
 .fixed.layout-boxed-cal .wrapper {
   max-width: 100%;
 }
+
+/*Input sin bordes y transparente*/
+input.sinborde{
+  border:0;
+  background-color: transparent;
+}
