@@ -54,7 +54,14 @@
         </div>
     </div>
 </div>
+@include('cuentas.modal')
+@include('categorias.modal_form')
 <script type="text/javascript">
+    $(document).ready(function () {
+        $('.modal').on('shown.bs.modal', function (e) {
+            $('[autofocus]', e.target).focus();
+        })
+    });
     $('.btnDeleted').on('click',function(){
         var id = $(this).attr('elemId');
         var band = $(this).attr('band');
@@ -67,7 +74,16 @@
                 Eliminar: {
                     btnClass: 'btn-red any-other-class',
                     action: function(){
-                        $.alert(id+' - '+band);
+                        var url;
+                        if(band == 'CU'){
+                            url = "{{ URL::to('/cuenta/destroy/') }}"+"/"+id;
+                        }else if(band == 'CA'){
+                            url = "{{ URL::to('/categoria/destroy/') }}"+"/"+id;
+                        }
+                        $.alert(url);
+                        $.get(url,function(json){
+                            window.location.href = json.url;
+                        },'json');
                     }
                 },
                 cancel: function () {},

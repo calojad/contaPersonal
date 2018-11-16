@@ -56,7 +56,12 @@
         $(document).ready(function () {
             var cuentaId = "{{$tabActiva}}";
             obtTransacciones(cuentaId);
+
             $('.overlay').fadeOut();
+
+            $('.modal').on('shown.bs.modal', function (e) {
+                $('[autofocus]', e.target).focus();
+            })
         });
         // Boton para llenar el formulario de Ingresos
         $('.btnFormIngreso').on('click',function () {

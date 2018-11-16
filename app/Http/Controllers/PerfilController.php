@@ -12,6 +12,7 @@ class PerfilController extends Controller
 {
     public function getIndex($id)
     {
+    	$formCuenta_desde = 'P';
         $user = User::find($id);
 
         $cuentas = Cuentas::leftjoin('transaccion','cuentas.id','=','transaccion.cuenta_id')
@@ -28,6 +29,6 @@ class PerfilController extends Controller
 	    	->whereRaw('(usuario_id = 1 OR usuario_id = '.$id.')')
         	->get();
 
-        return view('perfil.index',compact('user','cuentas','categoriasIngreso','categoriasGasto'));
+        return view('perfil.index',compact('user','cuentas','categoriasIngreso','categoriasGasto','formCuenta_desde'));
     }
 }

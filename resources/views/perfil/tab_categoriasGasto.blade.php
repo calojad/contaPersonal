@@ -1,3 +1,6 @@
+<div>
+    <a class="btn btn-primary" title="Nueva Categoria Ingreso" data-toggle="modal" data-target="#modalFormCategorias"><i class="fa fa-plus"></i> Nueva</a>
+</div>
 <div class="table-responsive">
     <table class="table table-responsive table-striped table-bordered table-hover table-checkable datatable">
         <thead>
@@ -17,7 +20,7 @@
                         <div id="btngrpCatGa_{{ $catGasto->id }}" class="btn-groupn acciones">
                             <button type="button" class="btn btn-primary btnEditarCateGa" categId="{{ $catGasto->id }}"><i class="fa fa-edit"></i></button>
                             @if ($catGasto->usuario_id == Auth::user()->id)
-                            <button type="button" class="btn btn-danger btnDeleted" elemId="{{ $catGasto->id }}" band="GA"><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-danger btnDeleted" elemId="{{ $catGasto->id }}" band="CA"><i class="fa fa-trash"></i></button>
                             @endif
                         </div>
                         <div id="btngrpEditCatGa_{{ $catGasto->id }}" class="btn-group" style="display: none;">

@@ -1,3 +1,6 @@
+<div>
+    <a class="btn btn-primary" title="Nueva Cuenta" data-toggle="modal" data-target="#modalFormCuenta"><i class="fa fa-plus"></i> Nueva</a>
+</div>
 <div class="table-responsive">
     <table class="table table-responsive table-striped table-bordered table-hover table-checkable datatable" id="tblCuentasUser">
         <thead>

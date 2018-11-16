@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color: #06a388; color: white;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span></button>
+                    <span class="fa fa-times" aria-hidden="true"></span></button>
                 <h4 class="modal-title"><i class="fa fa-briefcase"></i> Nueva cuenta</h4>
             </div>
             {!! Form::open(['action' => 'CuentaController@crear']) !!}

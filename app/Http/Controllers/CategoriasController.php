@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CategoriaTransaccion;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class CategoriasController extends Controller
 {
@@ -77,8 +81,15 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
-        //
+        $categ = CategoriaTransaccion::find($id);
+        if (empty($categ)) {
+            Session::flash('error','Categoria no encontrada.');
+            return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+        }
+        $categ->delete();
+        Session::flash('success','Categoria eliminada.');
+        return json_encode(['url' => '/perfil/'.Auth::user()->id]);
     }
 }

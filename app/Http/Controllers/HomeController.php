@@ -28,6 +28,7 @@ class HomeController extends Controller
      */
     public function index($tab=0)
     {
+        $formCuenta_desde = 'H';
         $tabActiva = $tab;
         $cuentas = Cuentas::where('usuario_id', Auth::user()->id)
             ->orderBy('id', 'asc')
@@ -41,11 +42,12 @@ class HomeController extends Controller
             ->pluck('nombre','id');
         if(count($cuentas) != 0 && $tab == 0)
             $tabActiva = $cuentas[0]->id;
-        return view('home', compact('cuentas','tabActiva','tiposTransac','categoriasGasto','categoriasIngreso'));
+        return view('home', compact('cuentas','tabActiva','tiposTransac','categoriasGasto','categoriasIngreso','formCuenta_desde'));
     }
 
     public function inicio($tab=0)
     {
+        $formCuenta_desde = 'H';
         $tabActiva = $tab;
         $cuentas = Cuentas::where('usuario_id', Auth::user()->id)
             ->orderBy('id', 'asc')
@@ -62,6 +64,6 @@ class HomeController extends Controller
         if(count($cuentas) != 0 && $tab == 0)
             $tabActiva = $cuentas[0]->id;
         Session::flash('info', 'Bienvenido a tus cuentas Personales.');
-        return view('home', compact('cuentas', 'tabActiva','tiposTransac','categoriasGasto','categoriasIngreso'));
+        return view('home', compact('cuentas', 'tabActiva','tiposTransac','categoriasGasto','categoriasIngreso','formCuenta_desde'));
     }
 }
