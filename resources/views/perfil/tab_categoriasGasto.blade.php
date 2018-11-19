@@ -49,7 +49,7 @@
         var botonsEdt = $('#btngrpEditCatGa_'+id);
         var botons = $('#btngrpCatGa_'+id);
         var span = $('#catga_span_'+id);
-        if(band == 'S'){
+        if(band === 'S'){
             showEdit(inputEdt, botonsEdt, botons, span);
         }else{
             hideEdit(inputEdt, botonsEdt, botons, span);

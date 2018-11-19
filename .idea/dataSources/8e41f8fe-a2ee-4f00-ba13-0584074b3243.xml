@@ -1013,301 +1013,339 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="247" name="nombre">
+    <column id="256" parent="247" name="usuario_id">
       <Position>3</Position>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="257" parent="247" name="nombre">
+      <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="247" name="created_at">
-      <Position>4</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="258" parent="247" name="updated_at">
+    <column id="258" parent="247" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="259" parent="247" name="categoria_transac_tipo_transac_id_foreign">
+    <column id="259" parent="247" name="updated_at">
+      <Position>6</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="260" parent="247" name="categoria_transac_tipo_transac_id_foreign">
       <ColNames>tipo_transac_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="260" parent="247" name="PRIMARY">
+    <index id="261" parent="247" name="categoria_transac_usuario_id_foreign">
+      <ColNames>usuario_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="262" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="261" parent="247" name="categoria_transac_tipo_transac_id_foreign">
+    <foreign-key id="263" parent="247" name="categoria_transac_tipo_transac_id_foreign">
       <ColNames>tipo_transac_id</ColNames>
       <RefSchemaName>cal_contapersonal</RefSchemaName>
       <RefTableName>tipo_transac</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="262" parent="248" name="id">
-      <Position>1</Position>
-      <DataType>int(10) unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="263" parent="248" name="usuario_id">
-      <Position>2</Position>
-      <DataType>int(10) unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="264" parent="248" name="nombre">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="265" parent="248" name="created_at">
-      <Position>4</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="266" parent="248" name="updated_at">
-      <Position>5</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="267" parent="248" name="cuentas_usuario_id_foreign">
-      <ColNames>usuario_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="268" parent="248" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="269" parent="248" name="cuentas_usuario_id_foreign">
+    <foreign-key id="264" parent="247" name="categoria_transac_usuario_id_foreign">
       <ColNames>usuario_id</ColNames>
       <RefSchemaName>cal_contapersonal</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="270" parent="249" name="id">
+    <column id="265" parent="248" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="249" name="migration">
+    <column id="266" parent="248" name="usuario_id">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="267" parent="248" name="nombre">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="268" parent="248" name="created_at">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="269" parent="248" name="updated_at">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="270" parent="248" name="cuentas_usuario_id_foreign">
+      <ColNames>usuario_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="271" parent="248" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="272" parent="248" name="cuentas_usuario_id_foreign">
+      <ColNames>usuario_id</ColNames>
+      <RefSchemaName>cal_contapersonal</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="273" parent="249" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="274" parent="249" name="migration">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="249" name="batch">
+    <column id="275" parent="249" name="batch">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="273" parent="249" name="PRIMARY">
+    <key id="276" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="274" parent="250" name="email">
+    <column id="277" parent="250" name="email">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="250" name="token">
+    <column id="278" parent="250" name="token">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="250" name="created_at">
+    <column id="279" parent="250" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="277" parent="250" name="password_resets_email_index">
+    <index id="280" parent="250" name="password_resets_email_index">
       <ColNames>email</ColNames>
       <Type>btree</Type>
     </index>
-    <column id="278" parent="251" name="id">
+    <column id="281" parent="251" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="251" name="nombre">
+    <column id="282" parent="251" name="usuario_id">
       <Position>2</Position>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="283" parent="251" name="nombre">
+      <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="251" name="created_at">
-      <Position>3</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="281" parent="251" name="updated_at">
+    <column id="284" parent="251" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="282" parent="251" name="PRIMARY">
+    <column id="285" parent="251" name="updated_at">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="286" parent="251" name="tipo_transac_usuario_id_foreign">
+      <ColNames>usuario_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="287" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="283" parent="252" name="id">
+    <foreign-key id="288" parent="251" name="tipo_transac_usuario_id_foreign">
+      <ColNames>usuario_id</ColNames>
+      <RefSchemaName>cal_contapersonal</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="289" parent="252" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="252" name="cuenta_id">
+    <column id="290" parent="252" name="cuenta_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="252" name="tipo_transac_id">
+    <column id="291" parent="252" name="tipo_transac_id">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="252" name="categoria_transac_id">
+    <column id="292" parent="252" name="categoria_transac_id">
       <Position>4</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="252" name="descripcion">
+    <column id="293" parent="252" name="descripcion">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="252" name="valor">
+    <column id="294" parent="252" name="valor">
       <Position>6</Position>
       <DataType>decimal(8,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="252" name="created_at">
+    <column id="295" parent="252" name="created_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="252" name="updated_at">
+    <column id="296" parent="252" name="updated_at">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="291" parent="252" name="transaccion_cuenta_id_foreign">
+    <index id="297" parent="252" name="transaccion_cuenta_id_foreign">
       <ColNames>cuenta_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="292" parent="252" name="transaccion_tipo_transac_id_foreign">
+    <index id="298" parent="252" name="transaccion_tipo_transac_id_foreign">
       <ColNames>tipo_transac_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="293" parent="252" name="transaccion_categoria_transac_id_foreign">
+    <index id="299" parent="252" name="transaccion_categoria_transac_id_foreign">
       <ColNames>categoria_transac_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="294" parent="252" name="PRIMARY">
+    <key id="300" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="295" parent="252" name="transaccion_cuenta_id_foreign">
+    <foreign-key id="301" parent="252" name="transaccion_cuenta_id_foreign">
       <ColNames>cuenta_id</ColNames>
       <RefSchemaName>cal_contapersonal</RefSchemaName>
       <RefTableName>cuentas</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="296" parent="252" name="transaccion_tipo_transac_id_foreign">
+    <foreign-key id="302" parent="252" name="transaccion_tipo_transac_id_foreign">
       <ColNames>tipo_transac_id</ColNames>
       <RefSchemaName>cal_contapersonal</RefSchemaName>
       <RefTableName>tipo_transac</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="297" parent="252" name="transaccion_categoria_transac_id_foreign">
+    <foreign-key id="303" parent="252" name="transaccion_categoria_transac_id_foreign">
       <ColNames>categoria_transac_id</ColNames>
       <RefSchemaName>cal_contapersonal</RefSchemaName>
       <RefTableName>categoria_transac</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="298" parent="253" name="id">
+    <column id="304" parent="253" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="253" name="name">
+    <column id="305" parent="253" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="253" name="username">
+    <column id="306" parent="253" name="username">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="253" name="email">
+    <column id="307" parent="253" name="email">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="253" name="password">
+    <column id="308" parent="253" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="253" name="remember_token">
+    <column id="309" parent="253" name="permiso">
       <Position>6</Position>
+      <DataType>char(3)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="310" parent="253" name="remember_token">
+      <Position>7</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="253" name="created_at">
-      <Position>7</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="305" parent="253" name="updated_at">
+    <column id="311" parent="253" name="created_at">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="306" parent="253" name="users_username_unique">
+    <column id="312" parent="253" name="updated_at">
+      <Position>9</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="313" parent="253" name="users_username_unique">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="307" parent="253" name="users_email_unique">
+    <index id="314" parent="253" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="308" parent="253" name="PRIMARY">
+    <key id="315" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="309" parent="253" name="users_username_unique">
+    <key id="316" parent="253" name="users_username_unique">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>users_username_unique</UnderlyingIndexName>
     </key>
-    <key id="310" parent="253" name="users_email_unique">
+    <key id="317" parent="253" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>

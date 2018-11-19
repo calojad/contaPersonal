@@ -75,9 +75,9 @@
                     btnClass: 'btn-red any-other-class',
                     action: function(){
                         var url;
-                        if(band == 'CU'){
+                        if(band === 'CU'){
                             url = "{{ URL::to('/cuenta/destroy/') }}"+"/"+id;
-                        }else if(band == 'CA'){
+                        }else if(band === 'CA'){
                             url = "{{ URL::to('/categoria/destroy/') }}"+"/"+id;
                         }
                         $.alert(url);
@@ -86,25 +86,21 @@
                         },'json');
                     }
                 },
-                cancel: function () {},
+                cancel: function () {}
             },
             escapeKey: true,
-            backgroundDismiss: true,
+            backgroundDismiss: true
         });
     });
     $(function () {
             $('.table').DataTable({
-                pagingType: "full_numbers",
                 paging: false,
                 lengthChange: true,
                 searching: true,
                 ordering: true,
-                order: [[0,'asc']],
                 autoWidth: true,
-                retrieve: true,
-                responsive: true,
                 scrollY: '50vh',
-                scrollCollapse: true,
+                scrollCollapse: true
             });
     });
 
