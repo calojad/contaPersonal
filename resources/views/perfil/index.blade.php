@@ -62,6 +62,7 @@
             $('[autofocus]', e.target).focus();
         })
     });
+    // Boton para eliminar un elemento
     $('.btnDeleted').on('click',function(){
         var id = $(this).attr('elemId');
         var band = $(this).attr('band');
@@ -80,7 +81,6 @@
                         }else if(band === 'CA'){
                             url = "{{ URL::to('/categoria/destroy/') }}"+"/"+id;
                         }
-                        $.alert(url);
                         $.get(url,function(json){
                             window.location.href = json.url;
                         },'json');
@@ -92,20 +92,41 @@
             backgroundDismiss: true
         });
     });
+    //Boton Nueva Categoria
+    $('.btnAddCategory').on('click',function () {
+        var tipo = $(this).data('tipo');
+        if(tipo==='IN'){
+            $('#mdlHeaderCategory').css('background-color','#3c8dbc');
+            $('#inpHiddenTipoCategory').val(1);
+        }else{
+            $('#mdlHeaderCategory').css('background-color','#dd4b39');
+            $('#inpHiddenTipoCategory').val(2);
+        }
+    });
+    //Boton Guardar Edicion
+    $('.btnSaveEdit').on('click',function () {
+        var id = $(this).attr('elemId');
+        var url;
+        if(band === 'CU'){
+            url = "{{ URL::to('/cuenta/edit/') }}"+"/"+id;
+        }else if(band === 'CA'){
+            url = "{{ URL::to('/categoria/edit/') }}"+"/"+id;
+        }
+        $.get(url,function(json){
+            window.location.href = json.url;
+        },'json');
+    });
+    //Inicializacion de DataTable
     $(function () {
             $('.table').DataTable({
                 paging: false,
-                lengthChange: true,
-                searching: true,
-                ordering: true,
-                autoWidth: true,
                 scrollY: '50vh',
                 scrollCollapse: true
             });
     });
 
 // FUNCIONES EDITAR TABS
-
+    // Mostrar botones de Editar
     function showEdit(inputEdt, botonsEdt, botons, span){
         inputEdt.show();
         botons.hide();
@@ -114,6 +135,7 @@
 
         $('.acciones *').prop('disabled',true);
     }
+    // Ocultar botones de Editar
     function hideEdit(inputEdt, botonsEdt, botons, span){
         inputEdt.hide();
         span.show();

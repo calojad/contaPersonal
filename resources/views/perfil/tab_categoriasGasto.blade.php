@@ -1,5 +1,5 @@
 <div>
-    <a class="btn btn-primary" title="Nueva Categoria Ingreso" data-toggle="modal" data-target="#modalFormCategorias"><i class="fa fa-plus"></i> Nueva</a>
+    <a class="btn btn-primary btnAddCategory" title="Nueva Categoria Ingreso" data-toggle="modal" data-target="#modalFormCategorias" data-tipo="GA"><i class="fa fa-plus"></i> Nueva</a>
 </div>
 <div class="table-responsive">
     <table class="table table-responsive table-striped table-bordered table-hover table-checkable datatable">
@@ -17,14 +17,14 @@
                         <input id="catga_{{ $catGasto->id }}" class="form-control" type="text" name="nombre" value="{{ $catGasto->nombre }}" style="display: none">
                     </td>
                     <td>
-                        <div id="btngrpCatGa_{{ $catGasto->id }}" class="btn-groupn acciones">
+                        <div id="btngrpCatGa_{{ $catGasto->id }}" class="btn-group acciones">
                             <button type="button" class="btn btn-primary btnEditarCateGa" categId="{{ $catGasto->id }}"><i class="fa fa-edit"></i></button>
                             @if ($catGasto->usuario_id == Auth::user()->id)
                             <button type="button" class="btn btn-danger btnDeleted" elemId="{{ $catGasto->id }}" band="CA"><i class="fa fa-trash"></i></button>
                             @endif
                         </div>
                         <div id="btngrpEditCatGa_{{ $catGasto->id }}" class="btn-group" style="display: none;">
-                            <button type="button" class="btn btn-primary btnSaveEdit" categId="{{ $catGasto->id }}"><i class="fa fa-check"></i></button>
+                            <button type="button" class="btn btn-primary btnSaveEdit" elemId="{{ $catGasto->id }}" band="CA"><i class="fa fa-check"></i></button>
                             <button type="button" class="btn btn-danger btnCancelEdit" categId="{{ $catGasto->id }}"><i class="fa fa-close"></i></button>
                         </div>
                     </td>

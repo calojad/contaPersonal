@@ -36,9 +36,13 @@ class CategoriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postStore(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['usuario_id'] = Auth::user()->id;
+        CategoriaTransaccion::create($data);
+        Session::flash('success','Categoria Agregado');
+        return redirect('perfil/'.Auth::user()->id);
     }
 
     /**
@@ -58,7 +62,7 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit($id)
     {
         //
     }

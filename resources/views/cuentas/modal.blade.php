@@ -11,6 +11,7 @@
                 @include('cuentas.form')
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
                 <button class="btn btn-primary pull-right" type="submit">Guardar</button>
             </div>
             {!! Form::close() !!}

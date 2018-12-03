@@ -15,10 +15,15 @@ class CuentaController extends Controller
         $data['usuario_id'] = Auth::user()->id;
         Cuentas::create($data);
 
-        if(Input::get('formCuenta_desde') == 'H')
+        if(Input::get('formCuenta_desde') === 'H')
         	return redirect('/home');
         else
         	return redirect('/perfil/'.Auth::user()->id);
+    }
+
+    public function getEdit($id)
+    {
+        //
     }
 
     public function getDestroy($id)

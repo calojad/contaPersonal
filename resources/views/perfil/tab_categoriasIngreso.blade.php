@@ -1,5 +1,5 @@
 <div>
-    <a class="btn btn-primary" title="Nueva Categoria Ingreso" data-toggle="modal" data-target="#modalFormCategorias"><i class="fa fa-plus"></i> Nueva</a>
+    <a class="btn btn-primary btnAddCategory" title="Nueva Categoria Ingreso" data-toggle="modal" data-target="#modalFormCategorias" data-tipo="IN"><i class="fa fa-plus"></i> Nueva</a>
 </div>
 <div class="table-responsive">
     <table class="table table-responsive table-striped table-bordered table-hover table-checkable datatable">
@@ -24,7 +24,7 @@
                             @endif
                         </div>
                         <div id="btngrpEditCatIn_{{ $catIngreso->id }}" class="btn-group" style="display: none;">
-                            <button type="button" class="btn btn-primary btnSaveEdit" categId="{{ $catIngreso->id }}"><i class="fa fa-check"></i></button>
+                            <button type="button" class="btn btn-primary btnSaveEdit" elemId="{{ $catIngreso->id }}" band="CA"><i class="fa fa-check"></i></button>
                             <button type="button" class="btn btn-danger btnCancelEdit" categId="{{ $catIngreso->id }}"><i class="fa fa-close"></i></button>
                         </div>
                     </td>
@@ -49,7 +49,7 @@
         var botonsEdt = $('#btngrpEditCatIn_'+id);
         var botons = $('#btngrpCatIn_'+id);
         var span = $('#catin_span_'+id);
-        if(band == 'S'){
+        if(band === 'S'){
             showEdit(inputEdt, botonsEdt, botons, span);
         }else{
             hideEdit(inputEdt, botonsEdt, botons, span);

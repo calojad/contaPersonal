@@ -24,7 +24,7 @@
                             <button type="button" class="btn btn-danger btnDeleted" elemId="{{ $cuenta->id }}" band="CU"><i class="fa fa-trash"></i></button>
                         </div>
                         <div id="btngrpEditCuenta_{{ $cuenta->id }}" class="btn-group" style="display: none;">
-                            <button type="button" class="btn btn-primary btnSaveEdit" cuentaId="{{ $cuenta->id }}"><i class="fa fa-check"></i></button>
+                            <button type="button" class="btn btn-primary btnSaveEdit" elemId="{{ $cuenta->id }}" band="CU"><i class="fa fa-check"></i></button>
                             <button type="button" class="btn btn-danger btnCancelEdit" cuentaId="{{ $cuenta->id }}"><i class="fa fa-close"></i></button>
                         </div>
                     </td>
@@ -49,7 +49,7 @@
         var botonsEdt = $('#btngrpEditCuenta_'+id);
         var botons = $('#btngrpCuenta_'+id);
         var span = $('#cue_span_'+id);
-        if(band == 'S'){
+        if(band === 'S'){
             showEdit(inputEdt, botonsEdt, botons, span);
         }else{
             hideEdit(inputEdt, botonsEdt, botons, span);

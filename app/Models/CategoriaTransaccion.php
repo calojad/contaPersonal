@@ -10,5 +10,5 @@ class CategoriaTransaccion extends Model
     const CREATED_AT = 'created_At';
     const UPDATED_AT = 'updated_At';
     public $timestamps = true;
-    protected $fillable = ['nombre','tipo_transac_id'];
+    protected $fillable = ['nombre','tipo_transac_id','usuario_id'];
 }
