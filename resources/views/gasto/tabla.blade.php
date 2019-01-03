@@ -5,6 +5,7 @@
 	            <th>Categoria</th>
 	            <th>Valor</th>
 	            <th>Fecha Registro</th>
+				<th>Accion</th>
 	        </tr>
 	    </thead>
 	    <tbody>

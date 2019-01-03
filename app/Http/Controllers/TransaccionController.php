@@ -54,15 +54,16 @@ class TransaccionController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function getDestroy($id)
     {
         $transaccion = Transacciones::find($id);
         if (empty($transaccion)) {
             Session::flash('error','Transaccion no encontrada.');
             return Redirect::to('/home');
         }
+        $cuenta = $transaccion->cuenta_id;
         $transaccion->delete();
         Session::flash('success','Transaccion eliminada.');
-        return Redirect::to('/home');
+        return Redirect::to('/home'.'/'.$cuenta);
     }
 }

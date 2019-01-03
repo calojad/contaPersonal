@@ -7,6 +7,7 @@
     {{--NOMBRE DE LA CUENTA--}}
     <div class="box-header">
         <span class="box-title">{{Auth::user()->name.' - '.$cuenta->nombre}}</span>
+        <a class="btn btn-default" title="Transferir" style="margin-left:15px"><i class="fa fa-exchange"></i></a>
     </div>
     {{--CAJAS DE INGRESOS Y GASTOS DE LA CUENTA--}}
     <div class="box-body" style="background: #ecf0f5">

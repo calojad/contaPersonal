@@ -103,7 +103,8 @@
                 t.row.add([
                     '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
                     c.valor,
-                    c.created_at
+                    c.created_at,
+                    '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET"><div align="center"><button class="btn btn-danger btn-xs" type="submit" title="Eliminar Transaccion"><i class="fa fa-trash"></i></button></div></form>'
                 ]).draw(false);
             });
             $('[data-toggle="tooltip"]').tooltip();
