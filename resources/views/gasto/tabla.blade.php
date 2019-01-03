@@ -2,9 +2,9 @@
 	<table class="table table-responsive table-striped table-bordered table-hover table-checkable datatable" id="tblGastos_{{ $cuenta->id }}">
 	    <thead>
 	        <tr>
-	            <th>Descripcion</th>
+	            <th>Categoria</th>
 	            <th>Valor</th>
-	            <th>Fecha</th>
+	            <th>Fecha Registro</th>
 	        </tr>
 	    </thead>
 	    <tbody>

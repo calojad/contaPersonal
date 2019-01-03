@@ -59,7 +59,7 @@
                     </script>
                 @else
                     <li>
-                        <a href="/home"><i class="fa fa-home"></i> Home</a>
+                        <a href="/home"><i class="fa fa-home"></i> </a>
                     </li>
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->

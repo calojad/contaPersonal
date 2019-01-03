@@ -16,7 +16,7 @@
 				</div>
 				<div class="form-group">
 					<label for="nombre">Descripcion: </label>
-					<input class="form-control" id="nombre_ingreso" name="nombre" type="text" placeholder="Sueldo fin de mes">
+					<input class="form-control" id="nombre_ingreso" name="descripcion" type="text" placeholder="Sueldo fin de mes">
 				</div>
 				<div class="form-group">
 					<label for="valor">Valor: </label>

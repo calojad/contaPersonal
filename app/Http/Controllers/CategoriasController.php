@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CategoriaTransaccion;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 class CategoriasController extends Controller
@@ -74,9 +73,16 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+        public function getUpdate(Request $request, $id)
     {
-        //
+        $categoria = CategoriaTransaccion::find($id);
+        if (empty($categoria)) {
+            Session::flash('error','Categoria no encontrada.');
+            return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+        }
+        $categoria->update($request->all());
+        Session::flash('success','Categoria Actualizada.');
+        return json_encode(['url' => '/perfil/'.Auth::user()->id]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cuentas;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -21,9 +22,16 @@ class CuentaController extends Controller
         	return redirect('/perfil/'.Auth::user()->id);
     }
 
-    public function getEdit($id)
+    public function getUpdate(Request $request, $id)
     {
-        //
+        $cuenta = Cuentas::find($id);
+        if (empty($cuenta)) {
+            Session::flash('error','Cuenta no encontrada.');
+            return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+        }
+        $cuenta->update($request->all());
+        Session::flash('success','Cuenta Actualizada.');
+        return json_encode(['url' => '/perfil/'.Auth::user()->id]);
     }
 
     public function getDestroy($id)

@@ -56,12 +56,14 @@
         $(document).ready(function () {
             var cuentaId = "{{$tabActiva}}";
             obtTransacciones(cuentaId);
-
+            //Quita el overlay
             $('.overlay').fadeOut();
-
+            //Poner el focus al mostrar el modal
             $('.modal').on('shown.bs.modal', function (e) {
                 $('[autofocus]', e.target).focus();
-            })
+            });
+            //Inicializa el tooaltip
+            $('[data-toggle="tooltip"]').tooltip();
         });
         // Boton para llenar el formulario de Ingresos
         $('.btnFormIngreso').on('click',function () {
@@ -99,11 +101,12 @@
             t.clear().draw();
             json.forEach(function(c){
                 t.row.add([
-                    c.categoria_nombre,
+                    '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
                     c.valor,
-                    new Date(c.created_at).toLocaleDateString("es-ES",{day:'2-digit',month:'short',year:'numeric'})
+                    c.created_at
                 ]).draw(false);
             });
+            $('[data-toggle="tooltip"]').tooltip();
         }
     </script>
 @endsection

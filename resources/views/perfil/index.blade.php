@@ -4,7 +4,7 @@
     @include('includes.notificacion')
     <div class="content">
         <div class="row">
-            <div class="col-md-4">
+            <div id="divInfUsuario" class="col-md-4">
                 <div class="box box-principal">
                     <div class="box-header"></div>
                     <div class="box-body">
@@ -22,10 +22,11 @@
                                 <label class="col-md-4">Email:</label><span class="col-md-7"> {{$user->email}}</span>
                             </div>
                         </div>
-                        <a class="btn btn-xs btn-primary pull-right" title="Editar" href="#"><i class="fa fa-edit"></i></a>
+                        <a id="btnEditarUserPerfil" class="btn btn-xs btn-primary pull-right" title="Editar" href="#"><i class="fa fa-edit"></i></a>
                     </div>
                 </div>
             </div>
+            @include('perfil.edit')
             <div class="col-md-8">
                 <div class="box box-principal">
                     <div class="box-header"><h3 class="box-title">Ajustes</h3></div>
@@ -103,18 +104,32 @@
             $('#inpHiddenTipoCategory').val(2);
         }
     });
-    //Boton Guardar Edicion
+    //Boton Guardar Edicion Tab's
     $('.btnSaveEdit').on('click',function () {
         var id = $(this).attr('elemId');
         var url;
+        var band = $(this).attr('band');
+        var data;
         if(band === 'CU'){
-            url = "{{ URL::to('/cuenta/edit/') }}"+"/"+id;
+            data = {nombre:$('#cue_'+id).val()};
+            url = "{{ URL::to('/cuenta/update/') }}"+"/"+id;
         }else if(band === 'CA'){
-            url = "{{ URL::to('/categoria/edit/') }}"+"/"+id;
+            data = {nombre:$('#catin_'+id).val()};
+            url = "{{ URL::to('/categoria/update/') }}"+"/"+id;
         }
-        $.get(url,function(json){
+        $.get(url,data,function(json){
             window.location.href = json.url;
         },'json');
+    });
+    //Boton Editar Informacion del Usuario
+    $('#btnEditarUserPerfil').on('click',function () {
+        $('#divInfUsuario').hide();
+        $('#divEditarInfoUsuario').show();
+    });
+    //Boton Cancelar Edicion Usuario
+    $('#btnCancelEditUserPerfil').on('click',function () {
+        $('#divInfUsuario').show();
+        $('#divEditarInfoUsuario').hide();
     });
     //Inicializacion de DataTable
     $(function () {
