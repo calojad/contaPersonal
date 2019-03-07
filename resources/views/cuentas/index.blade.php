@@ -11,6 +11,37 @@
     </div>
     {{--CAJAS DE INGRESOS Y GASTOS DE LA CUENTA--}}
     <div class="box-body" style="background: #ecf0f5">
+        {{-- FILTRO POR FECHAS --}}
+        <div class="col-md-12">
+            <div class="box box-sombra" style="border-top: none">
+                <div class="box-body">
+                    <div class="col-md-12 form-group" align="center">
+                        <button class="btn btn-default">Mes Actual</button>
+                        <button class="btn btn-default">Mes Anterior</button>
+                        <button id="btnDateCustom" class="btn btn-default">Fecha Personalizada</button>
+                    </div>
+                    {{ Form::open(['route' => 'home', 'method' => 'post', 'class' => 'form-horizontal']) }}
+                    <div class="form-group" style="display: none;">
+                        <div class="col-md-4 col-md-offset-1">
+                            <label class="col-md-3 control-label" for="inpDate1">Desde:</label>
+                            <div class="col-md-9">
+                                <input id="inpDate1" class="form-control" type="date">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="col-md-3 control-label" for="inpDate2">Hasta:</label>
+                            <div class="col-md-9">
+                                <input id="inpDate2" class="form-control" type="date">
+                            </div>
+                        </div>
+                        <div class="col-md-2" align="right">
+                            <button class="btn btn-primary" title="Buscar"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    {{ Form::close() }}
+                </div>
+            </div>
+        </div>
         {{--INGRESOS--}}
         <div class="col-md-6">
             <div class="box box-primary box-sombra" align="center">

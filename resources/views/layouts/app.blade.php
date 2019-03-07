@@ -4,7 +4,7 @@
     @include('layouts.includes.head')
     @yield('styles')
 </head>
-<body class="hold-transition skin-green layout-top-nav layout-boxed">
+<body class="hold-transition skin-green layout-top-nav">
 <div class="wrapper">
     <header class="main-header">
         @include('layouts.includes.menuSuperior')

@@ -26,7 +26,7 @@
                         @endforeach
                     @else
                         <div class="content" align="center">
-                            <h4 class="text-danger">No hay datos</h4>
+                            <h4 class="text-danger">No hay cuentas</h4>
                         </div>
                     @endif
                 </div>
