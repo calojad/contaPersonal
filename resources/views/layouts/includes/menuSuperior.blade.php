@@ -15,7 +15,15 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <!-- Left Side of Navbar -->
             <ul class="nav navbar-nav">
-
+                @guest
+                @else
+                <li>
+                    <a href="{{URL::to('/home')}}"><i class="fa fa-bank "></i> Cuentas</a>
+                </li>
+                <li>
+                    <a href="{{URL::to('/presupuesto')}}"><i class="fa fa-coffee "></i> Presupuesto</a>
+                </li>
+                @endguest
             </ul>
 
             <!-- Right Side of Navbar -->
@@ -58,9 +66,6 @@
                         });
                     </script>
                 @else
-                    <li>
-                        <a href="/home"><i class="fa fa-home"></i> </a>
-                    </li>
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">

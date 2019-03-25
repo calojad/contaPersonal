@@ -1,4 +1,13 @@
 @extends('layouts.app')
+@section('header')
+    <h1>
+        {{config('app.name','CALOJAD')}}
+        <small>Cuentas</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{URL::to('/home')}}"><i class="fa fa-home"></i> Cuentas</a></li>
+    </ol>
+@stop
 @section('content')
     <div class="row">
         @include('includes.notificacion')
