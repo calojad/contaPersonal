@@ -37,6 +37,10 @@ class CategoriasController extends Controller
      */
     public function postStore(Request $request)
     {
+        request()->validate([
+            'nombre' => 'required|string|unique:categoria_transac,nombre,'
+        ]);
+
         $data = $request->all();
         $data['usuario_id'] = Auth::user()->id;
         CategoriaTransaccion::create($data);

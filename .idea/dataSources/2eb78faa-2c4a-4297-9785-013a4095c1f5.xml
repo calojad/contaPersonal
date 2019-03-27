@@ -1155,15 +1155,16 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="247" name="valor">
+    <column id="281" parent="247" name="nombre">
       <Position>3</Position>
-      <DataType>decimal(8,2 digit)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="247" name="descripcion">
+    <column id="282" parent="247" name="valor">
       <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>decimal(8,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="283" parent="247" name="estado">

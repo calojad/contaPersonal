@@ -9,10 +9,11 @@
     </ol>
 @stop
 @section('content')
+    @include('includes.notificacion')
     <div class="box box-primary">
-        <div class="box-header">
+        <div class="box-header with-border">
             <h3 class="box-title">Presupuestos</h3>
-            <button class="btn btn-primary pull-right">Nuevo</button>
+            <a title="Nuevo Presupuesto" href="{{URL::to('presupuesto/create')}}" class="btn btn-primary pull-right">Nuevo</a>
         </div>
         <div class="box-body">
             <div class="row">
@@ -21,13 +22,18 @@
                         <thead>
                             <tr>
                                 <th>Presupuesto</th>
-                                <th>Descripción</th>
                                 <th>Total</th>
                                 <th>Estado</th>
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach($presupuestos as $presup)
+                                <tr>
+                                    <td>$presup->nombre</td>
+                                    <td>$presup->valor</td>
+                                    <td>$presup->estado</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

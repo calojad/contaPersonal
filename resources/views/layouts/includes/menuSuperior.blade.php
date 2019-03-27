@@ -17,11 +17,11 @@
             <ul class="nav navbar-nav">
                 @guest
                 @else
-                <li>
-                    <a href="{{URL::to('/home')}}"><i class="fa fa-bank "></i> Cuentas</a>
+                <li class="{{Request::is('home','inicio')?'active':''}}">
+                    <a href="{{URL::to('/home')}}"><i class="fa fa-bank"></i> Cuentas</a>
                 </li>
-                <li>
-                    <a href="{{URL::to('/presupuesto')}}"><i class="fa fa-coffee "></i> Presupuesto</a>
+                <li class="{{Request::is('presupuesto*')?'active':''}}">
+                    <a href="{{URL::to('/presupuesto/index')}}"><i class="fa fa-coffee"></i> Presupuesto</a>
                 </li>
                 @endguest
             </ul>

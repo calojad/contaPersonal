@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriaTransaccion;
+use App\Models\Presupuesto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PresupuestoController extends Controller
 {
@@ -13,7 +16,12 @@ class PresupuestoController extends Controller
      */
     public function getIndex()
     {
-        return view('presupuesto.index');
+        $categoriaTransac = CategoriaTransaccion::whereIn('usuario_id',[1,Auth::user()->id])
+            ->where('tipo_transac_id',2)
+            ->orderBy('nombre','asc')
+            ->pluck('nombre','id');
+        $presupuestos = Presupuesto::where('usuario_id',Auth::user()->id)->get();
+        return view('presupuesto.index',compact('categoriaTransac','presupuestos'));
     }
 
     /**
@@ -21,9 +29,9 @@ class PresupuestoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getCreate()
     {
-        //
+        return view('presupuesto.create');
     }
 
     /**
@@ -32,9 +40,10 @@ class PresupuestoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postStore(Request $request)
     {
-        //
+        $presupuesto = $request->all();
+        dd($presupuesto);
     }
 
     /**

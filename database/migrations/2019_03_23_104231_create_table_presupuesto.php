@@ -16,8 +16,8 @@ class CreateTablePresupuesto extends Migration
         Schema::create('presupuesto', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('usuario_id')->unsigned();
+            $table->string('nombre')();
             $table->decimal('valor','8','2');
-            $table->string('descripcion')->nullable();
             $table->string('estado')->comment('1=Activo;0=Inactivo');
             $table->timestamps();
         });
