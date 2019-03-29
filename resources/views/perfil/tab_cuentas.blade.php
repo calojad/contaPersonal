@@ -11,6 +11,7 @@
             </tr>
         </thead>
         <tbody>
+        @php($total = 0)
             @foreach ($cuentas as $cuenta)
                 <tr>
                     <td>
@@ -29,7 +30,12 @@
                         </div>
                     </td>
                 </tr>
+                @php($total = $total+$cuenta->saldo)
             @endforeach
+            <tr>
+                <td><b>TOTAL:</b></td>
+                <td><b>{{$total}}</b></td>
+            </tr>
         </tbody>
     </table>
 </div>
