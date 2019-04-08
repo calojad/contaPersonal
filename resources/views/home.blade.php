@@ -1,13 +1,4 @@
 @extends('layouts.app')
-@section('header')
-    <h1>
-        {{config('app.name','CALOJAD')}}
-        <small>Cuentas</small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="{{URL::to('/home')}}"><i class="fa fa-home"></i> Cuentas</a></li>
-    </ol>
-@stop
 @section('content')
     <div class="row">
         @include('includes.notificacion')
@@ -48,23 +39,30 @@
     @include('gasto.modal_form')
     {{--MODAL FORM CUENTAS--}}
     @include('cuentas.modal')
+    {{--MODAL FORM CUENTAS--}}
+    @include('cuentas.modal_transferir')
+
     <script type="text/javascript">
         $(function () {
             $('.table').DataTable({
-                pagingType: "full_numbers",
                 paging: false,
                 lengthChange: true,
-                searching: false,
-                ordering: true,
+                searching: true,
+                order: [[ 2, "desc" ]],
                 autoWidth: false,
                 retrieve: true,
-                responsive: true
+                responsive: true,
+                scrollY: '50vh',
+                scrollCollapse: true
             });
         });
         {{--Cuando cargue la pagina--}}
         $(document).ready(function () {
+            moment.locale('es');
             var cuentaId = "{{$tabActiva}}";
-            obtTransacciones(cuentaId);
+            var hasta = moment().format('Y-M-D');
+            var desde = moment().format('Y')+'-'+moment().format('M')+'-1';
+            obtTransacciones(cuentaId,desde,hasta);
             //Quita el overlay
             $('.overlay').fadeOut();
             //Poner el focus al mostrar el modal
@@ -90,12 +88,86 @@
         $('.tabCuentaLista').on('click',function () {
             var cuentaId = $(this).attr('id');
             var overlay = $('.overlay');
+            var hasta = moment().format('Y-M-D');
+            var desde = moment().format('Y')+'-'+moment().format('M')+'-1';
             overlay.fadeIn();
-            obtTransacciones(cuentaId);
+            obtTransacciones(cuentaId,desde,hasta);
+            $('.btnMesActual').addClass('active');
+            $('.btnMesAnterior').removeClass('active');
+            $('.btnDateCustom').removeClass('active');
             overlay.fadeOut();
         });
-        function obtTransacciones(cuentaId) {
-            var url = "{{URL::to('/transaccion/listatransacciones/')}}"+"/"+cuentaId;
+        // Boton mes actual
+        $('.btnMesActual').on('click',function () {
+            var cuentaId = $(this).data('id');
+            var overlay = $('.overlay');
+            $('.divDesdeHasta').hide();
+            if(!$(this).hasClass('active')){
+                var hasta = moment().format('Y-M-D');
+                var desde = moment().format('Y')+'-'+moment().format('M')+'-1';
+                overlay.fadeIn();
+                obtTransacciones(cuentaId,desde,hasta);
+                overlay.fadeOut();
+            }
+            $(this).addClass('active');
+            $('.btnMesAnterior').removeClass('active');
+            $('.btnDateCustom').removeClass('active');
+        });
+        // Boton mes anterior
+        $('.btnMesAnterior').on('click',function () {
+            var cuentaId = $(this).data('id');
+            var overlay = $('.overlay');
+            $('.divDesdeHasta').hide();
+            if(!$(this).hasClass('active')){
+                var hasta = moment().subtract(moment().format('D'),'days').format('Y-M-D');
+                var desde = moment().format('Y')+'-'+moment().subtract(1,'month').format('M')+'-1';
+                overlay.fadeIn();
+                obtTransacciones(cuentaId,desde,hasta);
+                overlay.fadeOut();
+            }
+            $(this).addClass('active');
+            $('.btnMesActual').removeClass('active');
+            $('.btnDateCustom').removeClass('active');
+        });
+        // Boton fecha personalizada
+        $('.btnDateCustom').on('click',function () {
+            $('.divDesdeHasta').show();
+            $(this).addClass('active');
+            $('.btnMesAnterior').removeClass('active');
+            $('.btnMesActual').removeClass('active');
+        });
+        // Boton buscar por fecha personalizada
+        $('.btnSearchDateCustom').on('click',function () {
+            var cuentaId = $(this).data('id');
+            var overlay = $('.overlay');
+            var desde = $('#inpDate1_'+cuentaId).val();
+            var hasta = $('#inpDate2_'+cuentaId).val();
+            if(desde === '' && hasta==='')
+                toastr.error("Fechas no validas", 'Error');
+            else if(moment(desde).isSameOrBefore(hasta)){
+                overlay.fadeIn();
+                obtTransacciones(cuentaId,desde,hasta);
+                overlay.fadeOut();
+            }else {
+                toastr.error("Las fechas deben ser pertinentes", 'Error');
+            }
+        });
+        // Boton mostrar modal de transferencias
+        $('.btnTransferirEntreCuentas').on('click',function () {
+            var url = '{{URL::to('cuenta/listransferir')}}'+'/'+$(this).data('id');
+            var select = $('.selCuetnasDestinoTransfer');
+            $('input[name=cuenta_ini]').val($(this).data('nombre'));
+            $('input[name=cuenta_ini_id]').val($(this).data('id'));
+            $.get(url,function (json) {
+                select.empty();
+                $.each(json, function(id,value){
+                    select.append('<option value="'+id+'">'+value+'</option>');
+                });
+            },'json');
+        });
+        // Funcion para obtener las transacciones de X cuenta desde d hasta h
+        function obtTransacciones(cuentaId,desde,hasta) {
+            var url = "{{URL::to('/transaccion/listatransacciones/')}}"+"/"+cuentaId+"/"+desde+"/"+hasta;
             var ti = $('#tblIngresos_'+cuentaId).DataTable();
             var tg = $('#tblGastos_'+cuentaId).DataTable();
             $.get(url,function (transac) {
@@ -106,16 +178,17 @@
                 $('#total_'+cuentaId).html(parseFloat(transac.total).toFixed(2));
             },'json');
         }
+        // Funcion que dibuja la tabla con sus transacciones
         function dibujarTabla(json,t) {
             t.clear().draw();
-            json.forEach(function(c){
-                t.row.add([
-                    '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
-                    c.valor,
-                    c.created_at,
-                    '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET"><div align="center"><button class="btn btn-danger btn-xs" type="submit" title="Eliminar Transaccion"><i class="fa fa-trash"></i></button></div></form>'
-                ]).draw(false);
-            });
+                json.forEach(function(c){
+                    t.row.add([
+                        '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
+                        c.valor,
+                        c.fecha,
+                        '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET"><div align="center"><button class="btn btn-danger btn-xs" type="submit" title="Eliminar Transaccion"><i class="fa fa-trash"></i></button></div></form>'
+                    ]).draw(false);
+                });
             $('[data-toggle="tooltip"]').tooltip();
         }
     </script>

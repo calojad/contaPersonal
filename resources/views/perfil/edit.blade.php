@@ -4,8 +4,9 @@
         {{Form::open(['url' => 'perfil/saveuserperfil','method' => 'post'])}}
         <div class="box-body">
             <div class="col-md-12 show-grid">
-                <img class="profile-user-img img-responsive img-circle" src="{{ asset('images/CAL_logo.png') }}"
-                     alt="User profile picture">
+                <a data-toggle="modal" data-target="#modalPerfilAvatar">
+                    <img class="profile-user-img img-responsive img-circle imagenmuestra" src="{{ asset($user->imagen) }}" alt="User profile picture" style="cursor: pointer">
+                </a>
             </div>
             <div class="col-md-12">
                 <div class="row show-grid">

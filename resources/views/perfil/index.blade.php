@@ -9,7 +9,7 @@
                     <div class="box-header"></div>
                     <div class="box-body">
                         <div class="col-md-12 show-grid">
-                            <img class="profile-user-img img-responsive img-circle" src="{{ asset('images/CAL_logo.png') }}" alt="User profile picture">
+                            <img class="profile-user-img img-responsive img-circle" src="{{ asset($user->imagen) }}" alt="User profile picture">
                         </div>
                         <div class="col-md-12">
                             <div class="row">
@@ -27,6 +27,7 @@
                 </div>
             </div>
             @include('perfil.edit')
+            @include('perfil.modal_avatar')
             <div class="col-md-8">
                 <div class="box box-principal">
                     <div class="box-header"><h3 class="box-title">Ajustes</h3></div>
@@ -57,11 +58,11 @@
 </div>
 @include('cuentas.modal')
 @include('categorias.modal_form')
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8" async defer>
     $(document).ready(function () {
         $('.modal').on('shown.bs.modal', function (e) {
             $('[autofocus]', e.target).focus();
-        })
+        });
     });
     // Boton para eliminar un elemento
     $('.btnDeleted').on('click',function(){
@@ -134,13 +135,28 @@
     //Inicializacion de DataTable
     $(function () {
             $('.table').DataTable({
-                paging: false,
                 scrollY: '50vh',
-                scrollCollapse: true
+                scrollCollapse: true,
+                paging: false,
             });
+    });
+    // Cargara imagen al seleccionar en el input:file
+    $("#imagen").on('change',function() {
+        readURL(this);
     });
 
 // FUNCIONES EDITAR TABS
+    // Previsualizar Imagen
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                // Asignamos el atributo src a la tag de imagen
+                $('.imagenmuestra').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
     // Mostrar botones de Editar
     function showEdit(inputEdt, botonsEdt, botons, span){
         inputEdt.show();

@@ -32,11 +32,14 @@
                 </tr>
                 @php($total = $total+$cuenta->saldo)
             @endforeach
-            <tr>
-                <td><b>TOTAL:</b></td>
-                <td><b>{{$total}}</b></td>
-            </tr>
         </tbody>
+        <tfoot>
+        <tr>
+            <td><b>TOTAL:</b></td>
+            <td><b>{{$total}}</b></td>
+            <td></td>
+        </tr>
+        </tfoot>
     </table>
 </div>
 <script type="text/javascript">

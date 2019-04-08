@@ -12,3 +12,5 @@
 {!! Html::script('adminLTE-2.4.3/bower_components/datatables/js/dataTables.bootstrap.js') !!}
 <!-- Alert Confirm -->
 {!! Html::script('plugins/jquery_alerts/jquery-confirm.min.js') !!}
+<!-- Moment -->
+{!! Html::script('plugins/moment.js/moment-with-locales.min.js') !!}

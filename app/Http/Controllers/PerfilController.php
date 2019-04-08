@@ -17,18 +17,7 @@ class PerfilController extends Controller
         $formCuenta_desde = 'P';
         $user = User::find($id);
 
-        $cuentas = Cuentas::leftjoin('transaccion', 'cuentas.id', '=', 'transaccion.cuenta_id')
-            ->select(DB::raw('
-        	((Select IfNull(SUM(transaccion.valor),0)
-        	  From transaccion
-        	  Where transaccion.tipo_transac_id = 1
-        	  and transaccion.cuenta_id = cuentas.id) - 
-        	  (Select IfNull(SUM(transaccion.valor),0)
-        	  From transaccion
-        	  Where transaccion.tipo_transac_id = 2
-        	  and transaccion.cuenta_id = cuentas.id)) as saldo,cuentas.nombre,cuentas.id'))
-            ->where('cuentas.usuario_id', $id)
-            ->groupBy('cuentas.id')
+        $cuentas = Cuentas::where('usuario_id', $id)
             ->get();
 
         $categoriasIngreso = CategoriaTransaccion::where('tipo_transac_id', 1)

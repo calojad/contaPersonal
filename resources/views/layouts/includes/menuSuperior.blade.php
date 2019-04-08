@@ -21,7 +21,7 @@
                     <a href="{{URL::to('/home')}}"><i class="fa fa-bank"></i> Cuentas</a>
                 </li>
                 <li class="{{Request::is('presupuesto*')?'active':''}}">
-                    <a href="{{URL::to('/presupuesto/index')}}"><i class="fa fa-coffee"></i> Presupuesto</a>
+                    <a href="{{URL::to('/presupuesto')}}"><i class="fa fa-coffee"></i> Presupuesto</a>
                 </li>
                 @endguest
             </ul>
@@ -70,7 +70,7 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="{{asset('adminLTE-2.4.3/dist/img/avatar5.png')}}" class="user-image"
+                            <img src="{{asset(Auth::user()->imagen)}}" class="user-image"
                                  alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
@@ -78,7 +78,7 @@
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="{{asset('adminLTE-2.4.3/dist/img/avatar5.png')}}" class="img-circle"
+                                <img src="{{asset(Auth::user()->imagen)}}" class="img-circle"
                                      alt="User Image">
                                 <p>
                                     {{ Auth::user()->name }}

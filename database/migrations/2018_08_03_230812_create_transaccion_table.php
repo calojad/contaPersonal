@@ -20,6 +20,7 @@ class CreateTransaccionTable extends Migration
             $table->integer('categoria_transac_id')->unsigned();
             $table->string('descripcion')->nullable();
             $table->decimal('valor','8','2');
+            $table->date('fecha')->nullable()->default(null);
             $table->timestamps();
         });
     }

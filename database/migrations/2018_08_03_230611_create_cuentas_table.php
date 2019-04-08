@@ -17,6 +17,7 @@ class CreateCuentasTable extends Migration
             $table->increments('id');
             $table->integer('usuario_id')->unsigned();
             $table->string('nombre');
+            $table->decimal('saldo','8','2');
             $table->timestamps();
         });
     }
