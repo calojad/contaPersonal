@@ -15,7 +15,7 @@
             @foreach ($cuentas as $cuenta)
                 <tr>
                     <td>
-                        <span id="cue_span_{{ $cuenta->id }}">{{ $cuenta->nombre }}</span>
+                        <a href="{{URL::to('/home').'/'.$cuenta->id}}"><span id="cue_span_{{ $cuenta->id }}">{{ $cuenta->nombre }}</span></a>
                         <input id="cue_{{ $cuenta->id }}" class="form-control" type="text" name="nombre" value="{{ $cuenta->nombre }}" style="display:none">
                     </td>
                     <td>{{ $cuenta->saldo==null?'0.00':$cuenta->saldo }}</td>

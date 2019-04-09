@@ -88,7 +88,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="/perfil/{{ Auth::user()->id }}" class="btn btn-primary btn-flat">Perfil</a>
+                                    <a href="{{URL::to('/perfil')}}" class="btn btn-primary btn-flat">Perfil</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-danger btn-flat">

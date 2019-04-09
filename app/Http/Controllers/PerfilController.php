@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Session;
 
 class PerfilController extends Controller
 {
-    public function getIndex($id)
+    public function getIndex()
     {
+        $id = Auth::user()->id;
         $formCuenta_desde = 'P';
         $user = User::find($id);
 
@@ -58,5 +59,21 @@ class PerfilController extends Controller
         Session::flash('success', 'Usuario Actualizado');
 
         return redirect('perfil/'.$id);
+    }
+
+    public function postImguser(Request $request){
+        $file = $request->file('imagen');
+        $user = User::find($request->get('userId'));
+        if($file->isFile()){
+            $nombre = $user->username.'-'.$file->getClientOriginalName();
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+            $user->update(['imagen'=>'/storage/profile_img/'.$nombre]);
+        }else{
+            Session::flash('error', 'Error con el archivo.');
+            return redirect('perfil');
+        }
+
+        Session::flash('success', 'Imagen de Perfil Actualizada');
+        return redirect('perfil');
     }
 }

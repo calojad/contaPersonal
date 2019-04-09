@@ -3,9 +3,12 @@
         <div class="box-header"></div>
         {{Form::open(['url' => 'perfil/saveuserperfil','method' => 'post'])}}
         <div class="box-body">
-            <div class="col-md-12 show-grid">
-                <a data-toggle="modal" data-target="#modalPerfilAvatar">
-                    <img class="profile-user-img img-responsive img-circle imagenmuestra" src="{{ asset($user->imagen) }}" alt="User profile picture" style="cursor: pointer">
+            <div class="col-md-12 show-grid contenedor-img">
+                <a href="" data-toggle="modal" data-target="#modalPerfilAvatar">
+                    <img class="profile-user-img img-responsive img-circle imagenmuestra image" src="{{ asset($user->imagen) }}" alt="User profile picture" style="cursor: pointer">
+                    <div class="middle">
+                        <div class="text-img"><i class="fa fa-camera"></i> Editar</div>
+                    </div>
                 </a>
             </div>
             <div class="col-md-12">
