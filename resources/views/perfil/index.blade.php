@@ -137,12 +137,17 @@
             $('.table').DataTable({
                 scrollY: '50vh',
                 scrollCollapse: true,
-                paging: false,
+                paging: false
             });
     });
     // Cargara imagen al seleccionar en el input:file
     $("#imagen").on('change',function() {
         readURL(this);
+    });
+    $('.aUserImageProfileDefault').on('click',function () {
+        var path = $(this).find('img').attr('src');
+        $('.imagenmuestra').attr('src', path);
+        $('#inpImgPath').val(path);
     });
 
 // FUNCIONES EDITAR TABS
