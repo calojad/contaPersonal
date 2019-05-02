@@ -6,6 +6,7 @@ use App\Models\CategoriaTransaccion;
 use App\Models\Presupuesto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PresupuestoController extends Controller
 {
@@ -20,18 +21,10 @@ class PresupuestoController extends Controller
             ->where('tipo_transac_id',2)
             ->orderBy('nombre','asc')
             ->pluck('nombre','id');
-        $presupuestos = Presupuesto::where('usuario_id',Auth::user()->id)->get();
-        return view('presupuesto.index',compact('categoriaTransac','presupuestos'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getCreate()
-    {
-        return view('presupuesto.create');
+        $presupuestos = Presupuesto::where('usuario_id',Auth::user()->id)->get();
+
+        return view('presupuesto.index',compact('categoriaTransac','presupuestos'));
     }
 
     /**
@@ -42,52 +35,24 @@ class PresupuestoController extends Controller
      */
     public function postStore(Request $request)
     {
+        $request->validate([
+            'valor' => 'required|numeric',
+            'categoria_transac_id' => 'required|numeric'
+        ]);
+
         $presupuesto = $request->all();
-        dd($presupuesto);
+
+        Presupuesto::create($presupuesto);
+        Session::flash('success', 'Categoria Presupuestaria agregada con exito.');
+
+        return redirect('/presupuesto');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function getTotales($ing)
     {
-        //
-    }
+        $gasto = Presupuesto::where('usuario_id',Auth::user()->id)
+            ->sum('valor');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return $ing - $gasto;
     }
 }

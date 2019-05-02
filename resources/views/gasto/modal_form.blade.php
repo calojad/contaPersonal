@@ -20,7 +20,7 @@
                     <label for="valor_gasto">Valor: </label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                        <input class="form-control" type="text" name="valor" id="valor_gasto" placeholder="250.00" required>
+                        <input class="form-control" type="number" name="valor" id="valor_gasto" placeholder="250.00" required step="any">
                     </div>
                 </div>
                 {{-- Field Fecha --}}

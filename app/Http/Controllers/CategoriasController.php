@@ -45,7 +45,7 @@ class CategoriasController extends Controller
         $data['usuario_id'] = Auth::user()->id;
         CategoriaTransaccion::create($data);
         Session::flash('success','Categoria Agregado');
-        return redirect('perfil/'.Auth::user()->id);
+        return redirect('/perfil');
     }
 
     /**
@@ -86,7 +86,7 @@ class CategoriasController extends Controller
         }
         $categoria->update($request->all());
         Session::flash('success','Categoria Actualizada.');
-        return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+        return json_encode(['url' => '/perfil']);
     }
 
     /**
@@ -100,10 +100,10 @@ class CategoriasController extends Controller
         $categ = CategoriaTransaccion::find($id);
         if (empty($categ)) {
             Session::flash('error','Categoria no encontrada.');
-            return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+            return json_encode(['url' => '/perfil']);
         }
         $categ->delete();
         Session::flash('success','Categoria eliminada.');
-        return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+        return json_encode(['url' => '/perfil']);
     }
 }

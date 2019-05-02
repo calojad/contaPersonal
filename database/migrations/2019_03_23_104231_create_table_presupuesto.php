@@ -16,17 +16,9 @@ class CreateTablePresupuesto extends Migration
         Schema::create('presupuesto', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('usuario_id')->unsigned();
-            $table->string('nombre')();
-            $table->decimal('valor','8','2');
-            $table->string('estado')->comment('1=Activo;0=Inactivo');
-            $table->timestamps();
-        });
-        Schema::create('presupuesto_detalle', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('presupuesto_id')->unsigned();
             $table->integer('categoria_transac_id')->unsigned();
             $table->decimal('valor','8','2');
-            $table->string('descripcion');
+            $table->string('descripcion')->nullable();
             $table->timestamps();
         });
     }
@@ -39,6 +31,5 @@ class CreateTablePresupuesto extends Migration
     public function down()
     {
         Schema::dropIfExists('presupuesto');
-        Schema::dropIfExists('presupuesto_detalle');
     }
 }

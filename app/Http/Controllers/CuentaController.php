@@ -39,7 +39,7 @@ class CuentaController extends Controller
         if(Input::get('formCuenta_desde') === 'H')
         	return redirect('/home');
         else
-        	return redirect('/perfil/'.Auth::user()->id);
+        	return redirect('/perfil');
     }
 
     public function getUpdate(Request $request, $id)
@@ -47,11 +47,11 @@ class CuentaController extends Controller
         $cuenta = Cuentas::find($id);
         if (empty($cuenta)) {
             Session::flash('error','Cuenta no encontrada.');
-            return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+            return json_encode(['url' => '/perfil']);
         }
         $cuenta->update($request->all());
         Session::flash('success','Cuenta Actualizada.');
-        return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+        return json_encode(['url' => '/perfil']);
     }
 
     public function getDestroy($id)
@@ -59,11 +59,11 @@ class CuentaController extends Controller
     	$cuenta = Cuentas::find($id);
         if (empty($cuenta)) {
             Session::flash('error','Cuenta no encontrada.');
-            return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+            return json_encode(['url' => '/perfil']);
         }
         $cuenta->delete();
         Session::flash('success','Cuenta eliminada.');
-        return json_encode(['url' => '/perfil/'.Auth::user()->id]);
+        return json_encode(['url' => '/perfil']);
     }
 
     public function getListransferir($cuentaId){

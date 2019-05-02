@@ -61,7 +61,8 @@ class PerfilController extends Controller
         return redirect('perfil');
     }
 
-    public function postImguser(Request $request){
+    public function postImguser(Request $request)
+    {
         $file = $request->file('imagen');
         $user = User::find($request->get('userId'));
         $txt = $request->get('defaultImagen');

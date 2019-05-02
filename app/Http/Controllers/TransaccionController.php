@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuentas;
 use App\Models\Transacciones;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -30,6 +31,11 @@ class TransaccionController extends Controller
 
     public function crearIngreso(Request $request)
     {
+        $request->validate([
+            'valor' => 'required|numeric',
+            'fecha' => 'date|before_or_equal:'.Carbon::now()->format('Y-m-d')
+        ]);
+
         $transac = Transacciones::create($request->all());
 
         Cuentas::where('id',$request->get('cuenta_id'))
@@ -41,6 +47,11 @@ class TransaccionController extends Controller
 
     public function crearGasto(Request $request)
     {
+        $request->validate([
+            'valor' => 'required|numeric',
+            'fecha' => 'date|before_or_equal:'.Carbon::now()->format('Y-m-d')
+        ]);
+
         $transac = Transacciones::create($request->all());
 
         Cuentas::where('id',$request->get('cuenta_id'))

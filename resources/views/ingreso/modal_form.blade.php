@@ -10,6 +10,7 @@
 			<div class="modal-body">
 				<input id="cuenta_id_ingreso" type="hidden" name="cuenta_id">
                 <input type="hidden" name="tipo_transac_id" value="1">
+
 				{{-- Field Categoria --}}
 				<div class="form-group">
 					<label for="nombre">Categoria: </label>
@@ -20,7 +21,7 @@
 					<label for="valor">Valor: </label>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-						<input class="form-control" type="text" name="valor" id="valor_ingreso" placeholder="375.00" required>
+						<input class="form-control" type="number" name="valor" id="valor_ingreso" placeholder="375.00" required step="any">
 					</div>
 				</div>
 				{{-- Field Fecha --}}
