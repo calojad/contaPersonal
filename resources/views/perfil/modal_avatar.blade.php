@@ -14,8 +14,7 @@
                     <input type="hidden" name="userId" value="{{$user->id}}">
                     <input id="inpImgPath" type="hidden" name="defaultImagen">
                     <div class="form-group" align="center">
-                        <img src="{{asset($user->imagen)}}" width="20%" height="20%" class="imagenmuestra"
-                             alt="Imagen de usuario">
+                        <img src="{{asset($user->imagen)}}" width="20%" height="20%" class="imagenmuestra" alt="Imagen de usuario">
                     </div>
                 </div>
                 <div class="row">
@@ -41,7 +40,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-default pull-left" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-default pull-left btnCancelarAvatar" type="button" data-dismiss="modal">Cancelar</button>
                 <button id="btnAceptarAvatar" class="btn btn-primary pull-right" type="submit">Aceptar</button>
                 {!! Form::close() !!}
             </div>

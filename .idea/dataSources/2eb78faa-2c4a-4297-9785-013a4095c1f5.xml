@@ -14,8 +14,8 @@
     </schema>
     <schema id="4" parent="1" name="cal_finanzas">
       <Current>1</Current>
-      <Visible>1</Visible>
       <Collation>latin1_swedish_ci</Collation>
+      <Visible>1</Visible>
     </schema>
     <schema id="5" parent="1" name="cal_ldswebdes">
       <Collation>latin1_swedish_ci</Collation>
@@ -1042,13 +1042,11 @@
     </key>
     <foreign-key id="261" parent="245" name="categoria_transac_tipo_transac_id_foreign">
       <ColNames>tipo_transac_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>tipo_transac</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="262" parent="245" name="categoria_transac_usuario_id_foreign">
       <ColNames>usuario_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -1099,7 +1097,6 @@
     </key>
     <foreign-key id="271" parent="246" name="cuentas_usuario_id_foreign">
       <ColNames>usuario_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -1182,7 +1179,6 @@
     </key>
     <foreign-key id="286" parent="248" name="presupuesto_usuario_id_foreign">
       <ColNames>usuario_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
@@ -1190,7 +1186,6 @@
     </foreign-key>
     <foreign-key id="287" parent="248" name="presupuesto_categoria_transac_id_foreign">
       <ColNames>categoria_transac_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>categoria_transac</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
@@ -1236,7 +1231,6 @@
     </key>
     <foreign-key id="295" parent="249" name="tipo_transac_usuario_id_foreign">
       <ColNames>usuario_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -1310,21 +1304,24 @@
     </key>
     <foreign-key id="309" parent="250" name="transaccion_cuenta_id_foreign">
       <ColNames>cuenta_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>cuentas</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="310" parent="250" name="transaccion_tipo_transac_id_foreign">
       <ColNames>tipo_transac_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>tipo_transac</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="311" parent="250" name="transaccion_categoria_transac_id_foreign">
       <ColNames>categoria_transac_id</ColNames>
-      <RefSchemaName>cal_finanzas</RefSchemaName>
       <RefTableName>categoria_transac</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="312" parent="251" name="id">
       <Position>1</Position>

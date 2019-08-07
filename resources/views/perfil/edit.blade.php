@@ -1,6 +1,6 @@
 <div id="divEditarInfoUsuario" class="col-md-4" style="display: none">
     <div class="box box-principal">
-        <div class="box-header"></div>
+        <div class="box-header"><h3 class="box-title">Información del Perfil</h3></div>
         {{Form::open(['url' => 'perfil/saveuserperfil','method' => 'post'])}}
         <div class="box-body">
             <div class="col-md-12 show-grid contenedor-img">

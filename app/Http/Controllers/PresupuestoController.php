@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Session;
 
 class PresupuestoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function getIndex()
     {
         $categoriaTransac = CategoriaTransaccion::whereIn('usuario_id',[1,Auth::user()->id])
@@ -48,11 +43,38 @@ class PresupuestoController extends Controller
         return redirect('/presupuesto');
     }
 
+    public function postUpdate(Request $request)
+    {
+        $request->validate([
+            'valor' => 'required|numeric',
+            'categoria_transac_id' => 'required|numeric'
+        ]);
+
+        $presu = Presupuesto::updateOrCreate(
+            ['id' => $request->get('id'), 'usuario_id' => $request->get('usuario_id')],
+            ['categoria_transac_id' => $request->get('categoria_transac_id'), 'valor' => $request->get('valor'), 'descripcion' => $request->get('descripcion')]
+        );
+        Session::flash('success', 'Categoria Presupuestaria modificada con exito.');
+        return redirect('/presupuesto');
+    }
+
     public function getTotales($ing)
     {
         $gasto = Presupuesto::where('usuario_id',Auth::user()->id)
             ->sum('valor');
 
         return $ing - $gasto;
+    }
+
+    public function getDestroy($id)
+    {
+        $presupuesto = Presupuesto::find($id);
+        if (empty($presupuesto)) {
+            Session::flash('error','Presupuesto no encontrada.');
+            return json_encode(['url' => '/presupuesto']);
+        }
+        $presupuesto->delete();
+        Session::flash('success','Presupuesto eliminado.');
+        return json_encode(['url' => '/presupuesto']);
     }
 }

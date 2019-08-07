@@ -1,22 +1,23 @@
-{!! Form::open(['url'=>'/presupuesto/store','method'=>'post']) !!}
-<div class="modal fade" id="modalAddPresupuesto" style="display: none;">
+{!! Form::open(['url'=>'/presupuesto/update','method'=>'post']) !!}
+<div class="modal fade" id="modalEditPresupuesto" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <div class="modal-header" style="background-color: #06a388; color: white;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="fa fa-times" aria-hidden="true"></span></button>
-                <h4 class="modal-title">Agregar Gasto Presupuestario</h4>
+                <h4 class="modal-title">Editar Gasto Presupuestario</h4>
             </div>
 
             <div class="modal-body">
                 <div class="content">
                     <input type="hidden" name="usuario_id" value="{{Auth::user()->id}}">
+                    <input id="idPresupuesto" type="hidden" name="id">
 
                     {{-- Field Categoria --}}
                     <div class="form-group">
                         <label for="presupuesto_categoria_transac_id">Categoria: </label>
-                        {{ Form::select('categoria_transac_id',$categoriaTransac,null,['class'=>'form-control','required'=>true]) }}
+                        {{ Form::select('categoria_transac_id',$categoriaTransac,null,['class'=>'form-control','required'=>true,'id'=>'presupuesto_categoria_transac_id']) }}
                     </div>
 
                     {{-- Field Valor --}}
@@ -24,14 +25,14 @@
                         <label for="valorPresupuesto">Valor: </label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                            <input class="form-control" type="number" name="valor" placeholder="375.00" required step="any">
+                            <input class="form-control" type="number" name="valor" id="valorPresupuesto" placeholder="375.00" required step="any">
                         </div>
                     </div>
 
                     {{-- Field Descripcion --}}
                     <div class="form-group">
                         <label for="descripcionPresupuesto">Descripcion: </label>
-                        <input class="form-control" name="descripcion" type="text">
+                        <input class="form-control" id="descripcionPresupuesto" name="descripcion" type="text">
                     </div>
                 </div>
             </div>

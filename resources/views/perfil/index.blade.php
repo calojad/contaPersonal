@@ -6,7 +6,7 @@
         <div class="row">
             <div id="divInfUsuario" class="col-md-4">
                 <div class="box box-principal">
-                    <div class="box-header"></div>
+                    <div class="box-header"><h3 class="box-title">Información del Perfil</h3></div>
                     <div class="box-body">
                         <div class="col-md-12 show-grid">
                             <img class="profile-user-img img-responsive img-circle" src="{{ asset($user->imagen) }}" alt="User profile picture">
@@ -30,7 +30,7 @@
             @include('perfil.modal_avatar')
             <div class="col-md-8">
                 <div class="box box-principal">
-                    <div class="box-header"><h3 class="box-title">Ajustes</h3></div>
+                    <div class="box-header"><h3 class="box-title"></h3></div>
                     <div class="box-body">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
@@ -72,7 +72,7 @@
             type: 'red',
             icon: 'glyphicon glyphicon-remove',
             title: 'Eliminar',
-            content: '¿Esta Seguro de eliminar este elemento?',
+            content: '¿Esta Seguro de eliminar este elemento?<br>Puede contener datos valiosos.',
             buttons: {
                 Eliminar: {
                     btnClass: 'btn-red any-other-class',
@@ -146,6 +146,12 @@
     });
     $('.aUserImageProfileDefault').on('click',function () {
         var path = $(this).find('img').attr('src');
+        $('.imagenmuestra').attr('src', path);
+        $('#inpImgPath').val(path);
+    });
+    // Cancelar modal avatar
+    $('.btnCancelarAvatar').on('click',function () {
+        var path = '{{asset($user->imagen)}}';
         $('.imagenmuestra').attr('src', path);
         $('#inpImgPath').val(path);
     });

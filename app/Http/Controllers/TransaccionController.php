@@ -71,14 +71,14 @@ class TransaccionController extends Controller
             ->where('transaccion.cuenta_id', $cuentaId)
             ->where('transaccion.tipo_transac_id', 1)
             ->whereBetween('transaccion.fecha', [$desde, $hasta])
-            ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre')
+            ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre','categoria_transac.id as categoria_id','transaccion.tipo_transac_id')
             ->get();
 
         $gastos = Transacciones::leftjoin('categoria_transac', 'transaccion.categoria_transac_id', '=', 'categoria_transac.id')
             ->where('cuenta_id', $cuentaId)
             ->where('transaccion.tipo_transac_id', 2)
             ->whereBetween('transaccion.fecha', [$desde, $hasta])
-            ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre')
+            ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre','categoria_transac.id as categoria_id','transaccion.tipo_transac_id')
             ->get();
         $totalIng = 0;
         $totalGas = 0;
@@ -97,9 +97,20 @@ class TransaccionController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function postUpdate(Request $request)
     {
-        //
+        $request->validate([
+            'valor' => 'required|numeric',
+            'fecha' => 'date|before_or_equal:'.Carbon::now()->format('Y-m-d')
+        ]);
+
+        $transac = Transacciones::updateOrCreate(
+            ['id' => $request->get('id'), 'categoria_transac_id' => $request->get('categoria_transac_id')],
+            ['valor' => $request->get('valor'), 'fecha' => $request->get('fecha'), 'descripcion' => $request->get('descripcion')]
+        );
+
+        Session::flash('success', 'Transaccion modificada exitosamente.');
+        return redirect('/home/'.$transac->cuenta_id);
     }
 
     public function getDestroy($id)

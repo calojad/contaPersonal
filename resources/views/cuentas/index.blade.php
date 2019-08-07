@@ -6,7 +6,7 @@
 <div class="box box-solid box-principal">
     {{--NOMBRE DE LA CUENTA--}}
     <div class="box-header">
-        <span class="box-title">{{Auth::user()->name.' - '.$cuenta->nombre}}</span>
+        <span class="box-title">{{$cuenta->nombre .' - Ultimos Movimientos' }}</span>
         <a class="btn btn-default btnTransferirEntreCuentas" title="Transferir"  style="margin-left:15px" data-toggle="modal" data-target="#modalTransferencia" data-id="{{$cuenta->id}}" data-nombre="{{$cuenta->nombre}}"><i class="fa fa-exchange"></i></a>
     </div>
     {{--CAJAS DE INGRESOS Y GASTOS DE LA CUENTA--}}

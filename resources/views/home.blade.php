@@ -41,6 +41,8 @@
     @include('cuentas.modal')
     {{--MODAL FORM CUENTAS--}}
     @include('cuentas.modal_transferir')
+    {{--MODAL EDITAR TRANSACCION--}}
+    @include('cuentas.modal_edit_transacc')
 
     <script type="text/javascript">
         $(function () {
@@ -165,7 +167,46 @@
                 });
             },'json');
         });
-        // Funcion para obtener las transacciones de X cuenta desde d hasta h
+        // Boton mostrar modal para editar transaccion
+        $(document).on('click','.btnEditarTransaccionModal',function () {
+            var id = $(this).data('id');
+            var categoriaId = $(this).data('categoria');
+            var valor = $(this).data('valor');
+            var fecha = $(this).data('fecha');
+            var descripcion = $(this).data('descripcion');
+            var tipoTransac = $(this).data('tipotransac');
+            var select = $('#selCategoriaTransacEdit');
+            var categorias;
+
+            if(tipoTransac === 1){
+                categorias = JSON.parse($('input[name=categoriasIngreso]').val());
+            }else{
+                categorias = JSON.parse($('input[name=categoriasGasto]').val());
+            }
+            console.log(categorias);
+            select.empty();
+            $.each(categorias, function(id,value){
+                select.append('<option value="'+id+'">'+value+'</option>');
+            });
+
+            var elementos = select.children("option").get();
+            elementos.sort(function(a,b) {
+                var A = $(a).text().toUpperCase();
+                var B = $(b).text().toUpperCase();
+                return (A < B) ? -1 : (A > B) ? 1 : 0;
+            });
+            $.each(elementos, function(id, elemento) {
+                select.append(elemento);
+            });
+
+            $('#selCategoriaTransacEdit > option[value='+categoriaId+']').attr("selected",true);
+            $('#inpHiddenIdTransac').val(id);
+            $('#valorTransacEdit').val(valor);
+            $('#fechaTransacEdit').val(fecha);
+            $('#descripTransacEdit').val(descripcion);
+        });
+
+        // Funcion para obtener las transacciones de X cuenta desde fecha inicio hasta fecha fin
         function obtTransacciones(cuentaId,desde,hasta) {
             var url = "{{URL::to('/transaccion/listatransacciones/')}}"+"/"+cuentaId+"/"+desde+"/"+hasta;
             var ti = $('#tblIngresos_'+cuentaId).DataTable();
@@ -186,8 +227,13 @@
                         '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
                         c.valor,
                         c.fecha,
-                        '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET"><div align="center"><button class="btn btn-danger btn-xs" type="submit" title="Eliminar Transaccion"><i class="fa fa-trash"></i></button></div></form>'
-                    ]).draw(false);
+                        '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET">' +
+                            '<div class="btn-group">' +
+                                '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button" data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'"><i class="fa fa-edit"></i></button>' +
+                                '<button class="btn btn-danger btn-xs" type="submit" title="Eliminar Transaccion"><i class="fa fa-trash"></i></button>'+
+                            '</div>' +
+                        '</form>'
+                    ]).draw();
                 });
             $('[data-toggle="tooltip"]').tooltip();
         }

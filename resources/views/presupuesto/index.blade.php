@@ -11,9 +11,11 @@
 @section('content')
     @include('includes.notificacion')
     <div class="box box-primary">
+
         <div class="box-header with-border">
             <h3 class="box-title">Presupuestos</h3>
         </div>
+
         <div class="box-body">
             <div class="container">
                 <div class="form-horizontal col-md-12 col-md-offset-2">
@@ -51,10 +53,12 @@
                             <tr>
                                 <td>{{$presup->categoria->nombre}}</td>
                                 <td>{{$presup->valor}}</td>
-                                <td>{{$presup->estado}}</td>
+                                <td>{{$presup->descripcion}}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                    <div class="btn-group acciones">
+                                        <button type="button" class="btn btn-primary btnEditPresu" data-toggle="modal" data-target="#modalEditPresupuesto" data-presupuesto="{{$presup}}"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-danger btnDeletePresu" data-id="{{ $presup->id }}"><i class="fa fa-trash"></i></button>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -63,40 +67,87 @@
                 </div>
             </div>
         </div>
+
         <div class="box-footer">
             <div class="container">
                 <h2 class="">TOTAL: <span id="spaTotalPresupuesto" class="text-bold"></span></h2>
             </div>
         </div>
-    </div>
-    <script type="text/javascript">
 
+    </div>
+    @include('presupuesto.modal_edit')
+    <script type="text/javascript">
+        var inputIngreso = $("#ingresoTotal");
         $(document).ready(function () {
             obtTotalGasto();
 
-            $("#ingresoTotal").on('keypress', function (e) {
+            inputIngreso.on('keypress', function (e) {
                 var code = (e.keyCode ? e.keyCode : e.which);
-                if(code===13){
+                if (code === 13) {
                     obtTotalGasto();
                 }
             });
         });
+        // Boton para editar el presupuesto
+        $('.btnEditPresu').on('click', function () {
+            var presupuesto =$(this).data('presupuesto');
 
-        $('#ingresoTotal').on('input', function () {
-            this.value = this.value.replace(/[^0-9]/g, '');
+            $('#presupuesto_categoria_transac_id option').attr("selected",false);
+
+            $('#presupuesto_categoria_transac_id > option[value='+presupuesto.categoria_transac_id+']').attr("selected",true);
+            $('#idPresupuesto').val(presupuesto.id);
+            $('#valorPresupuesto').val(presupuesto.valor);
+            $('#descripcionPresupuesto').val(presupuesto.descripcion);
+        });
+        // Boton para eliminar el presupuesto
+        $('.btnDeletePresu').on('click', function () {
+            var id = $(this).data('id');
+            $.confirm({
+                type: 'red',
+                icon: 'glyphicon glyphicon-remove',
+                title: 'Eliminar',
+                content: '¿Esta Seguro de eliminar este elemento?',
+                buttons: {
+                    Eliminar: {
+                        btnClass: 'btn-red any-other-class',
+                        action: function () {
+                            var url = '{{URL::to('/presupuesto/destroy')}}' + '/' + id;
+                            $.get(url, function (json) {
+                                window.location.href = json.url;
+                            }, 'json');
+                        }
+                    },
+                    cancel: function () {
+                    }
+                },
+                escapeKey: true,
+                backgroundDismiss: true
+            });
         });
 
-        function obtTotalGasto(){
-            var ingreso = $('#ingresoTotal');
-            var url= '{{URL::to('presupuesto/totales')}}'+'/'+ingreso.val();
-            var span =  $('#spaTotalPresupuesto');
+        inputIngreso.on('input', function () {
+            this.value = this.value.replace(/[^0-9,.]/g, '');
+        });
 
-            $.get(url,function (json) {
-                console.log(json);
-                span.html('$ '+json);
-            },'json');
+        // Calcular total del presupuesto
+        function obtTotalGasto() {
+            var ingreso = $('#ingresoTotal');
+            console.log(ingreso.val());
+            if (ingreso.val() === '') {
+                ingreso.val(0);
+            }
+            var url = '{{URL::to('presupuesto/totales')}}' + '/' + ingreso.val();
+            var span = $('#spaTotalPresupuesto');
+
+            $.get(url, function (json) {
+                if (json < 0)
+                    span.html('$ ' + json).css('color', 'red');
+                else
+                    span.html('$ ' + json).css('color', 'black');
+            }, 'json');
         }
 
+        // Inicializar Tabla
         $(function () {
             $('.table').DataTable({
                 pagingType: "full_numbers",

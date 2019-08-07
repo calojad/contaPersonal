@@ -30,7 +30,7 @@
                         </div>
                     </td>
                 </tr>
-                @php($total = $total+$cuenta->saldo)
+                @php($total = $total + $cuenta->saldo)
             @endforeach
         </tbody>
         <tfoot>
