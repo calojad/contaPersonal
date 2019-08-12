@@ -17,7 +17,10 @@
             <ul class="nav navbar-nav">
                 @guest
                 @else
-                <li class="{{Request::is('home','inicio')?'active':''}}">
+                <li class="{{Request::is('dashboard')?'active':''}}">
+                    <a href="{{URL::to('/dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                </li>
+                <li class="{{Request::is('home*','inicio')?'active':''}}">
                     <a href="{{URL::to('/home')}}"><i class="fa fa-bank"></i> Cuentas</a>
                 </li>
                 <li class="{{Request::is('presupuesto*')?'active':''}}">

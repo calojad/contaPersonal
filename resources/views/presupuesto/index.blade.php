@@ -1,13 +1,4 @@
 @extends('layouts.app')
-@section('header')
-    <h1>
-        {{config('app.name','EVAL')}}
-        <small>Presupuesto</small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="{{URL::to('/presupuesto')}}"><i class="fa fa-home"></i> Presupuesto</a></li>
-    </ol>
-@stop
 @section('content')
     @include('includes.notificacion')
     <div class="box box-primary">

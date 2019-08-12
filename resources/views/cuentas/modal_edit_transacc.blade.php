@@ -11,6 +11,9 @@
                 <input type="hidden" name="id" id="inpHiddenIdTransac">
                 <input type="hidden" name="categoriasIngreso" value="{{$categoriasIngreso}}">
                 <input type="hidden" name="categoriasGasto" value="{{$categoriasGasto}}">
+                <input type="hidden" name="cuenta_id" id="inpCuentaIdEditTransac">
+                <input type="hidden" name="tipo_transac_id" id="inpTipoIdEditTransac">
+
                 {{-- Field Categoria --}}
                 <div class="form-group">
                     <label for="nombre">Categoria: </label>

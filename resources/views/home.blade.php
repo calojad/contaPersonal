@@ -97,6 +97,7 @@
             $('.btnMesActual').addClass('active');
             $('.btnMesAnterior').removeClass('active');
             $('.btnDateCustom').removeClass('active');
+            $('.divDesdeHasta').hide();
             overlay.fadeOut();
         });
         // Boton mes actual
@@ -176,6 +177,7 @@
             var descripcion = $(this).data('descripcion');
             var tipoTransac = $(this).data('tipotransac');
             var select = $('#selCategoriaTransacEdit');
+            var cuenta = $(this).data('cuenta');
             var categorias;
 
             if(tipoTransac === 1){
@@ -204,6 +206,8 @@
             $('#valorTransacEdit').val(valor);
             $('#fechaTransacEdit').val(fecha);
             $('#descripTransacEdit').val(descripcion);
+            $('#inpCuentaIdEditTransac').val(cuenta);
+            $('#inpTipoIdEditTransac').val(tipoTransac);
         });
 
         // Funcion para obtener las transacciones de X cuenta desde fecha inicio hasta fecha fin
@@ -229,7 +233,7 @@
                         c.fecha,
                         '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET">' +
                             '<div class="btn-group">' +
-                                '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button" data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'"><i class="fa fa-edit"></i></button>' +
+                                '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button" data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'" data-cuenta="'+c.cuenta_id+'"><i class="fa fa-edit"></i></button>' +
                                 '<button class="btn btn-danger btn-xs" type="submit" title="Eliminar Transaccion"><i class="fa fa-trash"></i></button>'+
                             '</div>' +
                         '</form>'

@@ -105,8 +105,8 @@ class TransaccionController extends Controller
         ]);
 
         $transac = Transacciones::updateOrCreate(
-            ['id' => $request->get('id'), 'categoria_transac_id' => $request->get('categoria_transac_id')],
-            ['valor' => $request->get('valor'), 'fecha' => $request->get('fecha'), 'descripcion' => $request->get('descripcion')]
+            ['id' => $request->get('id'), 'cuenta_id' => $request->get('cuenta_id'),'tipo_transac_id' => $request->get('tipo_transac_id')],
+            ['categoria_transac_id' => $request->get('categoria_transac_id'),'valor' => $request->get('valor'), 'fecha' => $request->get('fecha'), 'descripcion' => $request->get('descripcion')]
         );
 
         Session::flash('success', 'Transaccion modificada exitosamente.');

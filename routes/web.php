@@ -40,4 +40,5 @@ Route::group(['middleware' => 'auth'], function () {
     AdvancedRoute::controller('/categoria','CategoriasController');
     AdvancedRoute::controller('/tipo','TiposController');
     AdvancedRoute::controller('/presupuesto','PresupuestoController');
+    AdvancedRoute::controller('/dashboard','DashboardController');
 });

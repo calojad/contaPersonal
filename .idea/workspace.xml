@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2eb78faa-2c4a-4297-9785-013a4095c1f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2eb78faa-2c4a-4297-9785-013a4095c1f5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PresupuestoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PresupuestoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TransaccionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransaccionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cuentas/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cuentas/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cuentas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cuentas/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cuentas/modal_edit_transacc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cuentas/modal_edit_transacc.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perfil/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perfil/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perfil/modal_avatar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/modal_avatar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perfil/tab_cuentas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/tab_cuentas.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/presupuesto/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/presupuesto/modal_add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/presupuesto/modal_add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -355,7 +346,10 @@
       <workItem from="1565033306808" duration="7829000" />
       <workItem from="1565119941222" duration="8137000" />
       <workItem from="1565187048089" duration="1511000" />
-      <workItem from="1565188655100" duration="14177000" />
+      <workItem from="1565188655100" duration="15146000" />
+      <workItem from="1565270301390" duration="18565000" />
+      <workItem from="1565616538672" duration="22000" />
+      <workItem from="1565616593527" duration="4865000" />
     </task>
     <servers />
   </component>
