@@ -4,6 +4,7 @@
 @stop
 @section('content')
     <input id="inpHiddenCuentas" type="hidden" value="{{$cuentas}}">
+    <input id="inpHiddenGCategorias" type="hidden" value="{{$cuentas}}">
     @include('includes.notificacion')
     <div class="row">
         <div class="col-md-6">
@@ -23,7 +24,7 @@
                                     <th>Cuenta</th>
                                     <th>Saldo</th>
                                 </tr>
-                            </thead>
+                            </thead> 1
 
                             <tbody>
                                 @php($total = 0)
@@ -60,7 +61,7 @@
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="myChart" style="height: 40vh;"></canvas>
+                        <canvas id="chartCuentas" style="height: 40vh;"></canvas>
                     </div>
                 </div>
             </div>
@@ -68,21 +69,34 @@
     </div>
 
     <div class="row">
-
+        <div class="col-md-12">
+            <div class="box box-danger">
+                <div class="box-header with-border"><h3 class="box-title">Gastos por Categoría</h3></div>
+                <div class="box-body">
+                    <div class="chart">
+                        <canvas id="chartGCategorias" style="height: 60vh;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         var colores = ["rgba(255, 205, 86, 0.2)","rgba(255, 99, 132, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 159, 64, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)"];
+        //Inicializar Chart Cuentas
         $(function () {
             var ids=0;
             var cuentas = JSON.parse($('#inpHiddenCuentas').val());
-            var ctx = document.getElementById('myChart').getContext('2d');
+            var ctx = document.getElementById('chartCuentas').getContext('2d');
             var labels=[], valor=[], color=[];
             $.each(cuentas, function(id, value) {
                 labels.push(value.nombre);
                 valor.push(value.saldo);
                 color.push(colores[ids]);
-                ids++;
+                if(ids>7)
+                    ids=0;
+                else
+                    ids++;
             });
 
             var data = {
@@ -97,9 +111,11 @@
                 ]
             };
             var opciones = {
-                scales:{
-                    "xAxes":[{
-                        "ticks":{"beginAtZero":true}
+                responsive: true,
+                maintainAspectRatio: false,
+                sscales:{
+                    xAxes:[{
+                        ticks:{beginAtZero:true}
                     }]
                 }
             };
@@ -110,7 +126,58 @@
                 options: opciones
             });
         });
+        //Inicializar Chart Gastos por Categorias
+        $(function () {
+            var d = new Date();
+            var n = d.getMonth();
+            var ids=0;
+            var categorias = JSON.parse($('#inpHiddenGCategorias').val());
+            var ctx = document.getElementById('chartGCategorias').getContext('2d');
+            var valor=[], color=[];
+            var meses =['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
+        /*    $.each(cuentas, function(id, value) {
+                valor.push(value.saldo);
+                color.push(colores[ids]);
+                if(ids>7)
+                    ids=0;
+                else
+                    ids++;
+            });*/
+
+            var data = {
+                labels  : [meses[n]],
+                datasets: [
+                    {
+                        label: 'Arriendo',
+                        data: [250],
+                        backgroundColor:'red',
+                        borderWidth:1
+                    },
+                    {
+                        label: 'Agua',
+                        data: [20],
+                        backgroundColor:'blue',
+                        borderWidth:1
+                    }
+                ]
+            };
+            var opciones = {
+                responsive: true,
+                maintainAspectRatio: false,
+                sscales:{
+                    xAxes:[{
+                        ticks:{beginAtZero:true}
+                    }]
+                }
+            };
+
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: opciones
+            });
+        });
         //Inicializacion de DataTable
         $(function () {
             $('.table').DataTable({

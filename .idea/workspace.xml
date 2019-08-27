@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TransaccionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransaccionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cuentas/modal_edit_transacc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cuentas/modal_edit_transacc.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -200,19 +197,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\app\Models" />
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\resources\views\includes" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\dist" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\plugins" />
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\js" />
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\images" />
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\css" />
       <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\bower_components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\app\Models" />
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\resources\views\includes" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\dist" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -349,7 +346,13 @@
       <workItem from="1565188655100" duration="15146000" />
       <workItem from="1565270301390" duration="18565000" />
       <workItem from="1565616538672" duration="22000" />
-      <workItem from="1565616593527" duration="4865000" />
+      <workItem from="1565616593527" duration="4977000" />
+      <workItem from="1566590452975" duration="3820000" />
+      <workItem from="1566827307549" duration="109000" />
+      <workItem from="1566827611984" duration="36000" />
+      <workItem from="1566827673728" duration="2336000" />
+      <workItem from="1566843195721" duration="9769000" />
+      <workItem from="1566917350920" duration="2494000" />
     </task>
     <servers />
   </component>

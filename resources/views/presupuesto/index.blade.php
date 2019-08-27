@@ -1,5 +1,15 @@
 @extends('layouts.app')
 @section('content')
+    <style>
+        .tooltip.top > .tooltip-inner{
+            max-width: 200px;
+            padding: 3px 8px;
+            color: #fff;
+            text-align: center;
+            background-color: #06a388;
+            border-radius: 4px
+        }
+    </style>
     @include('includes.notificacion')
     <div class="box box-primary">
 
@@ -15,13 +25,13 @@
                         <div class="form-group">
                             <label class="col-md-5 control-label" for="ingresoTotal">Total ingresos:</label>
                             <div class="col-md-5">
-                                <input type="number" name="ingretoTotal" id="ingresoTotal" class="form-control" value="0">
+                                <input type="text" name="ingresoTotal" id="ingresoTotal" class="form-control" value="0" data-toggle="tooltip" title="Digite sus Ingresos Mensuales" data-placement="top" autofocus onkeypress="return filterFloat(event,this);">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-1">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddPresupuesto">Agregar
+                        <button  class="btn btn-primary" data-toggle="modal" data-target="#modalAddPresupuesto">Agregar
                             Categoria
                         </button>
                     </div>
@@ -43,7 +53,7 @@
                         @foreach($presupuestos as $presup)
                             <tr>
                                 <td>{{$presup->categoria->nombre}}</td>
-                                <td>{{$presup->valor}}</td>
+                                <td class="tdValorG">{{$presup->valor}}</td>
                                 <td>{{$presup->descripcion}}</td>
                                 <td>
                                     <div class="btn-group acciones">
@@ -54,6 +64,13 @@
                             </tr>
                         @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><span class="text-bold h4">Total Gastos:</span></td>
+                                <td><span class="text-bold h4" id="spaTotalGastos">$0.00</span></td>
+                                <td colspan="2"></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -71,13 +88,14 @@
         var inputIngreso = $("#ingresoTotal");
         $(document).ready(function () {
             obtTotalGasto();
-
+            sumaGastos();
             inputIngreso.on('keypress', function (e) {
                 var code = (e.keyCode ? e.keyCode : e.which);
                 if (code === 13) {
                     obtTotalGasto();
                 }
             });
+            $('[data-toggle="tooltip"]').tooltip();
         });
         // Boton para editar el presupuesto
         $('.btnEditPresu').on('click', function () {
@@ -116,17 +134,49 @@
             });
         });
 
-        inputIngreso.on('input', function () {
-            this.value = this.value.replace(/[^0-9,.]/g, '');
-        });
+        /*inputIngreso.on('input', function () {
+            this.value = this.value.replace(/\D/g, "").replace(/([0-9])([0-9]{2})$/, '$1.$2')
+        });*/
+
+        function filterFloat(evt,input){
+            // Backspace = 8, Enter = 13, ‘0′ = 48, ‘9′ = 57, ‘.’ = 46, ‘-’ = 43
+            var key = window.Event ? evt.which : evt.keyCode;
+            var chark = String.fromCharCode(key);
+            var tempValue = input.value+chark;
+            if(key >= 48 && key <= 57){
+                return filter(tempValue) !== false;
+            }else{
+                if(key === 8 || key === 13 || key === 0) {
+                    return true;
+                }else if(key === 46){
+                    return filter(tempValue) !== false;
+                }else{
+                    return false;
+                }
+            }
+        }
+        function filter(__val__){
+            var preg = /^([0-9]+\.?[0-9]{0,2})$/;
+            return preg.test(__val__) === true;
+        }
+
+        // Sumar los gastos
+        function sumaGastos() {
+            var totalGasto=0;
+            $(".tdValorG").each(function(){
+                totalGasto+=parseInt($(this).html()) || 0;
+            });
+            $('#spaTotalGastos').html('$'+totalGasto);
+        }
 
         // Calcular total del presupuesto
         function obtTotalGasto() {
             var ingreso = $('#ingresoTotal');
-            console.log(ingreso.val());
+
             if (ingreso.val() === '') {
                 ingreso.val(0);
             }
+
             var url = '{{URL::to('presupuesto/totales')}}' + '/' + ingreso.val();
             var span = $('#spaTotalPresupuesto');
 
