@@ -24,7 +24,6 @@ Route::get('/register-dialog', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/inicio', 'HomeController@inicio')->name('inicio');
 
 Auth::routes();
 

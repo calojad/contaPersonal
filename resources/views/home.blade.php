@@ -65,8 +65,6 @@
             var hasta = moment().format('Y-M-D');
             var desde = moment().format('Y')+'-'+moment().format('M')+'-1';
             obtTransacciones(cuentaId,desde,hasta);
-            //Quita el overlay
-            $('.overlay').fadeOut();
             //Poner el focus al mostrar el modal
             $('.modal').on('shown.bs.modal', function (e) {
                 $('[autofocus]', e.target).focus();
@@ -98,7 +96,6 @@
             $('.btnMesAnterior').removeClass('active');
             $('.btnDateCustom').removeClass('active');
             $('.divDesdeHasta').hide();
-            overlay.fadeOut();
         });
         // Boton mes actual
         $('.btnMesActual').on('click',function () {
@@ -110,7 +107,6 @@
                 var desde = moment().format('Y')+'-'+moment().format('M')+'-1';
                 overlay.fadeIn();
                 obtTransacciones(cuentaId,desde,hasta);
-                overlay.fadeOut();
             }
             $(this).addClass('active');
             $('.btnMesAnterior').removeClass('active');
@@ -126,7 +122,6 @@
                 var desde = moment().format('Y')+'-'+moment().subtract(1,'month').format('M')+'-1';
                 overlay.fadeIn();
                 obtTransacciones(cuentaId,desde,hasta);
-                overlay.fadeOut();
             }
             $(this).addClass('active');
             $('.btnMesActual').removeClass('active');
@@ -150,7 +145,6 @@
             else if(moment(desde).isSameOrBefore(hasta)){
                 overlay.fadeIn();
                 obtTransacciones(cuentaId,desde,hasta);
-                overlay.fadeOut();
             }else {
                 toastr.error("Las fechas deben ser pertinentes", 'Error');
             }
@@ -221,6 +215,7 @@
                 $('#totalIng_'+cuentaId).html(parseFloat(transac.totalIng).toFixed(2));
                 $('#totalGas_'+cuentaId).html(parseFloat(transac.totalGas).toFixed(2));
                 $('#total_'+cuentaId).html(parseFloat(transac.total).toFixed(2));
+                $('.overlay').fadeOut('slow');
             },'json');
         }
         // Funcion que dibuja la tabla con sus transacciones

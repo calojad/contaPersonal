@@ -10,6 +10,7 @@
             <div class="modal-body">
                 <input id="cuenta_id_gastos" type="hidden" name="cuenta_id">
                 <input type="hidden" name="tipo_transac_id" value="2">
+                <input type="hidden" name="tipo" value="S">
                 {{-- Field Categoria --}}
                 <div class="form-group">
                     <label>Categoria: </label>

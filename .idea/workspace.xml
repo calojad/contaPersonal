@@ -3,9 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CuentaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CuentaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Transacciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Transacciones.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_03_230812_create_transaccion_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_03_230812_create_transaccion_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/gasto/modal_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/gasto/modal_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ingreso/modal_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ingreso/modal_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -352,7 +360,13 @@
       <workItem from="1566827611984" duration="36000" />
       <workItem from="1566827673728" duration="2336000" />
       <workItem from="1566843195721" duration="9769000" />
-      <workItem from="1566917350920" duration="2494000" />
+      <workItem from="1566917350920" duration="15780000" />
+      <workItem from="1567103438036" duration="3706000" />
+      <workItem from="1567523962163" duration="45000" />
+      <workItem from="1567524034848" duration="3247000" />
+      <workItem from="1567602527304" duration="8143000" />
+      <workItem from="1567722352082" duration="83000" />
+      <workItem from="1567722460000" duration="1036000" />
     </task>
     <servers />
   </component>

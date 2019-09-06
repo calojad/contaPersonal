@@ -10,5 +10,5 @@ class Transacciones extends Model
     const CREATED_AT = 'created_At';
     const UPDATED_AT = 'updated_At';
     public $timestamps = true;
-    protected $fillable = ['cuenta_id', 'tipo_transac_id', 'categoria_transac_id', 'descripcion', 'valor','fecha'];
+    protected $fillable = ['cuenta_id', 'tipo_transac_id', 'categoria_transac_id', 'descripcion', 'valor','fecha','tipo'];
 }

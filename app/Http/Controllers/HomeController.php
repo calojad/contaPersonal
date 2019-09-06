@@ -67,7 +67,7 @@ class HomeController extends Controller
         return view('home', compact('cuentas','tabActiva','categoriasGasto','categoriasIngreso','formCuenta_desde','categorias'));
     }
 
-    public function inicio($tab=0)
+    /*public function inicio($tab=0)
     {
         $formCuenta_desde = 'H';
         $tabActiva = $tab;
@@ -89,5 +89,5 @@ class HomeController extends Controller
             $tabActiva = $cuentas[0]->id;
         Session::flash('info', 'Bienvenido a tus cuentas Personales.');
         return view('home', compact('cuentas', 'tabActiva','categoriasGasto','categoriasIngreso','formCuenta_desde','categorias'));
-    }
+    }*/
 }

@@ -88,6 +88,7 @@ class CuentaController extends Controller
             $data_gast['descripcion'] = $request->get('descripcion');
             $data_gast['valor'] = $request->get('valor');
             $data_gast['fecha'] = Carbon::now()->format('Y-m-d');
+            $data_gast['tipo'] = 'T';
 
             Transacciones::create($data_gast);
 
@@ -97,6 +98,7 @@ class CuentaController extends Controller
             $data_ing['descripcion'] = $request->get('descripcion');
             $data_ing['valor'] = $request->get('valor');
             $data_ing['fecha'] = Carbon::now()->format('Y-m-d');
+            $data_ing['tipo'] = 'T';
 
             Transacciones::create($data_ing);
 

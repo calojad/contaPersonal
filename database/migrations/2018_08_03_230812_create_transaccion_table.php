@@ -21,6 +21,7 @@ class CreateTransaccionTable extends Migration
             $table->string('descripcion')->nullable();
             $table->decimal('valor','8','2');
             $table->date('fecha')->nullable()->default(null);
+            $table->char('tipo')->nullable()->default(null)->coments('S:Salida;I:Ingreso,T:Transferencia');
             $table->timestamps();
         });
     }
