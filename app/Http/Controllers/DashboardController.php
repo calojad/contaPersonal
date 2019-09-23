@@ -43,4 +43,18 @@ class DashboardController extends Controller
 
         return view('dashboard.index', compact('cuentas','gastosCateg'));
     }
+
+    public function getdetalleCatGasto($catId){
+        $m = Carbon::now()->format('m');
+        $gastosCateg = Transacciones::leftjoin('categoria_transac','categoria_transac.id', '=', 'transaccion.categoria_transac_id')
+            ->leftjoin('cuentas','cuentas.id' ,'=', 'transaccion.cuenta_id')
+            ->where('cuentas.usuario_id',Auth::user()->id)
+            ->where('transaccion.categoria_transac_id',$catId)
+            ->where('transaccion.tipo','S')
+            ->whereMonth('transaccion.fecha', $m)
+            ->select(DB::raw('transaccion.categoria_transac_id, categoria_transac.nombre,transaccion.descripcion,valor'))
+            ->get();
+
+        return json_encode($gastosCateg);
+    }
 }

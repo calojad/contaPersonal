@@ -75,7 +75,7 @@
                     <h3 class="box-title">Categoría</h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    </div>l
+                    </div>
                 </div>
                 <div class="box-body">
                     <div class="table-responsive">
@@ -92,7 +92,7 @@
                             @foreach ($gastosCateg as $gasto)
                                 <tr>
                                     <td>
-                                        <a data-idcategoria="{{$gasto->categoria_transac_id}}" data-toggle="modal" data-target="modalDetallesGastoDashboard">{{ $gasto->nombre }}</a>
+                                        <a class="btnVerDetallesGasto" style="cursor: pointer" data-idcategoria="{{$gasto->categoria_transac_id}}" data-toggle="modal" data-target="#modalDetallesGastoDashboard" title="Ver Detalles">{{ $gasto->nombre }}</a>
                                     </td>
                                     <td>{{ $gasto->gasto==null?'0.00':$gasto->gasto }}</td>
                                 </tr>
@@ -111,7 +111,7 @@
                 </div>
             </div>
         </div>
-
+        @include('dashboard.modal_detallesGasto')
         <div class="col-md-8">
             <div class="box box-danger">
                 <div class="box-header with-border">
@@ -179,6 +179,7 @@
                 options: opciones
             });
         });
+        //*Fin Chart Cuentas*
         //Inicializar Chart Gastos por Categorias
         $(function () {
             var d = new Date();
@@ -235,6 +236,7 @@
                 options: opciones
             });
         });
+        //*Fin Chart Categoria Gastos*
         //Inicializacion de DataTable
         $(function () {
             $('.table').DataTable({
@@ -243,6 +245,21 @@
                 searching: false
             });
         });
+        //Boton ver detalles del gasto
+        $('.btnVerDetallesGasto').on('click', function () {
+            var id = $(this).data('idcategoria');
+            var url = '{{URL::to('/dashboard/detalle-cat-gasto')}}'+'/'+id;
+            var t = $('#tblDetallesCatGastos').DataTable();
+            $.get(url,function (json) {
+                t.clear().draw();
+                json.forEach(function(g){
+                    t.row.add([
+                        g.descripcion!=null?g.descripcion:g.nombre,
+                        g.valor
+                    ]).draw(false);
+                });
+            },'json');
+        })
     </script>
 @stop
 @section('scripts')
