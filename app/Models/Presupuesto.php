@@ -10,7 +10,7 @@ class Presupuesto extends Model
     const CREATED_AT = 'created_At';
     const UPDATED_AT = 'updated_At';
     public $timestamps = true;
-    protected $fillable = ['usuario_id', 'categoria_transac_id', 'valor','descripcion'];
+    protected $fillable = ['usuario_id', 'categoria_transac_id', 'valor','descripcion','estado'];
 
     public function categoria()
     {

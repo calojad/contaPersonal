@@ -77,4 +77,9 @@ class PresupuestoController extends Controller
         Session::flash('success','Presupuesto eliminado.');
         return json_encode(['url' => '/presupuesto']);
     }
+
+    public function getActualizarEstado($id,$estado){
+        $presupuesto = Presupuesto::find($id);
+        $presupuesto->update(['estado'=>$estado]);
+    }
 }

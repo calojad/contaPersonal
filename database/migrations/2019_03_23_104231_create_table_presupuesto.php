@@ -19,6 +19,7 @@ class CreateTablePresupuesto extends Migration
             $table->integer('categoria_transac_id')->unsigned();
             $table->decimal('valor','8','2');
             $table->string('descripcion')->nullable();
+            $table->integer('estado')->comment('0:No completado;1:Completo')->default(0);
             $table->timestamps();
         });
     }

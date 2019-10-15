@@ -43,6 +43,7 @@
                     <table class="table table-responsive table-striped table-bordered table-hover table-checkable datatable">
                         <thead>
                         <tr>
+                            <th width="5"></th>
                             <th>Categoría</th>
                             <th>Valor</th>
                             <th>Descripcion</th>
@@ -51,7 +52,8 @@
                         </thead>
                         <tbody>
                         @foreach($presupuestos as $presup)
-                            <tr>
+                            <tr class="trPresupuestoCategoria_{{$presup->id}}" style="{{$presup->estado==1?'text-decoration:line-through':''}}">
+                                <td align="center"><i class="fa {{$presup->estado==0?'fa-square-o':'fa-check-square-o'}} fa-2x text-blue iCheckCompleto" style="cursor: pointer" data-id="{{$presup->id}}"></i></td>
                                 <td>{{$presup->categoria->nombre}}</td>
                                 <td class="tdValorG">{{$presup->valor}}</td>
                                 <td>{{$presup->descripcion}}</td>
@@ -66,7 +68,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td><span class="text-bold h4">Total Gastos:</span></td>
+                                <td colspan="2"><span class="text-bold h4">Total Gastos:</span></td>
                                 <td><span class="text-bold h4" id="spaTotalGastos">$0.00</span></td>
                                 <td colspan="2"></td>
                             </tr>
@@ -81,11 +83,16 @@
                 <h2 class="">TOTAL: <span id="spaTotalPresupuesto" class="text-bold"></span></h2>
             </div>
         </div>
-
+        <div class="overlay">
+            <i class="fa fa-refresh fa-spin"></i>
+        </div>
     </div>
     @include('presupuesto.modal_edit')
+
     <script type="text/javascript">
+        //Input con el valor de ingresos mensuales
         var inputIngreso = $("#ingresoTotal");
+        // Al Cargar la pagina
         $(document).ready(function () {
             obtTotalGasto();
             sumaGastos();
@@ -96,7 +103,10 @@
                 }
             });
             $('[data-toggle="tooltip"]').tooltip();
+
+            $('.overlay').fadeOut('slow');
         });
+
         // Boton para editar el presupuesto
         $('.btnEditPresu').on('click', function () {
             var presupuesto =$(this).data('presupuesto');
@@ -108,6 +118,7 @@
             $('#valorPresupuesto').val(presupuesto.valor);
             $('#descripcionPresupuesto').val(presupuesto.descripcion);
         });
+
         // Boton para eliminar el presupuesto
         $('.btnDeletePresu').on('click', function () {
             var id = $(this).data('id');
@@ -134,10 +145,23 @@
             });
         });
 
-        /*inputIngreso.on('input', function () {
-            this.value = this.value.replace(/\D/g, "").replace(/([0-9])([0-9]{2})$/, '$1.$2')
-        });*/
-
+        //Click al icono del chekbox para cambiar el estado del presupuesto
+        $('.iCheckCompleto').on('click', function () {
+            var id = $(this).data('id');
+            var url = '{{URL::to('/presupuesto/actualizar-estado')}}';
+            if ($(this).hasClass('fa-square-o')){
+                $(this).removeClass('fa-square-o');
+                $(this).addClass('fa-check-square-o');
+                $('.trPresupuestoCategoria_'+id).css('text-decoration','line-through')
+                $.get(url+'/'+id+'/'+1);
+            }else{
+                $(this).removeClass('fa-check-square-o');
+                $(this).addClass('fa-square-o');
+                $('.trPresupuestoCategoria_'+id).css('text-decoration','none')
+                $.get(url+'/'+id+'/'+0);
+            }
+        });
+        //Funcion para que solo se ingresen numeros en el input de ingreso mensual
         function filterFloat(evt,input){
             // Backspace = 8, Enter = 13, ‘0′ = 48, ‘9′ = 57, ‘.’ = 46, ‘-’ = 43
             var key = window.Event ? evt.which : evt.keyCode;
@@ -155,6 +179,7 @@
                 }
             }
         }
+        //Funcion para que solo se ingresen numeros en el input de ingreso mensual
         function filter(__val__){
             var preg = /^([0-9]+\.?[0-9]{0,2})$/;
             return preg.test(__val__) === true;
@@ -172,7 +197,6 @@
         // Calcular total del presupuesto
         function obtTotalGasto() {
             var ingreso = $('#ingresoTotal');
-
             if (ingreso.val() === '') {
                 ingreso.val(0);
             }
@@ -191,16 +215,11 @@
         // Inicializar Tabla
         $(function () {
             $('.table').DataTable({
-                pagingType: "full_numbers",
                 paging: false,
-                lengthChange: true,
                 searching: false,
                 ordering: true,
-                autoWidth: false,
-                retrieve: true,
-                responsive: true
+                order: ['2','desc']
             });
         });
-
     </script>
 @stop

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/modal_detallesGasto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/modal_detallesGasto.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PresupuestoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PresupuestoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Presupuesto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Presupuesto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_03_23_104231_create_table_presupuesto.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_03_23_104231_create_table_presupuesto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -373,6 +373,9 @@
       <workItem from="1568902165275" duration="5293000" />
       <workItem from="1569251600437" duration="29000" />
       <workItem from="1569251658233" duration="96000" />
+      <workItem from="1570028346441" duration="8413000" />
+      <workItem from="1570460186862" duration="595000" />
+      <workItem from="1571061867592" duration="586000" />
     </task>
     <servers />
   </component>
