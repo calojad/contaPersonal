@@ -72,6 +72,12 @@
             //Inicializa el tooaltip
             $('[data-toggle="tooltip"]').tooltip();
         });
+        // Reloj
+        setInterval(function(){
+            var times = moment().format('h:mm:ss a');
+            var par = $('#spaReloj');
+            par.html(times);
+        },1000);
         // Boton para llenar el formulario de Ingresos
         $('.btnFormIngreso').on('click',function () {
             $('#cuenta_id_ingreso').val($(this).attr('cuentaId'));
@@ -119,7 +125,8 @@
             $('.divDesdeHasta').hide();
             if(!$(this).hasClass('active')){
                 var hasta = moment().subtract(moment().format('D'),'days').format('Y-M-D');
-                var desde = moment().format('Y')+'-'+moment().subtract(1,'month').format('M')+'-1';
+                var numDias = moment(hasta).format('D');
+                var desde = moment(hasta).subtract(numDias-1,'days').format('Y-M-D');
                 overlay.fadeIn();
                 obtTransacciones(cuentaId,desde,hasta);
             }

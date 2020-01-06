@@ -6,8 +6,20 @@
 <div class="box box-solid box-principal">
     {{--NOMBRE DE LA CUENTA--}}
     <div class="box-header">
-        <span class="box-title">{{$cuenta->nombre .' - Ultimos Movimientos' }}</span>
-        <a class="btn btn-default btnTransferirEntreCuentas" title="Transferir"  style="margin-left:15px" data-toggle="modal" data-target="#modalTransferencia" data-id="{{$cuenta->id}}" data-nombre="{{$cuenta->nombre}}"><i class="fa fa-exchange"></i></a>
+        <div class="row">
+            <div class="col-md-9">
+                <span class="box-title">{{$cuenta->nombre .' - Ultimos Movimientos' }}</span>
+                <a class="btn btn-default btnTransferirEntreCuentas" title="Transferir"  style="margin-left:15px" data-toggle="modal" data-target="#modalTransferencia" data-id="{{$cuenta->id}}" data-nombre="{{$cuenta->nombre}}"><i class="fa fa-exchange"></i></a>
+            </div>
+            <div class="pull-right col-md-3">
+                <div class="col-md-8">
+                    <span class="text-bold" style="font-size: large">{{\Carbon\Carbon::now()->formatLocalized('%A %d de %b %Y')}}</span>
+                </div>
+                <div class="col-md-4">
+                    <span id="spaReloj" class="text-bold" style="font-size: large"></span>
+                </div>
+            </div>
+        </div>
     </div>
     {{--CAJAS DE INGRESOS Y GASTOS DE LA CUENTA--}}
     <div class="box-body" style="background: #ecf0f5">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="cal_finanzas@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.15">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.17">
     <root id="1">
       <ServerVersion>10.1.37</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -15,7 +15,6 @@
     <schema id="4" parent="1" name="cal_finanzas">
       <Current>1</Current>
       <Collation>latin1_swedish_ci</Collation>
-      <Visible>1</Visible>
     </schema>
     <schema id="5" parent="1" name="cal_ldswebdes">
       <Collation>latin1_swedish_ci</Collation>
