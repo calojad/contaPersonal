@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/contaPersonal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/contaPersonal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2eb78faa-2c4a-4297-9785-013a4095c1f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2eb78faa-2c4a-4297-9785-013a4095c1f5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cuentas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cuentas/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,13 +72,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\.idea" />
-      </set>
-    </option>
   </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
@@ -178,17 +168,21 @@
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/thanks" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
     </include_path>
   </component>
   <component name="ProjectId" id="1OmgnIjkuUaGFllLRlTNLlakKMF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="adminlte.m&#9;FILE&#9;file://C:/Users/Calojad/Documents/ProyectosWeb/contaPersonal/public/adminLTE-2.4.3/dist/css/AdminLTE.min.css&#10;bootstrap&#9;FILE&#9;file://C:/Users/Calojad/Documents/ProyectosWeb/contaPersonal/public/boostrap-3.3.7/css/bootstrap.min.css&#10;login&#9;FILE&#9;file://C:/Users/Calojad/Documents/ProyectosWeb/contaPersonal/resources/views/auth/login-dialog.blade.php&#10;modal&#9;FILE&#9;file://C:/Users/Calojad/Documents/ProyectosWeb/contaPersonal/resources/views/gasto/modal_form.blade.php&#10;app&#9;FILE&#9;file://C:/Users/Calojad/Documents/ProyectosWeb/contaPersonal/resources/views/layouts/app.blade.php&#10;Cuenta&#9;null&#9;null&#10;Cue&#9;null&#9;null&#10;au&#9;FILE&#9;file://C:/Users/Calojad/Documents/ProyectosWeb/contaPersonal/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php&#10;register&#9;null&#9;null&#10;tabla&#9;FILE&#9;file://C:/Users/Calojad/Documents/ProyectosWeb/contaPersonal/resources/views/ingreso/tabla.balde.php&#10;kama&#9;FILE&#9;file://C:/Users/Calojad/Documents/ProyectosWeb/contaPersonal/vendor/oriceon/toastr-5-laravel/src/Kamaln7&#10;lo&#9;null&#9;null" />
@@ -208,7 +202,7 @@
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -225,18 +219,6 @@
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\css" />
       <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\bower_components" />
     </key>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -375,42 +357,37 @@
       <workItem from="1575993005006" duration="1859000" />
       <workItem from="1577978808265" duration="6083000" />
       <workItem from="1577990553527" duration="5539000" />
+      <workItem from="1590260748924" duration="253000" />
+      <workItem from="1590261024524" duration="134000" />
+      <workItem from="1590261234691" duration="167000" />
+      <workItem from="1590261424832" duration="158000" />
+      <workItem from="1590261606027" duration="2387000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="594" height="446" key="SwitcherDM" timestamp="1577984813140">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="570" y="207" key="#Notifications" timestamp="1590261095564">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="594" height="446" key="SwitcherDM/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1577984813140" />
-    <state x="505" y="266" key="com.intellij.ide.util.TipDialog" timestamp="1577990622364">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="570" y="207" key="#Notifications/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261095564" />
+    <state x="184" y="8" key="SettingsEditor" timestamp="1590261584360">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="505" y="266" key="com.intellij.ide.util.TipDialog/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1577990622364" />
-    <state x="359" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.-304.1920.1040@0.0.1366.728" timestamp="1575993005002" />
-    <state x="641" y="261" width="638" height="518" key="find.popup" timestamp="1577985473610">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="641" y="261" width="638" height="518" key="find.popup/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1577985473610" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1577984227755">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1577984227755" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261584360" />
   </component>
 </project>
