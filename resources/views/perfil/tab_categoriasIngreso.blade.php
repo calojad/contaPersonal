@@ -18,8 +18,8 @@
                     </td>
                     <td>
                         <div id="btngrpCatIn_{{ $catIngreso->id }}" class="btn-group acciones">
-                            <button type="button" class="btn btn-primary btnEditarCateIn" categId="{{ $catIngreso->id }}"><i class="fa fa-edit"></i></button>
                             @if ($catIngreso->usuario_id == Auth::user()->id)
+                            <button type="button" class="btn btn-primary btnEditarCateIn" categId="{{ $catIngreso->id }}"><i class="fa fa-edit"></i></button>
                             <button type="button" class="btn btn-danger btnDeleted" elemId="{{ $catIngreso->id }}" band="CA"><i class="fa fa-trash"></i></button>
                             @endif
                         </div>

@@ -18,8 +18,8 @@
                     </td>
                     <td>
                         <div id="btngrpCatGa_{{ $catGasto->id }}" class="btn-group acciones">
-                            <button type="button" class="btn btn-primary btnEditarCateGa" categId="{{ $catGasto->id }}"><i class="fa fa-edit"></i></button>
                             @if ($catGasto->usuario_id == Auth::user()->id)
+                            <button type="button" class="btn btn-primary btnEditarCateGa" categId="{{ $catGasto->id }}"><i class="fa fa-edit"></i></button>
                             <button type="button" class="btn btn-danger btnDeleted" elemId="{{ $catGasto->id }}" band="CA"><i class="fa fa-trash"></i></button>
                             @endif
                         </div>

@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/contaPersonal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/contaPersonal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/perfil/tab_categoriasGasto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/tab_categoriasGasto.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/perfil/tab_categoriasIngreso.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/tab_categoriasIngreso.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +59,6 @@
       </path>
     </expand>
     <select />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="contaPersonal" />
   </component>
   <component name="FileColors">
     <fileColor scope="Non-Project Files (Material Default)" color="2E3C43" />
@@ -167,11 +170,14 @@
       <path value="$PROJECT_DIR$/vendor/lesichkovm/laravel-advanced-route" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/symfony/thanks" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/kylekatarnls/update-helper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
     </include_path>
   </component>
   <component name="ProjectId" id="1OmgnIjkuUaGFllLRlTNLlakKMF" />
@@ -202,22 +208,22 @@
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\app\Models" />
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\resources\views\includes" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\dist" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\plugins" />
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\js" />
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\images" />
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\css" />
       <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\bower_components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\app\Models" />
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\resources\views\includes" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\dist" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -361,7 +367,11 @@
       <workItem from="1590261024524" duration="134000" />
       <workItem from="1590261234691" duration="167000" />
       <workItem from="1590261424832" duration="158000" />
-      <workItem from="1590261606027" duration="2387000" />
+      <workItem from="1590261606027" duration="7556000" />
+      <workItem from="1591907049530" duration="142000" />
+      <workItem from="1591907302768" duration="317000" />
+      <workItem from="1592107839175" duration="23000" />
+      <workItem from="1593396803515" duration="150000" />
     </task>
     <servers />
   </component>
@@ -385,9 +395,32 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="570" y="207" key="#Notifications/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261095564" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1590261584360">
+    <state x="275" y="4" key="#Plugins" timestamp="1591907332924">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="4" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1591907332924" />
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591907116532">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1591907116532" />
+    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1590281315172">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590281315172" />
+    <state x="184" y="8" key="SettingsEditor" timestamp="1593396950943">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261584360" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593396950943" />
+    <state width="505" height="446" key="SwitcherDM" timestamp="1590282652608">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state width="505" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590280742796" />
+    <state width="505" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1590282652608" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590282645641">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590280712791" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1590282645641" />
   </component>
 </project>
