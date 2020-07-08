@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/contaPersonal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/contaPersonal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perfil/tab_categoriasGasto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/tab_categoriasGasto.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perfil/tab_categoriasIngreso.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/tab_categoriasIngreso.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +181,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ACTIVE_CLOUD_PROJECT_ACCOUNT" value="andres.loja.d@gmail.com" />
+    <property name="ACTIVE_CLOUD_PROJECT_ID" value="essential-text-282303" />
+    <property name="ACTIVE_CLOUD_PROJECT_NAME" value="Fnananzas Personales" />
+    <property name="ACTIVE_CLOUD_PROJECT_NUMBER" value="608356704443" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -208,7 +206,7 @@
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -372,6 +370,9 @@
       <workItem from="1591907302768" duration="317000" />
       <workItem from="1592107839175" duration="23000" />
       <workItem from="1593396803515" duration="150000" />
+      <workItem from="1593436085064" duration="105000" />
+      <workItem from="1594056706409" duration="677000" />
+      <workItem from="1594057411817" duration="910000" />
     </task>
     <servers />
   </component>
@@ -395,10 +396,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="570" y="207" key="#Notifications/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261095564" />
-    <state x="275" y="4" key="#Plugins" timestamp="1591907332924">
+    <state x="275" y="4" key="#Plugins" timestamp="1593436194738">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="4" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1591907332924" />
+    <state x="275" y="4" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1593436194738" />
     <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591907116532">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -407,11 +408,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="309" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590281315172" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1593396950943">
+    <state x="184" y="8" key="SettingsEditor" timestamp="1594057390702">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261584360" />
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593396950943" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594057390702" />
     <state width="505" height="446" key="SwitcherDM" timestamp="1590282652608">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
