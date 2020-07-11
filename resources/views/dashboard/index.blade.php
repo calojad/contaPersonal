@@ -7,7 +7,7 @@
     <input id="inpHiddenGCategorias" type="hidden" value="{{$gastosCateg}}">
     @include('includes.notificacion')
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="box box-primary box-sombra">
                 <div class="box-header with-border">
                     <h3 class="box-title">Cuentas</h3>
@@ -51,7 +51,8 @@
 
             </div>
         </div>
-        <div class="col-md-6">
+
+        <div class="col-md-8">
             <div class="box box-info box-sombra">
                 <div class="box-header with-border">
                     <h3 class="box-title">Saldo</h3>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="chartCuentas" style="height: 60vh"></canvas>
+                        <canvas id="chartCuentas" style="height: 60vh; width: 100%"></canvas>
                     </div>
                 </div>
             </div>
@@ -101,7 +102,7 @@
                             </tbody>
 
                             <tfoot>
-                            <tr>
+                            <tr>SSOL
                                 <td><b>TOTAL:</b></td>
                                 <td><b>{{$total}}</b></td>
                             </tr>
@@ -131,6 +132,7 @@
 
     <script type="text/javascript">
         var colores = ["rgba(255, 205, 86, 0.5)","rgba(255, 99, 132, 0.5)","rgba(75, 192, 192, 0.5)","rgba(201, 203, 207, 0.5)","rgba(54, 162, 235, 0.5)","rgba(255, 159, 64, 0.5)","rgba(153, 102, 255, 0.5)"];
+
         //Inicializar Chart Cuentas
         $(function () {
             var ids=0;
@@ -167,10 +169,13 @@
                     }
                 },
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 scales:{
                     xAxes:[{
-                        ticks:{beginAtZero:true}
+                        ticks:{
+                            beginAtZero:true,
+                            suggestedMax: 50
+                        }
                     }]
                 }
             };
@@ -182,6 +187,7 @@
             });
         });
         //*Fin Chart Cuentas*
+
         //Inicializar Chart Gastos por Categorias
         $(function () {
             var d = new Date();
@@ -239,6 +245,7 @@
             });
         });
         //*Fin Chart Categoria Gastos*
+
         //Inicializacion de DataTable
         $(function () {
             $('.table').DataTable({

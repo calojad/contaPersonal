@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CuentaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CuentaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cuentas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cuentas/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perfil/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perfil/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/testing/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/GX91UKpkq7ivOdNV5ugjLDxFuk8KgtQkzplGEVgl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/VIV5v1b6XL8kEMTkrMMXYyQtjJbX6TlxPhr7ShHQ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/c7xXCkx4gKLGGCKuuk7bjcnovx9ymB0utWHjweMf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/pvb37MzGsoEBLiRRc2mdUcyT0zDCYqYpGzJ7i0oe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/sp5ZJtIkNnpUOKjogxCxKTdsc9YYm23us53KxvQJ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/9a9cbfe34d05867cdce28acc17550332a4824a6b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/9a9cbfe34d05867cdce28acc17550332a4824a6b.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,19 +215,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\plugins" />
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\js" />
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\images" />
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\css" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\bower_components" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\app\Models" />
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\resources\views\includes" />
       <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public" />
       <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\dist" />
       <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\plugins" />
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\js" />
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\images" />
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\css" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\bower_components" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -383,7 +379,7 @@
       <workItem from="1593436085064" duration="105000" />
       <workItem from="1594056706409" duration="677000" />
       <workItem from="1594057411817" duration="910000" />
-      <workItem from="1594431677288" duration="305000" />
+      <workItem from="1594431677288" duration="4042000" />
     </task>
     <servers />
   </component>
@@ -419,20 +415,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="309" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590281315172" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1594057390702">
+    <state x="184" y="8" key="SettingsEditor" timestamp="1594436961002">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261584360" />
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594057390702" />
-    <state width="505" height="446" key="SwitcherDM" timestamp="1590282652608">
-      <screen x="1366" y="0" width="1366" height="728" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594436961002" />
+    <state width="505" height="446" key="SwitcherDM" timestamp="1594436341273">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="505" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590280742796" />
     <state width="505" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1590282652608" />
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590282645641">
-      <screen x="1366" y="0" width="1366" height="728" />
+    <state width="505" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1594436341273" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1594436356425">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590280712791" />
     <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1590282645641" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1594436356425" />
   </component>
 </project>

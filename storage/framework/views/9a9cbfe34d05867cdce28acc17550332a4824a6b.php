@@ -6,7 +6,7 @@
     <input id="inpHiddenGCategorias" type="hidden" value="<?php echo e($gastosCateg); ?>">
     <?php echo $__env->make('includes.notificacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="box box-primary box-sombra">
                 <div class="box-header with-border">
                     <h3 class="box-title">Cuentas</h3>
@@ -50,7 +50,8 @@
 
             </div>
         </div>
-        <div class="col-md-6">
+        
+        <div class="col-md-8">
             <div class="box box-info box-sombra">
                 <div class="box-header with-border">
                     <h3 class="box-title">Saldo</h3>
@@ -60,7 +61,7 @@
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="chartCuentas" style="height: 60vh"></canvas>
+                        <canvas id="chartCuentas" style="height: 60vh; width: 100%"></canvas>
                     </div>
                 </div>
             </div>
@@ -100,7 +101,7 @@
                             </tbody>
 
                             <tfoot>
-                            <tr>
+                            <tr>SSOL
                                 <td><b>TOTAL:</b></td>
                                 <td><b><?php echo e($total); ?></b></td>
                             </tr>
@@ -166,10 +167,13 @@
                     }
                 },
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 scales:{
                     xAxes:[{
-                        ticks:{beginAtZero:true}
+                        ticks:{
+                            beginAtZero:true,
+                            suggestedMax: 50
+                        }
                     }]
                 }
             };
