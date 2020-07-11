@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "finanzascal",
+  "private_key_id": "1d9c369a2009794bf3a09f825254941d6d648bc3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQChbLIpUvmBWaPl\nOd/ZgRcyIpe8G4y5LJ/JtF5FjBoNS6z5FZ9OvOXqQdc5U7pqa4u26VgYOfDh1HVd\ncigMJKFm5BHl1JAib/HGtSr7bWX2JFRoTvguURPxK9/T/9Mka0M9uX7GXRtxxgCW\n1WJ6vHuykT4jIMfLGVTmM832PGYDl1y36UFnPJkpaWYnyVAPP11CJVjDTz2aZDUD\nBGCQZ5zY5pRlgwIQq3xaSGy1xuHJyOiyzouu7soNxNq7ur90FXHumId8ivH4HdSc\nh24v3GI09HCvXSWS+PiIerHM9ccsM8LlzqCpHrmx5E+bwclvL5dWTlV3DTtnS26i\nMUEVodKrAgMBAAECggEAFoNGRaUgzv1lci6kHX13crKIXt+ovJqQnlzdWO21JG2N\nbh+p3B1UI1uTXJdkxDrDfXsFojtScOxkgefN1gO1zte390mx4FukaIYTvIUBV1ax\nvupkinEcSuJHkRV4qPecpRsdpySNE0z+AAs6dMucpMbE17lWo+iggopvCwxZXd6h\nTxgYAMTiqmA+UdrFOoSCl+oaqhqnlK/hbEUNLGFErxIW1klc7Jd36eSLNPwnXue0\nMQRYUP7168fh0Tu/UZEKdRW1O65W4RYMIxWRaTYtw5UPWRtsLYESaFR+YBnoHCy/\nHkeMvx0ug9icZdu+qv9Jzj8ifmkW0clScCwpDReFAQKBgQDeFTvGLnRBFoqg0OL8\nxJsRd5SXwTM41FOrjcsrHntQKNbLCXOnXm6DtRuVfFiKcCOkivRy5Bi2/cELPNPw\ny5GEbG2Th0DgM42d0pM2GY6nC/ICPefLTlKNIiosGfA8LFWyfKPaQotPsAZt7t90\nwdR9Hys6+BHDhjdy1gRwCydwoQKBgQC6E+fgei+n+bFgj6vBuNXlfc1K6uGZ6SWK\nWZfzMTXgc9I51Q1cGRNHtCzPVs1WQZV+niVY1rtwwlL5ekOrN+j7kLpK+HAznlVc\ng1L8oXZtsdZR0EZDDQuzn3uxJvhRIZDkS9npuqj9wK/UDMg2PSduiOV2qFW76nwr\ne4ySfYWjywKBgQDRpYPO+019oDTvySFucn7ch2E7vQOIs0/lFC7mHplUO6lA9EQ8\njHWRWeeXP1IqJeBP1WkcCF2YaYXSAPMmTlWph94NNdI1lBUtFnsnyAqVgT5NhXkK\nwH5HgygCh930P/oKS4U2Zjky2b3IC4bgppXcJA9gVIwYYtx3SLfZuX3a4QKBgHMZ\n+xX9Htt99b2wQWNcjVse3U1ZS2HkOSeCUh7JsvT7T/AcHN56WFXDWvCKVgvkF7Ax\n7RIuCdYvLhpKCe+wbvqlxMa5NNaJO241gbDpw5MJLXSAK+Yv/KwIm/+yBmpRJApD\n7TDKGNyWQ20c1v/OBkU2gxJKAHZ0DojrLMI0yOTPAoGBAMcA/UtoiQNIBpqQIeYV\nCcvCMhgdQuj9/62JKzitIx1OCepiT4r9r+RJuerAEsyJT/6wqBFQ7BWbWq+vnzQ5\n4R1x5CqUuY/VFT8L8v6YlBhWMT+aJ4Gw+Pm1C+74IWopC18Wa8R7u45XTpHfcWGe\nPWwi7F7mUjKZ1MoQFVVcTfNk\n-----END PRIVATE KEY-----\n",
+  "client_email": "finanzascal@appspot.gserviceaccount.com",
+  "client_id": "108906480824258940556",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/finanzascal%40appspot.gserviceaccount.com"
+}

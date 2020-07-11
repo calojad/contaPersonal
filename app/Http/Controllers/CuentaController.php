@@ -61,9 +61,15 @@ class CuentaController extends Controller
             Session::flash('error','Cuenta no encontrada.');
             return json_encode(['url' => '/perfil']);
         }
-        $cuenta->delete();
-        Session::flash('success','Cuenta eliminada.');
-        return json_encode(['url' => '/perfil']);
+        try{
+            $cuenta->delete();
+        }catch(\Illuminate\Database\QueryException $e){
+            return json_encode(['url' => 'Error al eliminar la cuenta<br>'.$e->getMessage(),'error'=>true]);
+        }
+
+        Session::flash('success','Cuenta eliminada');
+        return json_encode(['url' => '/perfil','error'=>false]);
+        
     }
 
     public function getListransferir($cuentaId){

@@ -1,11 +1,10 @@
-@extends('layouts.app')
-@section('styles')
+<?php $__env->startSection('styles'); ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
-@stop
-@section('content')
-    <input id="inpHiddenCuentas" type="hidden" value="{{$cuentas}}">
-    <input id="inpHiddenGCategorias" type="hidden" value="{{$gastosCateg}}">
-    @include('includes.notificacion')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+    <input id="inpHiddenCuentas" type="hidden" value="<?php echo e($cuentas); ?>">
+    <input id="inpHiddenGCategorias" type="hidden" value="<?php echo e($gastosCateg); ?>">
+    <?php echo $__env->make('includes.notificacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <div class="row">
         <div class="col-md-6">
             <div class="box box-primary box-sombra">
@@ -27,22 +26,22 @@
                             </thead>
 
                             <tbody>
-                                @php($total = 0)
-                                @foreach ($cuentas as $cuenta)
+                                <?php ($total = 0); ?>
+                                <?php $__currentLoopData = $cuentas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cuenta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td>
-                                            <a href="{{URL::to('/home').'/'.$cuenta->id}}">{{ $cuenta->nombre }}</a>
+                                            <a href="<?php echo e(URL::to('/home').'/'.$cuenta->id); ?>"><?php echo e($cuenta->nombre); ?></a>
                                         </td>
-                                        <td>{{ $cuenta->saldo==null?'0.00':$cuenta->saldo }}</td>
+                                        <td><?php echo e($cuenta->saldo==null?'0.00':$cuenta->saldo); ?></td>
                                     </tr>
-                                    @php($total = $total + $cuenta->saldo)
-                                @endforeach
+                                    <?php ($total = $total + $cuenta->saldo); ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
 
                             <tfoot>
                                 <tr>
                                     <td><b>TOTAL:</b></td>
-                                    <td><b>{{$total}}</b></td>
+                                    <td><b><?php echo e($total); ?></b></td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -67,7 +66,7 @@
             </div>
         </div>
     </div>
-{{--Tabla --}}
+
     <div class="row">
         <div class="col-md-4">
             <div class="box box-warning box-sombra">
@@ -88,22 +87,22 @@
                             </thead>
 
                             <tbody>
-                            @php($total = 0)
-                            @foreach ($gastosCateg as $gasto)
+                            <?php ($total = 0); ?>
+                            <?php $__currentLoopData = $gastosCateg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gasto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td>
-                                        <a class="btnVerDetallesGasto" style="cursor: pointer" data-idcategoria="{{$gasto->categoria_transac_id}}" data-toggle="modal" data-target="#modalDetallesGastoDashboard" title="Ver Detalles">{{ $gasto->nombre }}</a>
+                                        <a class="btnVerDetallesGasto" style="cursor: pointer" data-idcategoria="<?php echo e($gasto->categoria_transac_id); ?>" data-toggle="modal" data-target="#modalDetallesGastoDashboard" title="Ver Detalles"><?php echo e($gasto->nombre); ?></a>
                                     </td>
-                                    <td>{{ $gasto->gasto==null?'0.00':$gasto->gasto }}</td>
+                                    <td><?php echo e($gasto->gasto==null?'0.00':$gasto->gasto); ?></td>
                                 </tr>
-                                @php($total = $total + $gasto->gasto)
-                            @endforeach
+                                <?php ($total = $total + $gasto->gasto); ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
 
                             <tfoot>
                             <tr>
                                 <td><b>TOTAL:</b></td>
-                                <td><b>{{$total}}</b></td>
+                                <td><b><?php echo e($total); ?></b></td>
                             </tr>
                             </tfoot>
                         </table>
@@ -111,7 +110,7 @@
                 </div>
             </div>
         </div>
-        @include('dashboard.modal_detallesGasto')
+        <?php echo $__env->make('dashboard.modal_detallesGasto', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="col-md-8">
             <div class="box box-danger box-sombra">
                 <div class="box-header with-border">
@@ -250,7 +249,7 @@
         //Boton ver detalles del gasto
         $('.btnVerDetallesGasto').on('click', function () {
             var id = $(this).data('idcategoria');
-            var url = '{{URL::to('/dashboard/detalle-cat-gasto')}}'+'/'+id;
+            var url = '<?php echo e(URL::to('/dashboard/detalle-cat-gasto')); ?>'+'/'+id;
             var t = $('#tblDetallesCatGastos').DataTable();
             $.get(url,function (json) {
                 t.clear().draw();
@@ -263,8 +262,9 @@
             },'json');
         })
     </script>
-@stop
-@section('scripts')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

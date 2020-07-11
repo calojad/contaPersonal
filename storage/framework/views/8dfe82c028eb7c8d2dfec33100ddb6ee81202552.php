@@ -1,7 +1,6 @@
-@extends('layouts.app')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="row">
-    @include('includes.notificacion')
+    <?php echo $__env->make('includes.notificacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <div class="content">
         <div class="row">
             <div id="divInfUsuario" class="col-md-4">
@@ -9,25 +8,25 @@
                     <div class="box-header"><h3 class="box-title">Información del Perfil</h3></div>
                     <div class="box-body">
                         <div class="col-md-12 show-grid">
-                            <img class="profile-user-img img-responsive img-circle" src="{{ asset($user->imagen) }}" alt="User profile picture">
+                            <img class="profile-user-img img-responsive img-circle" src="<?php echo e(asset($user->imagen)); ?>" alt="User profile picture">
                         </div>
                         <div class="col-md-12">
                             <div class="row">
-                                <label class="col-md-4">Nombre:</label><span class="col-md-7"> {{$user->name}} </span>
+                                <label class="col-md-4">Nombre:</label><span class="col-md-7"> <?php echo e($user->name); ?> </span>
                             </div>
                             <div class="row">
-                                <label class="col-md-4">Username:</label><span class="col-md-7"> {{$user->username}}</span>
+                                <label class="col-md-4">Username:</label><span class="col-md-7"> <?php echo e($user->username); ?></span>
                             </div>
                             <div class="row">
-                                <label class="col-md-4">Email:</label><span class="col-md-7"> {{$user->email}}</span>
+                                <label class="col-md-4">Email:</label><span class="col-md-7"> <?php echo e($user->email); ?></span>
                             </div>
                         </div>
                         <a id="btnEditarUserPerfil" class="btn btn-xs btn-primary pull-right" title="Editar" href="#"><i class="fa fa-edit"></i></a>
                     </div>
                 </div>
             </div>
-            @include('perfil.edit')
-            @include('perfil.modal_avatar')
+            <?php echo $__env->make('perfil.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('perfil.modal_avatar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <div class="col-md-8">
                 <div class="box box-principal">
                     <div class="box-header"><h3 class="box-title"></h3></div>
@@ -40,13 +39,13 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1">
-                                    @include('perfil.tab_cuentas')
+                                    <?php echo $__env->make('perfil.tab_cuentas', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                 </div>
                                 <div class="tab-pane" id="tab_2">
-                                    @include('perfil.tab_categoriasIngreso')
+                                    <?php echo $__env->make('perfil.tab_categoriasIngreso', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                 </div>
                                 <div class="tab-pane" id="tab_3">
-                                    @include('perfil.tab_categoriasGasto')
+                                    <?php echo $__env->make('perfil.tab_categoriasGasto', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                 </div>
                             </div>
                         </div>
@@ -56,8 +55,8 @@
         </div>
     </div>
 </div>
-@include('cuentas.modal')
-@include('categorias.modal_form')
+<?php echo $__env->make('cuentas.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('categorias.modal_form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <script type="text/javascript" charset="utf-8" async defer>
     $(document).ready(function () {
         $('.modal').on('shown.bs.modal', function (e) {
@@ -79,9 +78,9 @@
                     action: function(){
                         var url;
                         if(band === 'CU'){
-                            url = "{{ URL::to('/cuenta/destroy/') }}"+"/"+id;
+                            url = "<?php echo e(URL::to('/cuenta/destroy/')); ?>"+"/"+id;
                         }else if(band === 'CA'){
-                            url = "{{ URL::to('/categoria/destroy/') }}"+"/"+id;
+                            url = "<?php echo e(URL::to('/categoria/destroy/')); ?>"+"/"+id;
                         }
                         $.get(url,function(json){
                             if(json.error){
@@ -117,10 +116,10 @@
         var data;
         if(band === 'CU'){
             data = {nombre:$('#cue_'+id).val()};
-            url = "{{ URL::to('/cuenta/update/') }}"+"/"+id;
+            url = "<?php echo e(URL::to('/cuenta/update/')); ?>"+"/"+id;
         }else if(band === 'CA'){
             data = {nombre:$('#catin_'+id).val()};
-            url = "{{ URL::to('/categoria/update/') }}"+"/"+id;
+            url = "<?php echo e(URL::to('/categoria/update/')); ?>"+"/"+id;
         }
         $.get(url,data,function(json){
             window.location.href = json.url;
@@ -155,7 +154,7 @@
     });
     // Cancelar modal avatar
     $('.btnCancelarAvatar').on('click',function () {
-        var path = '{{asset($user->imagen)}}';
+        var path = '<?php echo e(asset($user->imagen)); ?>';
         $('.imagenmuestra').attr('src', path);
         $('#inpImgPath').val(path);
     });
@@ -191,4 +190,5 @@
         $('.acciones *').prop('disabled',false);
     }
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

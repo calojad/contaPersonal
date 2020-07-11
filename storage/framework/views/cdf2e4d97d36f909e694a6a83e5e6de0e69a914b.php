@@ -1,48 +1,47 @@
-@extends('layouts.app')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="row">
-        @include('includes.notificacion')
+        <?php echo $__env->make('includes.notificacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="col-md-12">
-            {{-- TAB'S --}}
+            
             <div class="nav-tabs-custom">
-                {{--PESTAÑAS DE LAS CUENTAS--}}
+                
                 <ul class="nav nav-tabs">
-                    @foreach($cuentas as $cuenta)
-                        <li class="{{$tabActiva==$cuenta->id?'active':''}}">
-                            <a id="{{$cuenta->id}}" class="tabCuentaLista" href="#tab_{{$cuenta->id}}" data-toggle="tab">{{$cuenta->nombre}}</a>
+                    <?php $__currentLoopData = $cuentas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cuenta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li class="<?php echo e($tabActiva==$cuenta->id?'active':''); ?>">
+                            <a id="<?php echo e($cuenta->id); ?>" class="tabCuentaLista" href="#tab_<?php echo e($cuenta->id); ?>" data-toggle="tab"><?php echo e($cuenta->nombre); ?></a>
                         </li>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <li>
                         <a class="btn btn-social-icon" title="Nueva Cuenta" data-toggle="modal" data-target="#modalFormCuenta" style="background: #06a388;color: white"><i class="fa fa-plus"></i></a>
                     </li>
                 </ul>
-                {{--CONTENIDO DE CADA PESTAÑA--}}
+                
                 <div class="tab-content">
-                    @if(count($cuentas) != 0)
-                        @foreach($cuentas as $cuenta)
-                            <div class="tab-pane {{$tabActiva==$cuenta->id?'active':''}}" id="tab_{{$cuenta->id}}">
-                                @include('cuentas.index')
+                    <?php if(count($cuentas) != 0): ?>
+                        <?php $__currentLoopData = $cuentas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cuenta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="tab-pane <?php echo e($tabActiva==$cuenta->id?'active':''); ?>" id="tab_<?php echo e($cuenta->id); ?>">
+                                <?php echo $__env->make('cuentas.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                             </div>
-                        @endforeach
-                    @else
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php else: ?>
                         <div class="content" align="center">
                             <h4 class="text-danger">No hay cuentas</h4>
                         </div>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
-    {{--MODAL FORM INGRESOS--}}
-    @include('ingreso.modal_form')
-    {{--MODAL FORM GASTOS--}}
-    @include('gasto.modal_form')
-    {{--MODAL FORM CUENTAS--}}
-    @include('cuentas.modal')
-    {{--MODAL FORM CUENTAS--}}
-    @include('cuentas.modal_transferir')
-    {{--MODAL EDITAR TRANSACCION--}}
-    @include('cuentas.modal_edit_transacc')
+    
+    <?php echo $__env->make('ingreso.modal_form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    
+    <?php echo $__env->make('gasto.modal_form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    
+    <?php echo $__env->make('cuentas.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    
+    <?php echo $__env->make('cuentas.modal_transferir', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    
+    <?php echo $__env->make('cuentas.modal_edit_transacc', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <script type="text/javascript">
         $(function () {
@@ -58,10 +57,10 @@
                 scrollCollapse: true
             });
         });
-        {{--Cuando cargue la pagina--}}
+        
         $(document).ready(function () {
             moment.locale('es');
-            var cuentaId = "{{$tabActiva}}";
+            var cuentaId = "<?php echo e($tabActiva); ?>";
             var hasta = moment().format('Y-M-D');
             var desde = moment().format('Y')+'-'+moment().format('M')+'-1';
             obtTransacciones(cuentaId,desde,hasta);
@@ -158,7 +157,7 @@
         });
         // Boton mostrar modal de transferencias
         $('.btnTransferirEntreCuentas').on('click',function () {
-            var url = '{{URL::to('cuenta/listransferir')}}'+'/'+$(this).data('id');
+            var url = '<?php echo e(URL::to('cuenta/listransferir')); ?>'+'/'+$(this).data('id');
             var select = $('.selCuetnasDestinoTransfer');
             $('input[name=cuenta_ini]').val($(this).data('nombre'));
             $('input[name=cuenta_ini_id]').val($(this).data('id'));
@@ -213,7 +212,7 @@
 
         // Funcion para obtener las transacciones de X cuenta desde fecha inicio hasta fecha fin
         function obtTransacciones(cuentaId,desde,hasta) {
-            var url = "{{URL::to('/transaccion/listatransacciones/')}}"+"/"+cuentaId+"/"+desde+"/"+hasta;
+            var url = "<?php echo e(URL::to('/transaccion/listatransacciones/')); ?>"+"/"+cuentaId+"/"+desde+"/"+hasta;
             var ti = $('#tblIngresos_'+cuentaId).DataTable();
             var tg = $('#tblGastos_'+cuentaId).DataTable();
             $.get(url,function (transac) {
@@ -233,7 +232,7 @@
                         '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
                         c.valor,
                         c.fecha,
-                        '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET">' +
+                        '<form action="<?php echo e(URL::to('transaccion/destroy/')); ?>/'+c.id+'" method="GET">' +
                             '<div class="btn-group">' +
                                 '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button" data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'" data-cuenta="'+c.cuenta_id+'"><i class="fa fa-edit"></i></button>' +
                                 '<button class="btn btn-danger btn-xs" type="submit" title="Eliminar Transaccion"><i class="fa fa-trash"></i></button>'+
@@ -244,4 +243,5 @@
             $('[data-toggle="tooltip"]').tooltip();
         }
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

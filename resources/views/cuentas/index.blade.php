@@ -16,7 +16,7 @@
                     <span class="text-bold" style="font-size: large">{{\Carbon\Carbon::now()->formatLocalized('%A %d de %b %Y')}}</span>
                 </div>
                 <div class="col-md-4">
-                    <span id="spaReloj" class="text-bold" style="font-size: large"></span>
+                    <span class="spaReloj text-bold" style="font-size: large"></span>
                 </div>
             </div>
         </div>

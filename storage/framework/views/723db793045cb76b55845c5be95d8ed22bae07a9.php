@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <style>
         .tooltip.top > .tooltip-inner{
             max-width: 200px;
@@ -10,7 +9,7 @@
             border-radius: 4px
         }
     </style>
-    @include('includes.notificacion')
+    <?php echo $__env->make('includes.notificacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <div class="box box-primary">
 
         <div class="box-header with-border">
@@ -35,7 +34,7 @@
                             Categoria
                         </button>
                     </div>
-                    @include('presupuesto.modal_add')
+                    <?php echo $__env->make('presupuesto.modal_add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
                 </div>
 
@@ -51,20 +50,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($presupuestos as $presup)
-                            <tr class="trPresupuestoCategoria_{{$presup->id}}" style="{{$presup->estado==1?'text-decoration:line-through':''}}">
-                                <td align="center"><i class="fa {{$presup->estado==0?'fa-square-o':'fa-check-square-o'}} fa-2x text-blue iCheckCompleto" style="cursor: pointer" data-id="{{$presup->id}}"></i></td>
-                                <td>{{$presup->categoria->nombre}}</td>
-                                <td class="tdValorG">{{$presup->valor}}</td>
-                                <td>{{$presup->descripcion}}</td>
+                        <?php $__currentLoopData = $presupuestos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $presup): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr class="trPresupuestoCategoria_<?php echo e($presup->id); ?>" style="<?php echo e($presup->estado==1?'text-decoration:line-through':''); ?>">
+                                <td align="center"><i class="fa <?php echo e($presup->estado==0?'fa-square-o':'fa-check-square-o'); ?> fa-2x text-blue iCheckCompleto" style="cursor: pointer" data-id="<?php echo e($presup->id); ?>"></i></td>
+                                <td><?php echo e($presup->categoria->nombre); ?></td>
+                                <td class="tdValorG"><?php echo e($presup->valor); ?></td>
+                                <td><?php echo e($presup->descripcion); ?></td>
                                 <td>
                                     <div class="btn-group acciones">
-                                        <button type="button" class="btn btn-primary btnEditPresu" data-toggle="modal" data-target="#modalEditPresupuesto" data-presupuesto="{{$presup}}"><i class="fa fa-edit"></i></button>
-                                        <button type="button" class="btn btn-danger btnDeletePresu" data-id="{{ $presup->id }}"><i class="fa fa-trash"></i></button>
+                                        <button type="button" class="btn btn-primary btnEditPresu" data-toggle="modal" data-target="#modalEditPresupuesto" data-presupuesto="<?php echo e($presup); ?>"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-danger btnDeletePresu" data-id="<?php echo e($presup->id); ?>"><i class="fa fa-trash"></i></button>
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                         <tfoot>
                             <tr>
@@ -87,7 +86,7 @@
             <i class="fa fa-refresh fa-spin"></i>
         </div>
     </div>
-    @include('presupuesto.modal_edit')
+    <?php echo $__env->make('presupuesto.modal_edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <script type="text/javascript">
         //Input con el valor de ingresos mensuales
@@ -131,7 +130,7 @@
                     Eliminar: {
                         btnClass: 'btn-red any-other-class',
                         action: function () {
-                            var url = '{{URL::to('/presupuesto/destroy')}}' + '/' + id;
+                            var url = '<?php echo e(URL::to('/presupuesto/destroy')); ?>' + '/' + id;
                             $.get(url, function (json) {
                                 window.location.href = json.url;
                             }, 'json');
@@ -148,7 +147,7 @@
         //Click al icono del chekbox para cambiar el estado del presupuesto
         $('.iCheckCompleto').on('click', function () {
             var id = $(this).data('id');
-            var url = '{{URL::to('/presupuesto/actualizar-estado')}}';
+            var url = '<?php echo e(URL::to('/presupuesto/actualizar-estado')); ?>';
             if ($(this).hasClass('fa-square-o')){
                 $(this).removeClass('fa-square-o');
                 $(this).addClass('fa-check-square-o');
@@ -201,7 +200,7 @@
                 ingreso.val(0);
             }
 
-            var url = '{{URL::to('presupuesto/totales')}}' + '/' + ingreso.val();
+            var url = '<?php echo e(URL::to('presupuesto/totales')); ?>' + '/' + ingreso.val();
             var span = $('#spaTotalPresupuesto');
 
             $.get(url, function (json) {
@@ -222,4 +221,5 @@
             });
         });
     </script>
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
