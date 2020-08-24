@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->text('imagen')->nullable()->default('/adminLTE-2.4.3/dist/img/avatar5.png');
             $table->string('password');
-            $table->char('permiso',3);
+            $table->char('rol',3);
             $table->rememberToken();
             $table->timestamps();
         });

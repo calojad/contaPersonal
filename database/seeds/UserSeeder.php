@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@hotmail.com',
             'password' => '$2y$10$5cz73P31SJP/OKNlyfzQkON/27GzXA97Oq3HSZNxWaP.gjImbIu9S',
-            'permiso' => 'ADM'
+            'rol' => 'ADM'
         ]);
     }
 }

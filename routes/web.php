@@ -15,9 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 //*********** LOGIN
-Route::get('/login-dialog', function () {
+Route::get('/login-dialog/', function () {
     return view('auth.login-dialog');
 });
+Route::post('/login/credenciales','Auth\LoginController@comprobarCredenciales');
 //*********** REGISTRAR
 Route::get('/register-dialog', function () {
     return view('auth.register-dialog');

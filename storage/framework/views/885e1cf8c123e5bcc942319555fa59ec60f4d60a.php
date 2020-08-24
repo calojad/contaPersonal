@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="/" class="logo">
-                <img src="{{asset('images/CAL_logo.png')}}" alt="Logo" width="45"
+                <img src="<?php echo e(asset('images/CAL_logo.png')); ?>" alt="Logo" width="45"
                      style="margin-right: 15px; margin-top: -5px">
-                <b>{{config('app.name','CAL')}}</b>
+                <b><?php echo e(config('app.name','CAL')); ?></b>
             </a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#navbar-collapse">
@@ -15,28 +15,25 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <!-- Left Side of Navbar -->
             <ul class="nav navbar-nav">
-                @guest
-                @else
-                <li class="{{Request::is('dashboard')?'active':''}}">
-                    <a href="{{URL::to('/dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                <?php if(auth()->guard()->guest()): ?>
+                <?php else: ?>
+                <li class="<?php echo e(Request::is('dashboard')?'active':''); ?>">
+                    <a href="<?php echo e(URL::to('/dashboard')); ?>"><i class="fa fa-dashboard"></i> Dashboard</a>
                 </li>
-                <li class="{{Request::is('home*','inicio')?'active':''}}">
-                    <a href="{{URL::to('/home')}}"><i class="fa fa-bank"></i> Cuentas</a>
+                <li class="<?php echo e(Request::is('home*','inicio')?'active':''); ?>">
+                    <a href="<?php echo e(URL::to('/home')); ?>"><i class="fa fa-bank"></i> Cuentas</a>
                 </li>
-                <li class="{{Request::is('presupuesto*')?'active':''}}">
-                    <a href="{{URL::to('/presupuesto')}}"><i class="fa fa-coffee"></i> Presupuesto</a>
+                <li class="<?php echo e(Request::is('presupuesto*')?'active':''); ?>">
+                    <a href="<?php echo e(URL::to('/presupuesto')); ?>"><i class="fa fa-coffee"></i> Presupuesto</a>
                 </li>
-                @endguest
+                <?php endif; ?>
             </ul>
 
             <!-- Right Side of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                @guest
-                    {{--<li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span>
-                            Login</a></li>
-                    <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-edit"></span>
-                            Register</a></li>--}}
-                    <input id="inpErrores" type="hidden" value="{{$errors}}">
+                <?php if(auth()->guard()->guest()): ?>
+                    
+                    <input id="inpErrores" type="hidden" value="<?php echo e($errors); ?>">
                     <li>
                         <a id="lkLogin" style="cursor: pointer"><span class="glyphicon glyphicon-log-in"></span>
                             Login
@@ -75,45 +72,47 @@
                             });
                         });
                     </script>
-                @else
+                <?php else: ?>
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="{{asset(Auth::user()->imagen)}}" class="user-image"
+                            <img src="<?php echo e(asset(Auth::user()->imagen)); ?>" class="user-image"
                                  alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                            <span class="hidden-xs"><?php echo e(Auth::user()->name); ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="{{asset(Auth::user()->imagen)}}" class="img-circle"
+                                <img src="<?php echo e(asset(Auth::user()->imagen)); ?>" class="img-circle"
                                      alt="User Image">
                                 <p>
-                                    {{ Auth::user()->name }}
-                                    <small>{{ Auth::user()->email }}</small>
+                                    <?php echo e(Auth::user()->name); ?>
+
+                                    <small><?php echo e(Auth::user()->email); ?></small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{URL::to('/perfil')}}" class="btn btn-primary btn-flat">Perfil</a>
+                                    <a href="<?php echo e(URL::to('/perfil')); ?>" class="btn btn-primary btn-flat">Perfil</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-danger btn-flat">
+                                    <a href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-danger btn-flat">
                                         <span class="glyphicon glyphicon-log-out"></span> Logout
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
                                           style="display: none;">
-                                        {{ csrf_field() }}
+                                        <?php echo e(csrf_field()); ?>
+
                                     </form>
                                 </div>
                             </li>
                         </ul>
                     </li>
-                @endguest
+                <?php endif; ?>
             </ul>
         </div>
     </div>

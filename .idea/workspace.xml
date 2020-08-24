@@ -2,14 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/28947903e1cbb14c4ddaaf288a55c72a8951936f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2eb78faa-2c4a-4297-9785-013a4095c1f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2eb78faa-2c4a-4297-9785-013a4095c1f5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/adminLTE-2.4.3/dist/css/AdminLTE.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/adminLTE-2.4.3/dist/css/AdminLTE.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/toastr/toastr.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/toastr/toastr.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/toastr/toastr.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/toastr/toastr.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login-dialog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login-dialog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/GX91UKpkq7ivOdNV5ugjLDxFuk8KgtQkzplGEVgl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/VIV5v1b6XL8kEMTkrMMXYyQtjJbX6TlxPhr7ShHQ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/c7xXCkx4gKLGGCKuuk7bjcnovx9ymB0utWHjweMf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/pvb37MzGsoEBLiRRc2mdUcyT0zDCYqYpGzJ7i0oe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/sp5ZJtIkNnpUOKjogxCxKTdsc9YYm23us53KxvQJ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/notificacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/notificacion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/QjsxX9XLuFS6rLim0WZajUAeBP6amcDiJj2Q910a" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/9a9cbfe34d05867cdce28acc17550332a4824a6b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/9a9cbfe34d05867cdce28acc17550332a4824a6b.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,43 +34,6 @@
     <execution>
       <executable path="composer" />
     </execution>
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cal_finanzas@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cal_finanzas@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cal_finanzas@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cal_finanzas: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cal_finanzas@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cal_finanzas: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="transaccion: table" type="dbc44a63:MariaImplModel$Table" />
-      </path>
-    </expand>
-    <select />
   </component>
   <component name="FileColors">
     <fileColor scope="Non-Project Files (Material Default)" color="2E3C43" />
@@ -191,6 +166,7 @@
     <property name="ACTIVE_CLOUD_PROJECT_ID" value="essential-text-282303" />
     <property name="ACTIVE_CLOUD_PROJECT_NAME" value="Fnananzas Personales" />
     <property name="ACTIVE_CLOUD_PROJECT_NUMBER" value="608356704443" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -215,13 +191,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\app\Models" />
-      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\resources\views\includes" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\dist" />
-      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\plugins" />
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\js" />
@@ -229,7 +198,25 @@
       <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\public\css" />
       <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\bower_components" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\app\Models" />
+      <recent name="C:\Users\Calojad\Documents\ProyectosWeb\contaPersonal\resources\views\includes" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3\dist" />
+      <recent name="C:\Users\G-40\Documents\ProyectosWeb\contaPersonal\public\adminLTE-2.4.3" />
+    </key>
   </component>
+  <component name="RunManager">
+    <configuration name="ValidationException.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/FinanzaPersonal/framework/src/Illuminate/Validation/ValidationException.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.ValidationException.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -380,11 +367,27 @@
       <workItem from="1594056706409" duration="677000" />
       <workItem from="1594057411817" duration="910000" />
       <workItem from="1594431677288" duration="4042000" />
+      <workItem from="1594521319459" duration="736000" />
+      <workItem from="1595113643226" duration="500000" />
+      <workItem from="1595114239480" duration="656000" />
+      <workItem from="1595464282368" duration="85000" />
+      <workItem from="1597187586813" duration="7033000" />
+      <workItem from="1597251993723" duration="5319000" />
+      <workItem from="1597267063973" duration="1311000" />
+      <workItem from="1597268744596" duration="4341000" />
+      <workItem from="1597336814221" duration="25410000" />
+      <workItem from="1597441392771" duration="4314000" />
+      <workItem from="1597515063655" duration="13204000" />
+      <workItem from="1597720042704" duration="3205000" />
+      <workItem from="1597976857290" duration="2878000" />
+      <workItem from="1598111512657" duration="3797000" />
+      <workItem from="1598137218477" duration="1520000" />
+      <workItem from="1598301991928" duration="3876000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -399,6 +402,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="309" y="42" key="#Inspections" timestamp="1597721177569">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="309" y="42" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1597721177569" />
     <state x="570" y="207" key="#Notifications" timestamp="1590261095564">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -407,6 +414,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="4" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1593436194738" />
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597518011503">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1597518011503" />
     <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591907116532">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -415,22 +426,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="309" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590281315172" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1594436961002">
+    <state x="184" y="8" key="SettingsEditor" timestamp="1595114183997">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261584360" />
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594436961002" />
-    <state width="505" height="446" key="SwitcherDM" timestamp="1594436341273">
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1595114183997" />
+    <state width="505" height="446" key="SwitcherDM" timestamp="1597550116158">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="505" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590280742796" />
     <state width="505" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1590282652608" />
-    <state width="505" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1594436341273" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1594436356425">
+    <state width="505" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1597550116158" />
+    <state x="495" y="238" width="376" height="334" key="com.intellij.database.actions.DdlActions$CommentOnObjectAction$1" timestamp="1597518162446">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="495" y="238" width="376" height="334" key="com.intellij.database.actions.DdlActions$CommentOnObjectAction$1/0.0.1366.728@0.0.1366.728" timestamp="1597518162446" />
+    <state x="443" y="171" width="479" height="381" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597518191832">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="443" y="171" width="479" height="381" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.728@0.0.1366.728" timestamp="1597518191832" />
+    <state x="379" y="108" width="607" height="512" key="find.popup" timestamp="1597462310053">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="108" width="607" height="512" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597462310053" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597979257781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590280712791" />
     <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1590282645641" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1594436356425" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597979257781" />
   </component>
 </project>

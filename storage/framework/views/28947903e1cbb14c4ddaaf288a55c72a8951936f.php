@@ -1,10 +1,11 @@
 <div class="col-md-12">
-    <form id="formLoginConfirm" class="form-horizontal" method="POST" action="{{ route('login') }}">
-        {{ csrf_field() }}
+    <form id="formLoginConfirm" class="form-horizontal" method="POST" action="<?php echo e(route('login')); ?>">
+        <?php echo e(csrf_field()); ?>
+
         <div class="form-group divUsername">
             <label for="username" class="col-md-4 control-label">Username</label>
             <div class="col-md-6">
-                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+                <input id="username" type="text" class="form-control" name="username" value="<?php echo e(old('username')); ?>" required autofocus>
                 <span class="help-block" style="text-align: left"><strong id="spaErrorUsername"></strong></span>
             </div>
         </div>
@@ -17,20 +18,12 @@
             </div>
         </div>
 
-        {{--<div class="form-group">
-            <div class="col-md-6 col-md-offset-2">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                    </label>
-                </div>
-            </div>
-        </div>--}}
+        
 
         <div class="form-group">
             <div class="col-md-8 col-md-offset-2">
                 <button id="btnCompCredencial" type="button" class="btn btn-primary">Login <i id="iLoginSpinner" class="fa"></i></button>
-                <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
+                <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">Forgot Your Password?</a>
             </div>
         </div>
     </form>
@@ -65,13 +58,13 @@
 
     function abrirSesion(user,pass){
         $("#iLoginSpinner").addClass('fa-spinner fa-spin');
-        let url = "{{URL::to('/login/credenciales')}}";
+        let url = "<?php echo e(URL::to('/login/credenciales')); ?>";
         let inpUser = $('#username');
         if(inpUser.val().length <= 0){
             toastr.error('Ingrese sus credenciales para continuar', 'Error al iniciar sesión');
             $('#iLoginSpinner').removeClass('fa-spinner fa-spin');
         }else {
-            let data = {username: user, password: pass, _token: '{{csrf_token()}}'};
+            let data = {username: user, password: pass, _token: '<?php echo e(csrf_token()); ?>'};
             $.post(url, data, function (json) {
                 if (json === 'True') {
                     $('#formLoginConfirm').submit();
