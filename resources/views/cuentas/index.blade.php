@@ -9,7 +9,6 @@
         <div class="row">
             <div class="col-md-9">
                 <span class="box-title">{{$cuenta->nombre .' - Ultimos Movimientos' }}</span>
-                <a class="btn btn-default btnTransferirEntreCuentas" title="Transferir"  style="margin-left:15px" data-toggle="modal" data-target="#modalTransferencia" data-id="{{$cuenta->id}}" data-nombre="{{$cuenta->nombre}}"><i class="fa fa-exchange"></i></a>
             </div>
             <div class="pull-right col-md-3">
                 <div class="col-md-8">
@@ -27,7 +26,10 @@
         <div class="col-md-12">
             <div class="box box-sombra" style="border-top: none">
                 <div class="box-body">
-                    <div class="col-md-12 form-group" align="center">
+                    <div class="col-md-2">
+                        <a class="btn btn-warning btnTransferirEntreCuentas" title="Transferir"  style="margin-left:15px" data-toggle="modal" data-target="#modalTransferencia" data-id="{{$cuenta->id}}" data-nombre="{{$cuenta->nombre}}">Transferir <i class="fa fa-exchange"></i></a>
+                    </div>
+                    <div class="col-md-10 form-group col-md-pull-1" align="center">
                         <button class="btn btn-default active btnMesActual" data-id="{{$cuenta->id}}">Mes Actual</button>
                         <button class="btn btn-default btnMesAnterior" data-id="{{$cuenta->id}}">Mes Anterior</button>
                         <button class="btn btn-default btnDateCustom" data-id="{{$cuenta->id}}">Fecha Personalizada</button>
@@ -53,7 +55,7 @@
             </div>
         </div>
         {{--INGRESOS--}}
-        <div class="col-md-6">
+        <div class="col-md-6"> 
             <div class="box box-primary box-sombra" align="center">
                 <div class="box-header">
                     <span class="box-title"><i class="fa fa-money"></i> Ingresos</span>

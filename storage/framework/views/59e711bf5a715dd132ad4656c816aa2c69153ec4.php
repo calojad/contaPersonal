@@ -25,7 +25,6 @@
                                     <th>Saldo</th>
                                 </tr>
                             </thead>
-
                             <tbody>
                                 <?php ($total = 0); ?>
                                 <?php $__currentLoopData = $cuentas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cuenta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -33,12 +32,11 @@
                                         <td>
                                             <a href="<?php echo e(URL::to('/home').'/'.$cuenta->id); ?>"><?php echo e($cuenta->nombre); ?></a>
                                         </td>
-                                        <td><?php echo e($cuenta->saldo==null?'0.00':$cuenta->saldo); ?></td>
+                                        <td><?php echo e($cuenta->saldo ?? '0.00'); ?></td>
                                     </tr>
-                                    <?php ($total = $total + $cuenta->saldo); ?>
+                                    <?php ($total += $cuenta->saldo); ?>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
-
                             <tfoot>
                                 <tr>
                                     <td><b>TOTAL:</b></td>
@@ -48,7 +46,9 @@
                         </table>
                     </div>
                 </div>
-
+                <div class="overlay">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
             </div>
         </div>
         
@@ -62,8 +62,11 @@
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="chartCuentas" style="height: 60vh; width: 100%"></canvas>
+                        <canvas id="chartCuentas"></canvas>
                     </div>
+                </div>
+                <div class="overlay">
+                    <i class="fa fa-refresh fa-spin"></i>
                 </div>
             </div>
         </div>
@@ -73,10 +76,18 @@
         
         <div class="col-md-4">
             <div class="box box-primary box-sombra">
-                <div class="box-body" align="center">
-                    <button class="btn btn-default"><i class="fa fa-angle-left fa-2x"></i></button>
-                    <span class="" style="padding: 0 30px 0 30px; margin: 0 30px 0 30px">MES</span>
-                    <button class="btn btn-default"><i class="fa fa-angle-right fa-2x"></i></button>
+                <div class="box-body text-center">
+                    <div class="col-md-8">
+                        <button id="btnLeftMesGasto" class="btn btn-default"><i class="fa fa-angle-left fa-2x"></i></button>
+                        <span class="spaMesGastosButton text-bold" style="display: inline-block;width: 120px;"></span>
+                        <button id="btnRightMesGasto" class="btn btn-default"><i class="fa fa-angle-right fa-2x"></i></button>
+                    </div>
+                    <div class="col-md-4">
+                        <button id="btnHoy" class="btn btn-success text-bold">Hoy</button>
+                    </div>
+                </div>
+                <div class="overlay overlay-gastos">
+                    <i class="fa fa-refresh fa-spin"></i>
                 </div>
             </div>
 
@@ -89,35 +100,36 @@
                 </div>
                 <div class="box-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover table-checkable datatable">
+                        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="tblCategoriasGastosDash">
                             <thead>
                             <tr>
                                 <th>Categoria</th>
                                 <th>Gasto</th>
                             </tr>
                             </thead>
-
                             <tbody>
                             <?php ($total = 0); ?>
                             <?php $__currentLoopData = $gastosCateg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gasto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td>
-                                        <a class="btnVerDetallesGasto" style="cursor: pointer" data-idcategoria="<?php echo e($gasto->categoria_transac_id); ?>" data-toggle="modal" data-target="#modalDetallesGastoDashboard" title="Ver Detalles"><?php echo e($gasto->nombre); ?></a>
+                                        <a class="btnVerDetallesGasto" style="cursor: pointer" onclick="VerDetalleCategoriaGasto(<?php echo e($gasto->categoria_transac_id); ?>)" data-toggle="modal" data-target="#modalDetallesGastoDashboard" title="Ver Detalles"><?php echo e($gasto->nombre); ?></a>
                                     </td>
-                                    <td><?php echo e($gasto->gasto==null?'0.00':$gasto->gasto); ?></td>
+                                    <td><?php echo e($gasto->gasto ?? '0.00'); ?></td>
                                 </tr>
-                                <?php ($total = $total + $gasto->gasto); ?>
+                                <?php ($total += $gasto->gasto); ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
-
                             <tfoot>
                             <tr>
                                 <td><b>TOTAL:</b></td>
-                                <td><b><?php echo e($total); ?></b></td>
+                                <td><b class="bTotalCategoriaGastoDash"><?php echo e($total); ?></b></td>
                             </tr>
                             </tfoot>
                         </table>
                     </div>
+                </div>
+                <div class="overlay overlay-gastos">
+                    <i class="fa fa-refresh fa-spin"></i>
                 </div>
             </div>
         </div>
@@ -133,25 +145,47 @@
                 </div >
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="chartGCategorias" style="height: 92vh;"></canvas>
+                        <canvas id="chartGCategorias"></canvas>
                     </div>
-                    <div>
-                        
-                    </div>
+                </div>
+                <div class="overlay overlay-gastos">
+                    <i class="fa fa-refresh fa-spin"></i>
                 </div>
             </div>
         </div>
     </div>
 
     <script type="text/javascript">
-        var colores = ["rgba(255, 205, 86, 0.5)","rgba(255, 99, 132, 0.5)","rgba(75, 192, 192, 0.5)","rgba(201, 203, 207, 0.5)","rgba(54, 162, 235, 0.5)","rgba(255, 159, 64, 0.5)","rgba(153, 102, 255, 0.5)"];
+        const colores = ["rgba(255, 205, 86, 0.5)", "rgba(255, 99, 132, 0.5)", "rgba(75, 192, 192, 0.5)", "rgba(201, 203, 207, 0.5)", "rgba(56,155,226,0.5)", "rgba(255, 159, 64, 0.5)", "rgba(153, 102, 255, 0.5)"];
+        const meses =['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'];
+        const overlay = $('.overlay');
+        const overlayGasto = $('.overlay-gastos');
+        const mesActual = new Date().getMonth();
+        const labelMes =   $('.spaMesGastosButton');
+        var mes = mesActual;
+        var chart;
+
+        $(document).ready(function(){
+            labelMes.html(meses[mesActual]);
+            overlay.fadeOut('slow');
+        });
+
+        //Inicializacion de DataTable
+        $(function () {
+            $('.table').DataTable({
+                scrollY:"32vh",
+                scrollCollapse: true,
+                paging: false,
+                searching: false
+            });
+        });
 
         //Inicializar Chart Cuentas
         $(function () {
-            var ids=0;
-            var cuentas = JSON.parse($('#inpHiddenCuentas').val());
-            var ctx = document.getElementById('chartCuentas').getContext('2d');
-            var labels=[], valor=[], color=[];
+            let ids=0;
+            let cuentas = JSON.parse($('#inpHiddenCuentas').val());
+            let ctx = document.getElementById('chartCuentas').getContext('2d');
+            let labels=[], valor=[], color=[];
             $.each(cuentas, function(id, value) {
                 labels.push(value.nombre);
                 valor.push(value.saldo);
@@ -161,8 +195,8 @@
                 else
                     ids++;
             });
-
-            var data = {
+            console.log(Math.max.apply(null,valor));
+            let data = {
                 labels  : labels,
                 datasets: [
                     {
@@ -173,27 +207,34 @@
                     }
                 ]
             };
-            var opciones = {
+            let opciones = {
                 plugins: {
-                    datalabels:{
-                        anchor:'end',
-                        align:'right',
-                        offset:2
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'right',
+                        offset: 2
                     }
                 },
                 responsive: true,
                 maintainAspectRatio: true,
-                scales:{
-                    xAxes:[{
-                        ticks:{
-                            beginAtZero:true,
-                            suggestedMax: 50
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            suggestedMax: Math.max.apply(null,valor)+50,
+                            stepSize: 50
+                        }
+                    }],
+                    yAxes: [{
+                        categoryPercentage: 0.5,
+                        ticks: {
+
                         }
                     }]
                 }
             };
 
-            var chart = new Chart(ctx, {
+            let chart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: data,
                 options: opciones
@@ -203,16 +244,82 @@
 
         //Inicializar Chart Gastos por Categorias
         $(function () {
-            var d = new Date();
-            var n = d.getMonth();
-            var ids=0;
-            var categorias = JSON.parse($('#inpHiddenGCategorias').val());
-            var ctx = document.getElementById('chartGCategorias').getContext('2d');
-            var datasets=[];
-            var meses =['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'];
+            let categorias = JSON.parse($('#inpHiddenGCategorias').val());
+            let ctx = document.getElementById('chartGCategorias').getContext('2d');
+            cargaChartGastos(categorias,ctx,mesActual);
+        });
+        //*Fin Chart Categoria Gastos*
 
+        //Boton mover al mes actual
+        $('#btnHoy').on('click',function (){
+            overlayGasto.fadeIn();
+            mes = mesActual;
+            let ctx = document.getElementById('chartGCategorias').getContext('2d');
+            let url = "<?php echo e(URL::to('/dashboard/gastos-mes')); ?>"+"/"+(mes+1)+"/"+2020;
+            chart.destroy();
+            $.get(url, function(json){
+                cargaChartGastos(json,ctx,mes);
+                cargaTblCategorias(json);
+                labelMes.html(meses[mes]);
+            },'json');
+            overlayGasto.fadeOut();
+        });
+
+        // Boton cambiar mes anterior
+        $('#btnLeftMesGasto').on('click',function(){
+            overlayGasto.fadeIn();
+            if(mes > 0){
+                mes--;
+                let ctx = document.getElementById('chartGCategorias').getContext('2d');
+                let url = "<?php echo e(URL::to('/dashboard/gastos-mes')); ?>"+"/"+(mes+1)+"/"+2020;
+                chart.destroy();
+                $.get(url, function(json){
+                    cargaChartGastos(json,ctx,mes);
+                    cargaTblCategorias(json);
+                    labelMes.html(meses[mes]);
+                },'json');
+            }
+            overlayGasto.fadeOut();
+        });
+
+        // Boton cambiar mes siguiente
+        $('#btnRightMesGasto').on('click',function(){
+            overlayGasto.fadeIn();
+            if(mes <11){
+                mes++;
+                let ctx = document.getElementById('chartGCategorias').getContext('2d');
+                let url = "<?php echo e(URL::to('/dashboard/gastos-mes')); ?>"+"/"+(mes+1)+"/"+2020;
+                chart.destroy();
+                $.get(url, function(json){
+                    labelMes.html(meses[mes]);
+                    cargaTblCategorias(json);
+                    cargaChartGastos(json,ctx,mes);
+                },'json');
+            }
+            overlayGasto.fadeOut();
+        });
+
+        //VerDetalleCategoriaGasto()
+        function VerDetalleCategoriaGasto(id){
+            let url = '<?php echo e(URL::to('/dashboard/detalle-cat-gasto')); ?>'+'/'+id+'/'+(mes+1);
+            let t = $('#tblDetallesCatGastos').DataTable();
+            $.get(url,function (json) {
+                t.clear().draw();
+                json.forEach(function(g){
+                    t.row.add([
+                        g.descripcion!=null?g.descripcion:g.nombre,
+                        g.valor
+                    ]).draw(false);
+                });
+            },'json');
+        }
+
+        //Funcion para cargar datos en chart de gastos
+        function cargaChartGastos(categorias,ctx,mes){
+            let ids = 0;
+            let datasets = [];
             $.each(categorias, function(id, value) {
-                var obj;
+                let obj;
                 obj = {
                     label: value.nombre,
                     data: [value.gasto],
@@ -225,63 +332,54 @@
                 else
                     ids++;
             });
-
-            var data = {
-                labels  : [meses[n]],
+            let data = {
+                labels: [meses[mes]],
                 datasets: datasets
             };
-            var opciones = {
+            let opciones = {
                 responsive: true,
                 plugins: {
-                    datalabels:{
-                        anchor:'end'
+                    datalabels: {
+                        anchor: 'center'
                     }
                 },
                 legend: {
-                    position:'bottom'
+                    position: 'bottom'
                 },
                 maintainAspectRatio: false,
-                scales:{
-                    xAxes:[{
-                        ticks:{beginAtZero:true}
+                scales: {
+                    xAxes: [{
+                        ticks: {beginAtZero: true},
+                        categoryPercentage: 0.5
                     }],
                     yAxes: [{
-                        ticks: {mirror: true}
+                        ticks: {mirror: true, min: 0}
                     }]
                 }
             };
-
-            var chart = new Chart(ctx, {
+            chart = new Chart(ctx, {
                 type: 'bar',
                 data: data,
                 options: opciones
             });
-        });
-        //*Fin Chart Categoria Gastos*
-
-        //Inicializacion de DataTable
-        $(function () {
-            $('.table').DataTable({
-                scrollCollapse: true,
-                paging: false,
-                searching: false
+        }
+        //Funcion recargar tabla de Categorias
+        function cargaTblCategorias(data){
+            console.log('Carga Tabla Categorias');
+            let t = $('#tblCategoriasGastosDash').DataTable();
+            let totalhtml =  $('.bTotalCategoriaGastoDash');
+            let total = 0;
+            t.clear().draw();
+            data.forEach(function(g){
+                t.row.add([
+                    '<a class="btnVerDetallesGasto" style="cursor: pointer" data-toggle="modal" data-target="#modalDetallesGastoDashboard" title="Ver Detalles" onclick="VerDetalleCategoriaGasto('+g.categoria_transac_id+')">'+g.nombre+'</a>',
+                    g.gasto
+                ]).draw(true);
+                total += parseFloat(g.gasto);
             });
-        });
-        //Boton ver detalles del gasto
-        $('.btnVerDetallesGasto').on('click', function () {
-            var id = $(this).data('idcategoria');
-            var url = '<?php echo e(URL::to('/dashboard/detalle-cat-gasto')); ?>'+'/'+id;
-            var t = $('#tblDetallesCatGastos').DataTable();
-            $.get(url,function (json) {
-                t.clear().draw();
-                json.forEach(function(g){
-                    t.row.add([
-                        g.descripcion!=null?g.descripcion:g.nombre,
-                        g.valor
-                    ]).draw(false);
-                });
-            },'json');
-        })
+            totalhtml.empty();
+            totalhtml.html(total);
+        }
     </script>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('scripts'); ?>

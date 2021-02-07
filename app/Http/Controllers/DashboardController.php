@@ -25,26 +25,11 @@ class DashboardController extends Controller
             ->select(DB::raw('transaccion.categoria_transac_id, categoria_transac.nombre,SUM(transaccion.valor) as gasto'))
             ->groupBy('transaccion.categoria_transac_id')
             ->get();
-        /*$ingresos = Transacciones::leftjoin('cuentas','cuentas.id' ,'=', 'transaccion.cuenta_id')
-            ->where('cuentas.usuario_id',Auth::user()->id)
-            ->where('transaccion.tipo_transac_id',1)
-            ->where('transaccion.tipo','I')
-            ->whereMonth('transaccion.fecha', $m)
-            ->select(DB::raw('SUM(transaccion.valor) as ingresos'))
-            ->get();
-        $gastos = Transacciones::leftjoin('cuentas','cuentas.id' ,'=', 'transaccion.cuenta_id')
-            ->where('cuentas.usuario_id',Auth::user()->id)
-            ->where('transaccion.tipo_transac_id',2)
-            ->where('transaccion.tipo','S')
-            ->whereMonth('transaccion.fecha', $m)
-            ->select(DB::raw('SUM(transaccion.valor) as gastos'))
-            ->get();*/
-
         return view('dashboard.index', compact('cuentas','gastosCateg'));
     }
 
-    public function getdetalleCatGasto($catId){
-        $m = Carbon::now()->format('m');
+    public function getdetalleCatGasto($catId,$m){
+//        $m = Carbon::now()->format('m');
         $gastosCateg = Transacciones::leftjoin('categoria_transac','categoria_transac.id', '=', 'transaccion.categoria_transac_id')
             ->leftjoin('cuentas','cuentas.id' ,'=', 'transaccion.cuenta_id')
             ->where('cuentas.usuario_id',Auth::user()->id)

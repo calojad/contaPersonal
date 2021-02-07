@@ -29,8 +29,8 @@
 
         <div class="form-group">
             <div class="col-md-8 col-md-offset-2">
-                <button id="btnCompCredencial" type="button" class="btn btn-primary">Login <i id="iLoginSpinner" class="fa"></i></button>
                 <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
+                <a id="btnCompCredencial" class="btn btn-primary pull-right">Iniciar <i id="iLoginSpinner" class="fa fa-sign-in"></i></a>
             </div>
         </div>
     </form>

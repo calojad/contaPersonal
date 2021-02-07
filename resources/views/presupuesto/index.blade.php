@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <label class="col-md-5 control-label" for="ingresoTotal">Total ingresos:</label>
                             <div class="col-md-5">
-                                <input type="text" name="ingresoTotal" id="ingresoTotal" class="form-control" value="0" data-toggle="tooltip" title="Digite sus Ingresos Mensuales" data-placement="top" autofocus onkeypress="return filterFloat(event,this);">
+                                <input type="text" name="ingresoTotal" id="ingresoTotal" class="form-control" placeholder="500.00" autofocus onkeypress="return filterFloat(event,this);">
                             </div>
                         </div>
                     </div>
@@ -189,19 +189,15 @@
         function sumaGastos() {
             var totalGasto=0;
             $(".tdValorG").each(function(){
-                totalGasto+=parseInt($(this).html()) || 0;
+                console.log(parseFloat($(this).html()));
+                totalGasto+=parseFloat($(this).html()) || 0;
             });
             $('#spaTotalGastos').html('$'+totalGasto);
         }
 
         // Calcular total del presupuesto
         function obtTotalGasto() {
-            var ingreso = $('#ingresoTotal');
-            if (ingreso.val() === '') {
-                ingreso.val(0);
-            }
-
-            var url = '{{URL::to('presupuesto/totales')}}' + '/' + ingreso.val();
+            var url = '{{URL::to('presupuesto/totales')}}' + '/' + inputIngreso.val();
             var span = $('#spaTotalPresupuesto');
 
             $.get(url, function (json) {

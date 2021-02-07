@@ -71,14 +71,14 @@ class TransaccionController extends Controller
             ->where('transaccion.cuenta_id', $cuentaId)
             ->where('transaccion.tipo_transac_id', 1)
             ->whereBetween('transaccion.fecha', [$desde, $hasta])
-            ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre','categoria_transac.id as categoria_id','transaccion.tipo_transac_id')
+            ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre','categoria_transac.id as categoria_id','transaccion.tipo_transac_id','transaccion.created_at')
             ->get();
 
         $gastos = Transacciones::leftjoin('categoria_transac', 'transaccion.categoria_transac_id', '=', 'categoria_transac.id')
             ->where('cuenta_id', $cuentaId)
             ->where('transaccion.tipo_transac_id', 2)
             ->whereBetween('transaccion.fecha', [$desde, $hasta])
-            ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre','categoria_transac.id as categoria_id','transaccion.tipo_transac_id')
+            ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre','categoria_transac.id as categoria_id','transaccion.tipo_transac_id','transaccion.created_at')
             ->get();
         $totalIng = 0;
         $totalGas = 0;

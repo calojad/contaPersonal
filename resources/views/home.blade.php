@@ -232,10 +232,11 @@
                     t.row.add([
                         '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
                         c.valor,
-                        c.fecha,
+                        //moment(c.created_at).format('DD/MM/YYYY hh:mm'),
+                        moment(c.fecha).format('DD/MM/YYYY'),
                         '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET">' +
                             '<div class="btn-group">' +
-                                '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button" data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'" data-cuenta="'+c.cuenta_id+'"><i class="fa fa-edit"></i></button>' +
+                                '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button"     data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'" data-cuenta="'+c.cuenta_id+'"><i class="fa fa-edit"></i></button>' +
                                 '<button class="btn btn-danger btn-xs" type="submit" title="Eliminar Transaccion"><i class="fa fa-trash"></i></button>'+
                             '</div>' +
                         '</form>'

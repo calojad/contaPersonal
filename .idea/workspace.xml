@@ -2,27 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/28947903e1cbb14c4ddaaf288a55c72a8951936f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2eb78faa-2c4a-4297-9785-013a4095c1f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2eb78faa-2c4a-4297-9785-013a4095c1f5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/contaPersonal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/contaPersonal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/adminLTE-2.4.3/dist/css/AdminLTE.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/adminLTE-2.4.3/dist/css/AdminLTE.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/plugins/toastr/toastr.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/toastr/toastr.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/plugins/toastr/toastr.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/toastr/toastr.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TransaccionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransaccionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login-dialog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login-dialog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cuentas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cuentas/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/notificacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/notificacion.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/QjsxX9XLuFS6rLim0WZajUAeBP6amcDiJj2Q910a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/9a9cbfe34d05867cdce28acc17550332a4824a6b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/9a9cbfe34d05867cdce28acc17550332a4824a6b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/presupuesto/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/e1yHoOECP476bSCrYcuczhSWnYEbMZogJdDcsadL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/edENsfLAeFQ5PfxtYKGpMdyjijXtKIdRHU02VcrL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/f7v9Kmtf3Hqy1VJGAzUMlsd28Kp0BdPaAVDK41qc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/28947903e1cbb14c4ddaaf288a55c72a8951936f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/28947903e1cbb14c4ddaaf288a55c72a8951936f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/59e711bf5a715dd132ad4656c816aa2c69153ec4.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/59e711bf5a715dd132ad4656c816aa2c69153ec4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/9389817cdbd526bf668c279fd031d235ac7afdc8.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/9389817cdbd526bf668c279fd031d235ac7afdc8.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/e9c7c345a50d7e8d6097f61a41c26c25330d3683.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/e9c7c345a50d7e8d6097f61a41c26c25330d3683.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,6 +187,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -382,7 +381,32 @@
       <workItem from="1597976857290" duration="2878000" />
       <workItem from="1598111512657" duration="3797000" />
       <workItem from="1598137218477" duration="1520000" />
-      <workItem from="1598301991928" duration="3876000" />
+      <workItem from="1598301991928" duration="7879000" />
+      <workItem from="1598378263961" duration="33258000" />
+      <workItem from="1598544887148" duration="4094000" />
+      <workItem from="1598570967443" duration="281000" />
+      <workItem from="1598584059941" duration="1482000" />
+      <workItem from="1598662879515" duration="8570000" />
+      <workItem from="1598901726573" duration="20406000" />
+      <workItem from="1599166972478" duration="4766000" />
+      <workItem from="1599950830168" duration="340000" />
+      <workItem from="1599951215876" duration="2506000" />
+      <workItem from="1603240522780" duration="1183000" />
+      <workItem from="1603242437170" duration="596000" />
+      <workItem from="1604448266832" duration="693000" />
+      <workItem from="1604450161971" duration="1597000" />
+      <workItem from="1606178760485" duration="715000" />
+      <workItem from="1606180293437" duration="2245000" />
+      <workItem from="1609298504010" duration="1437000" />
+      <workItem from="1609519167477" duration="1196000" />
+      <workItem from="1609525044831" duration="1196000" />
+      <workItem from="1609529213557" duration="3162000" />
+      <workItem from="1610406286747" duration="629000" />
+      <workItem from="1610407446811" duration="810000" />
+      <workItem from="1611016574446" duration="641000" />
+      <workItem from="1611020422244" duration="1732000" />
+      <workItem from="1611407184265" duration="329000" />
+      <workItem from="1611407568117" duration="966000" />
     </task>
     <servers />
   </component>
@@ -400,60 +424,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="309" y="42" key="#Inspections" timestamp="1597721177569">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="309" y="42" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1597721177569" />
-    <state x="570" y="207" key="#Notifications" timestamp="1590261095564">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="570" y="207" key="#Notifications/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261095564" />
-    <state x="275" y="4" key="#Plugins" timestamp="1593436194738">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="275" y="4" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1593436194738" />
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597518011503">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1597518011503" />
-    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591907116532">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1591907116532" />
-    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1590281315172">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590281315172" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1595114183997">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590261584360" />
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1595114183997" />
-    <state width="505" height="446" key="SwitcherDM" timestamp="1597550116158">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="505" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590280742796" />
-    <state width="505" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1590282652608" />
-    <state width="505" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1597550116158" />
-    <state x="495" y="238" width="376" height="334" key="com.intellij.database.actions.DdlActions$CommentOnObjectAction$1" timestamp="1597518162446">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="495" y="238" width="376" height="334" key="com.intellij.database.actions.DdlActions$CommentOnObjectAction$1/0.0.1366.728@0.0.1366.728" timestamp="1597518162446" />
-    <state x="443" y="171" width="479" height="381" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597518191832">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="443" y="171" width="479" height="381" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.728@0.0.1366.728" timestamp="1597518191832" />
-    <state x="379" y="108" width="607" height="512" key="find.popup" timestamp="1597462310053">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="379" y="108" width="607" height="512" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597462310053" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597979257781">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1590280712791" />
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1590282645641" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597979257781" />
   </component>
 </project>
