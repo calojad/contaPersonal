@@ -54,7 +54,11 @@
                 retrieve: true,
                 responsive: true,
                 scrollY: '50vh',
-                scrollCollapse: true
+                scrollCollapse: true,
+                columnDefs: [ {
+                    targets: 2,
+                    render: $.fn.dataTable.render.moment('YYYY/MM/DD', 'DD/MM/YYYY')
+                } ]
             });
         });
         
@@ -232,7 +236,8 @@
                         '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
                         c.valor,
                         //moment(c.created_at).format('DD/MM/YYYY hh:mm'),
-                        moment(c.fecha).format('DD/MM/YYYY'),
+                        moment(c.fecha).format('YYYY/MM/DD'),
+                        //c.fecha,
                         '<form action="<?php echo e(URL::to('transaccion/destroy/')); ?>/'+c.id+'" method="GET">' +
                             '<div class="btn-group">' +
                                 '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button"     data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'" data-cuenta="'+c.cuenta_id+'"><i class="fa fa-edit"></i></button>' +
@@ -244,5 +249,9 @@
             $('[data-toggle="tooltip"]').tooltip();
         }
     </script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+    <?php echo Html::script('plugins/moment.js/datetime.js'); ?>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

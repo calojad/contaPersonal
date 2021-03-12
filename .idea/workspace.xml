@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/contaPersonal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/contaPersonal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/bW6Yd2dm4vhOzTvipF9Jd9YX4JZQxOFNxzwZybPC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/3qGJicR334PxWEHli2gga4tO4XvyLXIZj8Onvil0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/G4U5LtL58AND0r6XCbxg8qvaJJ7M9UvNPUbmb3aB" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/OuQqKOPlPdXtbQS7iC1FOlvVNUjSBgKiIgQ7V4sF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/XicvwT4agMjbbB6vCiT9l3Ucf97bRwQG8ofdCHtF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/e9c7c345a50d7e8d6097f61a41c26c25330d3683.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/e9c7c345a50d7e8d6097f61a41c26c25330d3683.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +120,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
@@ -130,10 +137,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/kylekatarnls/update-helper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1OmgnIjkuUaGFllLRlTNLlakKMF" />
@@ -392,6 +399,10 @@
       <workItem from="1611407568117" duration="966000" />
       <workItem from="1614549957788" duration="1366000" />
       <workItem from="1614558633257" duration="608000" />
+      <workItem from="1615258442237" duration="3912000" />
+      <workItem from="1615471286576" duration="809000" />
+      <workItem from="1615475696253" duration="142000" />
+      <workItem from="1615511597617" duration="717000" />
     </task>
     <servers />
   </component>

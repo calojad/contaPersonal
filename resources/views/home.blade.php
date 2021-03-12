@@ -55,7 +55,11 @@
                 retrieve: true,
                 responsive: true,
                 scrollY: '50vh',
-                scrollCollapse: true
+                scrollCollapse: true,
+                columnDefs: [ {
+                    targets: 2,
+                    render: $.fn.dataTable.render.moment('YYYY/MM/DD', 'DD/MM/YYYY')
+                } ]
             });
         });
         {{--Cuando cargue la pagina--}}
@@ -233,7 +237,8 @@
                         '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
                         c.valor,
                         //moment(c.created_at).format('DD/MM/YYYY hh:mm'),
-                        moment(c.fecha).format('DD/MM/YYYY'),
+                        moment(c.fecha).format('YYYY/MM/DD'),
+                        //c.fecha,
                         '<form action="{{URL::to('transaccion/destroy/')}}/'+c.id+'" method="GET">' +
                             '<div class="btn-group">' +
                                 '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button"     data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'" data-cuenta="'+c.cuenta_id+'"><i class="fa fa-edit"></i></button>' +
@@ -246,3 +251,6 @@
         }
     </script>
 @endsection
+@section('scripts')
+    {!! Html::script('plugins/moment.js/datetime.js') !!}
+@stop
