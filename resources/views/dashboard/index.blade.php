@@ -76,14 +76,20 @@
     <div class="row">
         {{--  CUADRO DEL DETALLE GASTOS CATEGORIAS  --}}
         <div class="col-md-4">
+        {{--  MENU PARA CAMBIAR DE FECHA  --}}
             <div class="box box-primary box-sombra">
-                <div class="box-body text-center">
-                    <div class="col-md-8">
+                <div class="box-body">
+                    <div class="col-md-6" style="padding-left:5px">
                         <button id="btnLeftMesGasto" class="btn btn-default"><i class="fa fa-angle-left fa-2x"></i></button>
-                        <span class="spaMesGastosButton text-bold" style="display: inline-block;width: 120px;"></span>
+                        <span class="spaMesGastosButton text-bold text-center" style="display: inline-block;width: 85px;"></span>
                         <button id="btnRightMesGasto" class="btn btn-default"><i class="fa fa-angle-right fa-2x"></i></button>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="padding-left:5px">
+                        <select class="form-control" name="anio">
+                            <option value="2021">2021</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2" style="padding-left:5px">
                         <button id="btnHoy" class="btn btn-success text-bold">Hoy</button>
                     </div>
                 </div>
@@ -162,10 +168,12 @@
         const overlay = $('.overlay');
         const overlayGasto = $('.overlay-gastos');
         const mesActual = new Date().getMonth();
+        const anoActual = new Date().getFullYear();
         const labelMes =   $('.spaMesGastosButton');
+        var ano = anoActual;
         var mes = mesActual;
         var chart;
-
+        console.log(anoActual);
         $(document).ready(function(){
             labelMes.html(meses[mesActual]);
             overlay.fadeOut('slow');
@@ -255,8 +263,9 @@
         $('#btnHoy').on('click',function (){
             overlayGasto.fadeIn();
             mes = mesActual;
+            ano = anoActual
             let ctx = document.getElementById('chartGCategorias').getContext('2d');
-            let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+2020;
+            let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+ano;
             chart.destroy();
             $.get(url, function(json){
                 cargaChartGastos(json,ctx,mes);
@@ -272,7 +281,7 @@
             if(mes > 0){
                 mes--;
                 let ctx = document.getElementById('chartGCategorias').getContext('2d');
-                let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+2020;
+                let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+ano;
                 chart.destroy();
                 $.get(url, function(json){
                     cargaChartGastos(json,ctx,mes);
@@ -289,7 +298,7 @@
             if(mes <11){
                 mes++;
                 let ctx = document.getElementById('chartGCategorias').getContext('2d');
-                let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+2020;
+                let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+ano;
                 chart.destroy();
                 $.get(url, function(json){
                     labelMes.html(meses[mes]);
