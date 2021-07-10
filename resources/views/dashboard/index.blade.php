@@ -41,7 +41,7 @@
                             <tfoot>
                                 <tr>
                                     <td><b>TOTAL:</b></td>
-                                    <td><b>{{$total}}</b></td>
+                                    <td><b>{{round($total, 2)}}</b></td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -76,7 +76,7 @@
     <div class="row">
         {{--  CUADRO DEL DETALLE GASTOS CATEGORIAS  --}}
         <div class="col-md-4">
-        {{--  MENU PARA CAMBIAR DE FECHA  --}}
+            {{--  MENU PARA CAMBIAR DE FECHA  --}}
             <div class="box box-primary box-sombra">
                 <div class="box-body">
                     <div class="col-md-6" style="padding-left:5px">
@@ -97,7 +97,7 @@
                     <i class="fa fa-refresh fa-spin"></i>
                 </div>
             </div>
-
+            {{-- LISTA / TABLA CON LOS GASTOS  --}}
             <div class="box box-warning box-sombra">
                 <div class="box-header with-border">
                     <h3 class="box-title">Categoría</h3>
@@ -129,7 +129,7 @@
                             <tfoot>
                             <tr>
                                 <td><b>TOTAL:</b></td>
-                                <td><b class="bTotalCategoriaGastoDash">{{$total}}</b></td>
+                                <td><b class="bTotalCategoriaGastoDash">{{round($total, 2)}}</b></td>
                             </tr>
                             </tfoot>
                         </table>
@@ -388,7 +388,7 @@
                 total += parseFloat(g.gasto);
             });
             totalhtml.empty();
-            totalhtml.html(total);
+            totalhtml.html(Math.round(total * 100) / 100);
         }
     </script>
 @stop

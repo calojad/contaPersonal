@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/TCjHAuEtJrv0nTcCoyikTwISvwOoYVJKoNdspf9h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/includes/menuSuperior.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/QaahewZzQptTnwH0e5KmWbuFXj4W0QnN8Mh0G9It" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/59e711bf5a715dd132ad4656c816aa2c69153ec4.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/59e711bf5a715dd132ad4656c816aa2c69153ec4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/6e4456947ed08cc06f2c49314ec2a852f87eaaa6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/6e4456947ed08cc06f2c49314ec2a852f87eaaa6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/885e1cf8c123e5bcc942319555fa59ec60f4d60a.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/885e1cf8c123e5bcc942319555fa59ec60f4d60a.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +38,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
@@ -170,7 +183,7 @@
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -399,7 +412,17 @@
       <workItem from="1615511597617" duration="1322000" />
       <workItem from="1616290718697" duration="671000" />
       <workItem from="1616293838975" duration="3536000" />
-      <workItem from="1618096164735" duration="1329000" />
+      <workItem from="1618096164735" duration="1555000" />
+      <workItem from="1618103829462" duration="4197000" />
+      <workItem from="1621212160900" duration="1177000" />
+      <workItem from="1623610384712" duration="1291000" />
+      <workItem from="1623619316896" duration="1192000" />
+      <workItem from="1624239348808" duration="687000" />
+      <workItem from="1624240545713" duration="2714000" />
+      <workItem from="1624755838695" duration="1816000" />
+      <workItem from="1625785036384" duration="1189000" />
+      <workItem from="1625787201513" duration="4186000" />
+      <workItem from="1625930712667" duration="5793000" />
     </task>
     <servers />
   </component>

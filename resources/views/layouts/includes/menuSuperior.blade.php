@@ -1,12 +1,12 @@
 <nav class="navbar navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/" class="logo">
+            <a href="/" class="logo" style="width:80% !important; float: left !important;text-align:left !important;">
                 <img src="{{asset('images/CAL_logo.png')}}" alt="Logo" width="45"
                      style="margin-right: 15px; margin-top: -5px">
                 <b>{{config('app.name','CAL')}}</b>
             </a>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            <button type="button" class="navbar-toggle collapsed col-md-6" data-toggle="collapse"
                     data-target="#navbar-collapse">
                 <i class="fa fa-bars" style="font-size: 18pt"></i>
             </button>

@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1 flayer-1">
                 <h3 style="color: #1f1f1f">Administra tu dinero de manera inteligente</h3>
-                <h1 class="mb" style="color: #1f1f1f">FINANZAS PERSONALES</h1>
+                <h1 class="mb" style="color: #1f1f1f;font-size: 8vw;">FINANZAS PERSONALES</h1>
             </div>
         </div>
     </div>
