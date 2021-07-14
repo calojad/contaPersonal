@@ -18,10 +18,10 @@
                 <?php if(auth()->guard()->guest()): ?>
                 <?php else: ?>
                 <li class="<?php echo e(Request::is('dashboard')?'active':''); ?>">
-                    <a href="<?php echo e(URL::to('/dashboard')); ?>"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    <a href="<?php echo e(URL::to('/dashboard')); ?>"><i class="fa fa-bar-chart"></i> Dashboard</a>
                 </li>
                 <li class="<?php echo e(Request::is('home*','inicio')?'active':''); ?>">
-                    <a href="<?php echo e(URL::to('/home')); ?>"><i class="fa fa-bank"></i> Cuentas</a>
+                    <a href="<?php echo e(URL::to('/home')); ?>"><i class="fa fa-suitcase"></i> Cuentas</a>
                 </li>
                 <li class="<?php echo e(Request::is('presupuesto*')?'active':''); ?>">
                     <a href="<?php echo e(URL::to('/presupuesto')); ?>"><i class="fa fa-coffee"></i> Presupuesto</a>

@@ -72,6 +72,8 @@ class TransaccionController extends Controller
             ->where('transaccion.tipo_transac_id', 1)
             ->whereBetween('transaccion.fecha', [$desde, $hasta])
             ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre','categoria_transac.id as categoria_id','transaccion.tipo_transac_id','transaccion.created_at')
+            ->orderBy('transaccion.fecha', 'desc')
+            ->orderBy('transaccion.id', 'desc')
             ->get();
 
         $gastos = Transacciones::leftjoin('categoria_transac', 'transaccion.categoria_transac_id', '=', 'categoria_transac.id')
@@ -79,6 +81,8 @@ class TransaccionController extends Controller
             ->where('transaccion.tipo_transac_id', 2)
             ->whereBetween('transaccion.fecha', [$desde, $hasta])
             ->select('transaccion.id', 'transaccion.cuenta_id', 'transaccion.valor', 'transaccion.descripcion', 'transaccion.fecha', 'categoria_transac.nombre as categoria_nombre','categoria_transac.id as categoria_id','transaccion.tipo_transac_id','transaccion.created_at')
+            ->orderBy('transaccion.fecha', 'desc')
+            ->orderBy('transaccion.id', 'desc')
             ->get();
         $totalIng = 0;
         $totalGas = 0;

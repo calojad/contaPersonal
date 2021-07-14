@@ -5,59 +5,35 @@
     <input id="inpHiddenCuentas" type="hidden" value="<?php echo e($cuentas); ?>">
     <input id="inpHiddenGCategorias" type="hidden" value="<?php echo e($gastosCateg); ?>">
     <?php echo $__env->make('includes.notificacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <div class="row">
-        
-        <div class="col-md-4">
-            <div class="box box-primary box-sombra">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Cuentas</h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    </div>
-                </div>
 
-                <div class="box-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover table-checkable datatable">
-                            <thead>
-                                <tr>
-                                    <th>Cuenta</th>
-                                    <th>Saldo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php ($total = 0); ?>
-                                <?php $__currentLoopData = $cuentas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cuenta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
-                                        <td>
-                                            <a href="<?php echo e(URL::to('/home').'/'.$cuenta->id); ?>"><?php echo e($cuenta->nombre); ?></a>
-                                        </td>
-                                        <td><?php echo e($cuenta->saldo ?? '0.00'); ?></td>
-                                    </tr>
-                                    <?php ($total += $cuenta->saldo); ?>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td><b>TOTAL:</b></td>
-                                    <td><b><?php echo e(round($total, 2)); ?></b></td>
-                                </tr>
-                            </tfoot>
-                        </table>
+    <div class="row">
+        <div style="overflow: auto;white-space: nowrap;margin-bottom: 20px">
+            <?php $__currentLoopData = $cuentas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cuenta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div style="display:inline-block; width: 25%">
+                    <div class="col-lg-12 col-xs-6">
+                        <div class="small-box <?php echo e($cuenta->saldo <= 0 ? 'bg-red':(($cuenta->saldo >0) && ($cuenta->saldo < 150) ? 'bg-yellow':(($cuenta->saldo >150) && ($cuenta->saldo < 500)?'bg-aqua':'bg-green'))); ?>" style="margin-bottom: 0px">
+                            <div class="inner">
+                                <h3><?php echo e($cuenta->saldo ?? '0.00'); ?></h3>
+                                <p><?php echo e($cuenta->nombre); ?></p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-briefcase"></i>
+                            </div>
+                            <a href="<?php echo e(URL::to('/home').'/'.$cuenta->id); ?>" class="small-box-footer">Ver Cuenta <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="overlay">
-                    <i class="fa fa-refresh fa-spin"></i>
-                </div>
-            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
-        
-        <div class="col-md-8">
-            <div class="box box-info box-sombra">
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info box-sombra collapsed-box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Saldo</h3>
+                    <h3 class="box-title">Diagrama de Saldos</h3>
                     <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="box-body">
@@ -211,11 +187,14 @@
                         label: 'Saldo',
                         data: valor,
                         backgroundColor:color,
-                        borderWidth:1
+                        borderWidth:2
                     }
                 ]
             };
             let opciones = {
+                legend: {
+                    display: false
+                },
                 plugins: {
                     datalabels: {
                         anchor: 'end',
@@ -229,15 +208,12 @@
                     xAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            suggestedMax: Math.max.apply(null,valor)+50,
-                            stepSize: 50
+                            suggestedMax: Math.max.apply(null,valor)+100,
+                            stepSize: 100
                         }
                     }],
                     yAxes: [{
-                        categoryPercentage: 0.5,
-                        ticks: {
-
-                        }
+                        categoryPercentage: 0.7
                     }]
                 }
             };

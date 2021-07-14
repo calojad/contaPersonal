@@ -18,10 +18,10 @@
                 @guest
                 @else
                 <li class="{{Request::is('dashboard')?'active':''}}">
-                    <a href="{{URL::to('/dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    <a href="{{URL::to('/dashboard')}}"><i class="fa fa-bar-chart"></i> Dashboard</a>
                 </li>
                 <li class="{{Request::is('home*','inicio')?'active':''}}">
-                    <a href="{{URL::to('/home')}}"><i class="fa fa-bank"></i> Cuentas</a>
+                    <a href="{{URL::to('/home')}}"><i class="fa fa-suitcase"></i> Cuentas</a>
                 </li>
                 <li class="{{Request::is('presupuesto*')?'active':''}}">
                     <a href="{{URL::to('/presupuesto')}}"><i class="fa fa-coffee"></i> Presupuesto</a>

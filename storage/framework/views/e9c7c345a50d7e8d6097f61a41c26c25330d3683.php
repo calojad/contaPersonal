@@ -1,5 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
+
         <?php echo $__env->make('includes.notificacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="col-md-12">
             
@@ -49,16 +50,17 @@
                 paging: false,
                 lengthChange: true,
                 searching: true,
-                order: [[ 2, "desc" ]],
+                // order: [[ 2, "desc" ]],
+                ordering: false,
                 autoWidth: false,
                 retrieve: true,
                 responsive: true,
                 scrollY: '50vh',
-                scrollCollapse: true,
-                columnDefs: [ {
+                scrollCollapse: true
+                /*columnDefs: [ {
                     targets: 2,
                     render: $.fn.dataTable.render.moment('YYYY/MM/DD', 'DD/MM/YYYY')
-                } ]
+                } ]*/
             });
         });
         
@@ -235,9 +237,7 @@
                     t.row.add([
                         '<span data-toggle="tooltip" title="'+ (c.descripcion!=null ? c.descripcion : c.categoria_nombre) +'" data-placement="right">'+c.categoria_nombre+'</span>',
                         c.valor,
-                        //moment(c.created_at).format('DD/MM/YYYY hh:mm'),
-                        moment(c.fecha).format('YYYY/MM/DD'),
-                        //c.fecha,
+                        '<span data-toggle="tooltip" title="'+ c.created_at +'" data-placement="right">'+moment(c.fecha).format('DD/MMM/YYYY')+'</span>',
                         '<form action="<?php echo e(URL::to('transaccion/destroy/')); ?>/'+c.id+'" method="GET">' +
                             '<div class="btn-group">' +
                                 '<button class="btn btn-primary btn-xs btnEditarTransaccionModal" type="button"     data-toggle="modal" data-target="#modalEditTransac" data-id="'+c.id+'" data-categoria="'+c.categoria_id+'" data-valor="'+c.valor+'" data-fecha="'+c.fecha+'" data-descripcion="'+c.descripcion+'" data-tipotransac="'+c.tipo_transac_id+'" data-cuenta="'+c.cuenta_id+'"><i class="fa fa-edit"></i></button>' +

@@ -14,6 +14,7 @@ class DashboardController extends Controller
     {
         $id = Auth::user()->id;
         $cuentas = Cuentas::where('usuario_id', $id)
+            ->orderBy('saldo', 'desc')
             ->get();
         $m = Carbon::now()->format('m');
         $gastosCateg = Transacciones::leftjoin('categoria_transac','categoria_transac.id', '=', 'transaccion.categoria_transac_id')
@@ -24,7 +25,9 @@ class DashboardController extends Controller
             ->whereMonth('transaccion.fecha', $m)
             ->select(DB::raw('transaccion.categoria_transac_id, categoria_transac.nombre,SUM(transaccion.valor) as gasto'))
             ->groupBy('transaccion.categoria_transac_id')
+            ->orderBy('gasto', 'desc')
             ->get();
+//        dd($gastosCateg);
         return view('dashboard.index', compact('cuentas','gastosCateg'));
     }
 
