@@ -22,6 +22,7 @@ class DashboardController extends Controller
             ->where('cuentas.usuario_id',Auth::user()->id)
             ->where('transaccion.tipo_transac_id',2)
             ->where('transaccion.tipo','S')
+            ->whereYear('transaccion.fecha', 2021)
             ->whereMonth('transaccion.fecha', $m)
             ->select(DB::raw('transaccion.categoria_transac_id, categoria_transac.nombre,SUM(transaccion.valor) as gasto'))
             ->groupBy('transaccion.categoria_transac_id')
@@ -38,8 +39,10 @@ class DashboardController extends Controller
             ->where('cuentas.usuario_id',Auth::user()->id)
             ->where('transaccion.categoria_transac_id',$catId)
             ->where('transaccion.tipo','S')
+            ->whereYear('transaccion.fecha', 2021)
             ->whereMonth('transaccion.fecha', $m)
             ->select(DB::raw('transaccion.categoria_transac_id, categoria_transac.nombre,transaccion.descripcion,valor'))
+            ->orderBy('valor', 'desc')
             ->get();
 
         return json_encode($gastosCateg);
@@ -55,6 +58,7 @@ class DashboardController extends Controller
             ->whereMonth('transaccion.fecha', $mes)
             ->select(DB::raw('transaccion.categoria_transac_id, categoria_transac.nombre,SUM(transaccion.valor) as gasto'))
             ->groupBy('transaccion.categoria_transac_id')
+            ->orderBy('gasto', 'desc')
             ->get();
 
         return json_encode($gastosCateg);
@@ -69,6 +73,7 @@ class DashboardController extends Controller
             ->whereYear('transaccion.fecha', $anio)
             ->select(DB::raw('transaccion.categoria_transac_id, categoria_transac.nombre,SUM(transaccion.valor) as gasto'))
             ->groupBy('transaccion.categoria_transac_id')
+            ->orderBy('gasto', 'desc')
             ->get();
 
         return json_encode($gastosCateg);

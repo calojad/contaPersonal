@@ -29,7 +29,7 @@
             <?php echo $__env->make('perfil.modal_avatar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <div class="col-md-8">
                 <div class="box box-principal">
-                    <div class="box-header"><h3 class="box-title"></h3></div>
+                    <div class="box-header"><h3 class="box-title">Información de Cuentas</h3></div>
                     <div class="box-body">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">

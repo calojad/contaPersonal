@@ -30,7 +30,7 @@
             @include('perfil.modal_avatar')
             <div class="col-md-8">
                 <div class="box box-principal">
-                    <div class="box-header"><h3 class="box-title"></h3></div>
+                    <div class="box-header"><h3 class="box-title">Información de Cuentas</h3></div>
                     <div class="box-body">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
