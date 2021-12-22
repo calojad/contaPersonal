@@ -21,3 +21,5 @@ Homestead.json
 .idea/
 .idea/workspace.xml
 storage/framework/
+.idea/dataSources.local.xml
+.idea/workspace.xml
