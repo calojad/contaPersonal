@@ -13,6 +13,7 @@
                             <tr>
                                 <th>Descripción</th>
                                 <th>Valor</th>
+                                <th>Fecha</th>
                             </tr>
                         </thead>
                         <tbody>

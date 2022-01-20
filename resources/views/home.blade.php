@@ -192,16 +192,15 @@
             }else{
                 categorias = JSON.parse($('input[name=categoriasGasto]').val());
             }
-            console.log(categorias);
             select.empty();
             $.each(categorias, function(id,value){
                 select.append('<option value="'+id+'">'+value+'</option>');
             });
 
-            var elementos = select.children("option").get();
+            let elementos = select.children("option").get();
             elementos.sort(function(a,b) {
-                var A = $(a).text().toUpperCase();
-                var B = $(b).text().toUpperCase();
+                let A = $(a).text().toUpperCase();
+                let B = $(b).text().toUpperCase();
                 return (A < B) ? -1 : (A > B) ? 1 : 0;
             });
             $.each(elementos, function(id, elemento) {

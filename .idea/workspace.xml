@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="" />
+    <list default="true" id="d549eac1-8d4b-4feb-8d99-c9ba308508fb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/modal_detallesGasto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/modal_detallesGasto.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/4aa4e59d9aa3584751ecc2152ae3a71ddcf1cc9e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/4aa4e59d9aa3584751ecc2152ae3a71ddcf1cc9e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/59e711bf5a715dd132ad4656c816aa2c69153ec4.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/59e711bf5a715dd132ad4656c816aa2c69153ec4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/e9c7c345a50d7e8d6097f61a41c26c25330d3683.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/e9c7c345a50d7e8d6097f61a41c26c25330d3683.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -428,6 +438,9 @@
       <workItem from="1638673619415" duration="2096000" />
       <workItem from="1640179506972" duration="1162000" />
       <workItem from="1640181833404" duration="188000" />
+      <workItem from="1641056642955" duration="14711000" />
+      <workItem from="1641261667030" duration="12866000" />
+      <workItem from="1641778340507" duration="4288000" />
     </task>
     <servers />
   </component>

@@ -10,14 +10,14 @@
     <div class="row">
         <div style="overflow: auto;white-space: nowrap;margin-bottom: 20px">
             @foreach ($cuentas as $cuenta)
-                <div style="display:inline-block; width: 25%">
-                    <div class="col-lg-12 col-xs-6">
+                <div style="display:inline-block;width: 20em;">
+                    <div class="col-lg-12 col-xs-12 col-md-12">
                         <div class="small-box {{$cuenta->saldo <= 0 ? 'bg-red':(($cuenta->saldo >0) && ($cuenta->saldo < 150) ? 'bg-yellow':(($cuenta->saldo >150) && ($cuenta->saldo < 500)?'bg-aqua':'bg-green'))}}" style="margin-bottom: 0px">
                             <div class="inner">
                                 <h3>{{ $cuenta->saldo ?? '0.00' }}</h3>
                                 <p>{{ $cuenta->nombre }}</p>
                             </div>
-                            <div class="icon">
+                            <div class="icon" style="display: block; !important">
                                 <i class="fa fa-briefcase"></i>
                             </div>
                             <a href="{{URL::to('/home').'/'.$cuenta->id}}" class="small-box-footer">Ver Cuenta <i class="fa fa-arrow-circle-right"></i></a>
@@ -61,8 +61,14 @@
                         <button id="btnRightMesGasto" class="btn btn-default"><i class="fa fa-angle-right fa-2x"></i></button>
                     </div>
                     <div class="col-md-4" style="padding-left:5px">
-                        <select class="form-control" name="anio">
-                            <option value="2021">2021</option>
+                        <select id="selectAnosFinan" class="form-control" name="anio">
+                        @foreach($anosTransacciones as $ano)
+                            @if ($ano->años === (int)$a)
+                                <option value="{{$ano->años}}" selected="selected">{{$ano->años}}</option>
+                            @else
+                                <option value="{{$ano->años}}">{{$ano->años}}</option>
+                            @endif
+                        @endforeach
                         </select>
                     </div>
                     <div class="col-md-2" style="padding-left:5px">
@@ -146,10 +152,12 @@
         const mesActual = new Date().getMonth();
         const anoActual = new Date().getFullYear();
         const labelMes =   $('.spaMesGastosButton');
-        var ano = anoActual;
+        var ano = $('select[name="anio"]').val();
         var mes = mesActual;
         var chart;
         console.log(anoActual);
+        console.log(mes);
+        console.log(ano);
         $(document).ready(function(){
             labelMes.html(meses[mesActual]);
             overlay.fadeOut('slow');
@@ -235,11 +243,30 @@
         });
         //*Fin Chart Categoria Gastos*
 
-        //Boton mover al mes actual
+        //Combo box años cada que cambie dar el valor a la variable global
+        $('#selectAnosFinan').on('change', function (){
+            overlayGasto.fadeIn();
+            ano = $(this).val();
+            let ctx = document.getElementById('chartGCategorias').getContext('2d');
+            let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+ano;
+            chart.destroy();
+            console.log(ano +'/'+mes)
+            $.get(url, function(json){
+                cargaChartGastos(json,ctx,mes);
+                cargaTblCategorias(json);
+                labelMes.html(meses[mes]);
+            },'json');
+            overlayGasto.fadeOut();
+        });
+
+        //Boton mover al mes actual (HOY)
         $('#btnHoy').on('click',function (){
             overlayGasto.fadeIn();
             mes = mesActual;
-            ano = anoActual
+            ano = anoActual;
+            console.log(ano);
+            console.log($('#selectAnosFinan').val());
+            $('#selectAnosFinan > option[value='+2022+']').attr('selected',true);
             let ctx = document.getElementById('chartGCategorias').getContext('2d');
             let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+ano;
             chart.destroy();
@@ -285,16 +312,17 @@
             overlayGasto.fadeOut();
         });
 
-        //VerDetalleCategoriaGasto()
+        //Funcion ver modal con el detalle de los gastos
         function VerDetalleCategoriaGasto(id){
-            let url = '{{URL::to('/dashboard/detalle-cat-gasto')}}'+'/'+id+'/'+(mes+1);
+            let url = '{{URL::to('/dashboard/detalle-cat-gasto')}}'+'/'+id+'/'+(mes+1)+'/'+(ano);
             let t = $('#tblDetallesCatGastos').DataTable();
             $.get(url,function (json) {
                 t.clear().draw();
                 json.forEach(function(g){
                     t.row.add([
                         g.descripcion!=null?g.descripcion:g.nombre,
-                        g.valor
+                        g.valor,
+                        moment(g.fecha).format('DD/MMM/YYYY')
                     ]).draw(false);
                 });
             },'json');
