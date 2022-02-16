@@ -10,14 +10,6 @@
             <div class="col-md-9">
                 <span class="box-title">{{$cuenta->nombre .' - Ultimos Movimientos' }}</span>
             </div>
-            <div class="pull-right col-md-3">
-                <div class="col-md-8">
-                    <span class="text-bold" style="font-size: large">{{\Carbon\Carbon::now()->formatLocalized('%A %d de %b %Y')}}</span>
-                </div>
-                <div class="col-md-4">
-                    <span class="spaReloj text-bold" style="font-size: large"></span>
-                </div>
-            </div>
         </div>
     </div>
     {{--CAJAS DE INGRESOS Y GASTOS DE LA CUENTA--}}

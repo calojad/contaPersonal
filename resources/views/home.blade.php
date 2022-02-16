@@ -1,7 +1,16 @@
 @extends('layouts.app')
+@section('header')
+    <div class="col-md 12" style="padding-top: -15px !important">
+        <div class="col-md-10">
+            <span class="text-bold" style="font-size: medium">{{\Carbon\Carbon::now()->formatLocalized('%A %d de %b %Y')}}</span>
+        </div>
+        <div class="col-md-2">
+            <span class="spaReloj text-bold" style="font-size: medium"></span>
+        </div>
+    </div>
+@stop
 @section('content')
     <div class="row">
-
         @include('includes.notificacion')
         <div class="col-md-12">
             {{-- TAB'S --}}
