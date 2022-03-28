@@ -53,4 +53,9 @@ class LoginController extends Controller
         }
         echo json_encode($message);
     }
+
+    public function username()
+    {
+        return 'username';
+    }
 }

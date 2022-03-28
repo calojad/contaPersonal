@@ -23,11 +23,11 @@ Route::post('/login/credenciales','Auth\LoginController@comprobarCredenciales');
 Route::get('/register-dialog', function () {
     return view('auth.register-dialog');
 });
-
+//*********** HOME
 Route::get('/home', 'HomeController@index')->name('home');
-
+//*********** AUTENTICADOR
 Auth::routes();
-
+//*********** URLS
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/cuenta/nueva','CuentaController@crear');
     Route::post('/transaccion/ingreso/create','TransaccionController@crearIngreso');
