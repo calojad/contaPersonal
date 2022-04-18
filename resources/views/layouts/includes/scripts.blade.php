@@ -14,3 +14,20 @@
 {!! Html::script('plugins/jquery_alerts/jquery-confirm.min.js') !!}
 <!-- Moment -->
 {!! Html::script('plugins/moment.js/moment-with-locales.min.js') !!}
+
+<script type="text/javascript">
+    function validarSesion() {
+        try {
+            var url = '{{ URL::to("/validasesion") }}';
+            var userLogin = '{{ Auth::user() }}'
+            $.get(url, function(json) {
+                // console.log(json);
+                if (!json.band && userLogin != '')
+                    window.location.href = json.href;
+            }, 'json');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    setInterval(validarSesion, 906000);
+</script>

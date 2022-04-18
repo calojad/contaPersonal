@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label">Cuenta Destino:</label>
                     <div class="input-group col-md-6">
-                        <select name="cuenta_des" class="form-control selCuetnasDestinoTransfer" required></select>
+                        <select name="cuenta_des" class="form-control selCuentasDestinoTransfer" required></select>
                     </div>
                 </div>
                 {{-- Field Valor --}}

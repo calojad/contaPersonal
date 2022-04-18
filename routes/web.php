@@ -10,30 +10,33 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//*********** PAGINA DE INICIO
-Route::get('/', function () {
-    return view('welcome');
-});
-//*********** LOGIN
+
+//*********** LOGIN MODAL
 Route::get('/login-dialog/', function () {
     return view('auth.login-dialog');
 });
 Route::post('/login/credenciales','Auth\LoginController@comprobarCredenciales');
-//*********** REGISTRAR
+//*********** REGISTRAR MODAL
 Route::get('/register-dialog', function () {
     return view('auth.register-dialog');
 });
-//*********** HOME
-Route::get('/home', 'HomeController@index')->name('home');
 //*********** AUTENTICADOR
 Auth::routes();
-//*********** URLS
+//*********** PAGINA DE INICIO
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/validasesion', 'HomeController@validaSesion');
+
+//*********** URLS AUTENTICACION
 Route::group(['middleware' => 'auth'], function () {
+//*********** HOME
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/cuenta/nueva','CuentaController@crear');
     Route::post('/transaccion/ingreso/create','TransaccionController@crearIngreso');
     Route::post('/transaccion/gasto/create','TransaccionController@crearGasto');
     Route::get('/home/{tabActive}','HomeController@index');
-
+//*********** CONTROLLERS
     AdvancedRoute::controller('/transaccion','TransaccionController');
     AdvancedRoute::controller('/cuenta','CuentaController');
     AdvancedRoute::controller('/perfil','PerfilController');

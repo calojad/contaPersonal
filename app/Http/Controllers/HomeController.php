@@ -17,10 +17,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+/*     public function __construct()
     {
         $this->middleware('auth');
-    }
+    } */
 
     protected function calcularSaldo($id)
     {
@@ -67,27 +67,11 @@ class HomeController extends Controller
         return view('home', compact('cuentas','tabActiva','categoriasGasto','categoriasIngreso','formCuenta_desde','categorias'));
     }
 
-    /*public function inicio($tab=0)
+    public function validaSesion()
     {
-        $formCuenta_desde = 'H';
-        $tabActiva = $tab;
-        $cuentas = Cuentas::where('usuario_id', Auth::user()->id)
-            ->orderBy('id', 'asc')
-            ->get();
-        $categoriasIngreso = CategoriaTransaccion::where('tipo_transac_id',1)
-            ->whereIn('usuario_id',[1,Auth::user()->id])
-            ->orderBy('nombre')
-            ->pluck('nombre','id');
-        $categoriasGasto = CategoriaTransaccion::where('tipo_transac_id',2)
-            ->whereIn('usuario_id',[1,Auth::user()->id])
-            ->orderBy('nombre')
-            ->pluck('nombre','id');
-        $categorias = CategoriaTransaccion::whereIn('usuario_id',[1,Auth::user()->id])
-            ->orderBy('nombre')
-            ->pluck('nombre','id');
-        if(count($cuentas) != 0 && $tab == 0)
-            $tabActiva = $cuentas[0]->id;
-        Session::flash('info', 'Bienvenido a tus cuentas Personales.');
-        return view('home', compact('cuentas', 'tabActiva','categoriasGasto','categoriasIngreso','formCuenta_desde','categorias'));
-    }*/
+        if (!Auth::check())
+            return json_encode(['band' => false,'href' => redirect()->getUrlGenerator()->previous()]);
+        else
+            return json_encode(['band' => True]);
+    }
 }

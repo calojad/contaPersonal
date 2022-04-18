@@ -6,7 +6,7 @@
             {{-- TAB'S --}}
             <div class="nav-tabs-custom">
                 {{-- PESTAÑAS DE LAS CUENTAS --}}
-                <ul class="nav nav-tabs">2
+                <ul class="nav nav-tabs">
                     @foreach ($cuentas as $cuenta)
                         <li class="{{ $tabActiva == $cuenta->id ? 'active' : '' }}">
                             <a id="{{ $cuenta->id }}" class="tabCuentaLista" href="#tab_{{ $cuenta->id }}"
@@ -66,7 +66,7 @@
                 } ]*/
             });
         });
-        {{-- Cuando cargue la pagina --}}
+        // Cuando cargue la pagina
         $(document).ready(function() {
             moment.locale('es');
             var cuentaId = "{{ $tabActiva }}";
@@ -81,11 +81,11 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
         // Reloj
-        setInterval(function() {
+        /* setInterval(function() {
             var times = moment().format('h:mm:ss a');
             var par = $('.spaReloj');
             par.html(times);
-        }, 1000);
+        }, 1000); */
         // Boton para llenar el formulario de Ingresos
         $('.btnFormIngreso').on('click', function() {
             $('#cuenta_id_ingreso').val($(this).attr('cuentaId'));
@@ -167,7 +167,7 @@
         // Boton mostrar modal de transferencias
         $('.btnTransferirEntreCuentas').on('click', function() {
             var url = '{{ URL::to('cuenta/listransferir') }}' + '/' + $(this).data('id');
-            var select = $('.selCuetnasDestinoTransfer');
+            var select = $('.selCuentasDestinoTransfer');
             $('input[name=cuenta_ini]').val($(this).data('nombre'));
             $('input[name=cuenta_ini_id]').val($(this).data('id'));
             $.get(url, function(json) {
