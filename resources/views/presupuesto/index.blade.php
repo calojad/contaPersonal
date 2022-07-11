@@ -192,7 +192,7 @@
                 console.log(parseFloat($(this).html()));
                 totalGasto+=parseFloat($(this).html()) || 0;
             });
-            $('#spaTotalGastos').html('$'+totalGasto);
+            $('#spaTotalGastos').html('$'+ totalGasto.toFixed(2));
         }
 
         // Calcular total del presupuesto

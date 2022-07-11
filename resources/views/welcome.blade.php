@@ -26,11 +26,9 @@
     <div id="w">
         <div class="row nopadding">
             <div class="col-md-5 col-md-offset-1 mt">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                    essentially unchanged.
+                <p class="text-black">
+                    Estimados hermanos y hermanas:<br/>
+                    El Señor declaró: “… es mi propósito abastecer a mis santos” (D. y C. 104:15). Esa revelación es una promesa del Señor de que Él le proveerá bendiciones temporales y abrirá la puerta de la autosuficiencia, la cual es la capacidad de proveernos los elementos indispensables para sostener nuestra vida y la de los miembros de nuestra familia.
                 </p>
             </div>
             <div class="col-md-6 pull-right">
