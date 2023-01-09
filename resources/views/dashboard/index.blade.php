@@ -155,9 +155,6 @@
         var ano = $('select[name="anio"]').val();
         var mes = mesActual;
         var chart;
-        console.log(anoActual);
-        console.log(mes);
-        console.log(ano);
         $(document).ready(function(){
             labelMes.html(meses[mesActual]);
             overlay.fadeOut('slow');
@@ -188,7 +185,6 @@
                 else
                     ids++;
             });
-            console.log(Math.max.apply(null,valor));
             let data = {
                 labels  : labels,
                 datasets: [
@@ -247,10 +243,11 @@
         $('#selectAnosFinan').on('change', function (){
             overlayGasto.fadeIn();
             ano = $(this).val();
+            $('#selectAnosFinan > option').attr('selected',false);
+            $('#selectAnosFinan > option[value = "'+ano+'"]').attr('selected',true);
             let ctx = document.getElementById('chartGCategorias').getContext('2d');
             let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+ano;
             chart.destroy();
-            console.log(ano +'/'+mes)
             $.get(url, function(json){
                 cargaChartGastos(json,ctx,mes);
                 cargaTblCategorias(json);
@@ -264,9 +261,9 @@
             overlayGasto.fadeIn();
             mes = mesActual;
             ano = anoActual;
-            console.log(ano);
-            console.log($('#selectAnosFinan').val());
-            $('#selectAnosFinan > option[value='+2022+']').attr('selected',true);
+            let anoAnt = $('#selectAnosFinan');
+            $('#selectAnosFinan > option[value = "'+anoAnt.val()+'"]').attr('selected',false);
+            $('#selectAnosFinan > option[value = "'+ano+'"]').attr('selected',true);
             let ctx = document.getElementById('chartGCategorias').getContext('2d');
             let url = "{{URL::to('/dashboard/gastos-mes')}}"+"/"+(mes+1)+"/"+ano;
             chart.destroy();
@@ -379,7 +376,6 @@
         }
         //Funcion recargar tabla de Categorias
         function cargaTblCategorias(data){
-            console.log('Carga Tabla Categorias');
             let t = $('#tblCategoriasGastosDash').DataTable();
             let totalhtml =  $('.bTotalCategoriaGastoDash');
             let total = 0;
