@@ -66,6 +66,15 @@ class PresupuestoController extends Controller
         return $ing - $gasto;
     }
 
+    public function getPresupuestopagado()
+    {
+        $yaPagado = Presupuesto::where('usuario_id',Auth::user()->id)
+        ->where('estado', 1)
+        ->sum('valor');
+
+        return $yaPagado;
+    }
+
     public function getDestroy($id)
     {
         $presupuesto = Presupuesto::find($id);

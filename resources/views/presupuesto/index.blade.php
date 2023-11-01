@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <style>
+    {{-- <style>
         .tooltip.top > .tooltip-inner{
             max-width: 200px;
             padding: 3px 8px;
@@ -9,7 +9,7 @@
             background-color: #06a388;
             border-radius: 4px
         }
-    </style>
+    </style> --}}
     @include('includes.notificacion')
     <div class="box box-primary">
 
@@ -70,7 +70,8 @@
                             <tr>
                                 <td colspan="2"><span class="text-bold h4">Total Gastos:</span></td>
                                 <td><span class="text-bold h4" id="spaTotalGastos">$0.00</span></td>
-                                <td colspan="2"></td>
+                                <td><span class="text-bold h4" style="color:coral" id="spaTotalPagado" data-toggle="tooltip" title="Total Pagado" data-placement="top">$0.00</span></td>
+                                <td><span class="text-bold h4" style="color:mediumslateblue" id="spaSaldoPresupuesto" data-toggle="tooltip" title="Falta Pagar" data-placement="top">$0.00</span></td>
                             </tr>
                         </tfoot>
                     </table>
@@ -94,8 +95,9 @@
         var inputIngreso = $("#ingresoTotal");
         // Al Cargar la pagina
         $(document).ready(function () {
-            obtTotalGasto();
+            // obtTotalGasto();
             sumaGastos();
+            obtTotalPagado();
             inputIngreso.on('keypress', function (e) {
                 var code = (e.keyCode ? e.keyCode : e.which);
                 if (code === 13) {
@@ -149,6 +151,7 @@
         $('.iCheckCompleto').on('click', function () {
             var id = $(this).data('id');
             var url = '{{URL::to('/presupuesto/actualizar-estado')}}';
+
             if ($(this).hasClass('fa-square-o')){
                 $(this).removeClass('fa-square-o');
                 $(this).addClass('fa-check-square-o');
@@ -160,7 +163,11 @@
                 $('.trPresupuestoCategoria_'+id).css('text-decoration','none')
                 $.get(url+'/'+id+'/'+0);
             }
+            setTimeout(function (){
+                obtTotalPagado();
+            }, 2000);
         });
+
         //Funcion para que solo se ingresen numeros en el input de ingreso mensual
         function filterFloat(evt,input){
             // Backspace = 8, Enter = 13, ‘0′ = 48, ‘9′ = 57, ‘.’ = 46, ‘-’ = 43
@@ -178,12 +185,13 @@
                     return false;
                 }
             }
-        }
+        };
+
         //Funcion para que solo se ingresen numeros en el input de ingreso mensual
         function filter(__val__){
             var preg = /^([0-9]+\.?[0-9]{0,2})$/;
             return preg.test(__val__) === true;
-        }
+        };
 
         // Sumar los gastos
         function sumaGastos() {
@@ -191,9 +199,33 @@
             $(".tdValorG").each(function(){
                 console.log(parseFloat($(this).html()));
                 totalGasto+=parseFloat($(this).html()) || 0;
+                
             });
             $('#spaTotalGastos').html('$'+ totalGasto.toFixed(2));
-        }
+        };
+
+        // Obtiene el valor pagado (utilizado) del presupuesto
+        function obtTotalPagado() {
+            var url = '{{URL::to('presupuesto/presupuestopagado')}}';
+            var span = $('#spaTotalPagado');
+
+            $.get(url, function (json) {
+                span.html('$ ' + json);
+                obtTotalPorPagar();
+            }, 'json');
+        };
+
+        // Calcular saldo del presupuesto (Lo que falta pagar)
+        function obtTotalPorPagar() {
+            var totalGastos = $('#spaTotalGastos').html();
+            var totalPagado = $('#spaTotalPagado').html();
+            var faltaPagar = $('#spaSaldoPresupuesto');
+
+            var valor = totalGastos.substring(1,totalGastos.length) - totalPagado.substring(1,totalPagado.length);
+
+            faltaPagar.html('$' + valor);
+
+        };
 
         // Calcular total del presupuesto
         function obtTotalGasto() {
@@ -206,7 +238,7 @@
                 else
                     span.html('$ ' + json).css('color', 'black');
             }, 'json');
-        }
+        };
 
         // Inicializar Tabla
         $(function () {

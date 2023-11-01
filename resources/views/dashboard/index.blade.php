@@ -6,7 +6,7 @@
     <input id="inpHiddenCuentas" type="hidden" value="{{$cuentas}}">
     <input id="inpHiddenGCategorias" type="hidden" value="{{$gastosCateg}}">
     @include('includes.notificacion')
-{{-- FILA DE SALDOS DE CUENTAS --}}
+{{-- FILA DE CARDS CON SALDOS DE CUENTAS --}}
     <div class="row">
         <div style="overflow: auto;white-space: nowrap;margin-bottom: 20px">
             @foreach ($cuentas as $cuenta)
